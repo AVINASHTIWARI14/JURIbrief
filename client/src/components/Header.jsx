@@ -37,8 +37,58 @@ export default function Header() {
     ? (tk.isDark ? "rgba(10,10,10,0.97)" : "rgba(185,178,165,0.97)")
     : (tk.isDark ? "rgba(10,10,10,0.80)" : "rgba(185,178,165,0.88)");
 
+  const responsiveStyles = `
+    .juri-header-inner { box-sizing: border-box; }
+    .juri-header-nav { min-width: 0; }
+    .juri-header-actions { min-width: 0; }
+    .juri-github-button { flex-shrink: 0; }
+    .juri-user-actions { flex-shrink: 1; min-width: 0; }
+    @media (max-width: 900px) {
+      .juri-header-inner {
+        height: auto !important;
+        min-height: 62px;
+        padding: 0.55rem 0.8rem !important;
+        grid-template-columns: auto 1fr !important;
+        gap: 0.65rem !important;
+      }
+      .juri-header-nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-content: center;
+        gap: 1.15rem !important;
+        padding: 0.25rem 0 0.35rem;
+        flex-wrap: wrap;
+      }
+      .juri-header-actions { justify-content: flex-end !important; gap: 0.5rem !important; }
+      .juri-user-actions { gap: 0.45rem !important; }
+      .juri-header-nav a { font-size: 0.88rem !important; }
+      .juri-github-button { height: 34px !important; padding: 0 0.55rem !important; }
+      .juri-github-button span span { display: none; }
+      .juri-github-button svg { width: 17px !important; height: 17px !important; }
+    }
+    @media (max-width: 520px) {
+      .juri-header-inner { grid-template-columns: 1fr auto !important; padding: 0.5rem 0.65rem !important; }
+      .juri-header-nav { gap: 0.8rem !important; padding-top: 0.2rem; }
+      .juri-header-nav a { font-size: 0.78rem !important; letter-spacing: 0.02em !important; }
+      .juri-header-actions { gap: 0.35rem !important; }
+      .juri-user-actions { gap: 0.3rem !important; }
+      .juri-user-actions a, .juri-user-actions button { padding: 0.35rem 0.55rem !important; font-size: 0.72rem !important; }
+      .juri-user-actions a svg { display: none; }
+      .juri-github-button { width: 34px !important; padding: 0 !important; }
+      .juri-header-inner > a { min-width: 0; }
+    }
+    @media (max-width: 380px) {
+      .juri-header-nav { gap: 0.55rem !important; }
+      .juri-header-nav a { font-size: 0.72rem !important; }
+      .juri-user-actions a { max-width: 90px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    }
+  `;
+
   return (
-    <header
+    <>
+      <style>{responsiveStyles}</style>
+      <header
+      className="juri-header"
       style={{
         position: "fixed",
         top: 0,
@@ -51,6 +101,7 @@ export default function Header() {
       }}
     >
       <div
+        className="juri-header-inner"
         style={{
           maxWidth: "72rem",
           margin: "0 auto",
@@ -80,6 +131,7 @@ export default function Header() {
 
         {/* Nav links */}
         <nav
+          className="juri-header-nav"
           style={{
             display: "flex",
             alignItems: "center",
@@ -130,6 +182,7 @@ export default function Header() {
 
         {/* Right actions */}
         <div
+          className="juri-header-actions"
           style={{
             display: "flex",
             alignItems: "center",
@@ -186,7 +239,7 @@ export default function Header() {
 
           {/* User / Login */}
           {user ? (
-            <div style={{display:"flex",alignItems:"center",gap:"0.85rem"}}>
+            <div className="juri-user-actions" style={{display:"flex",alignItems:"center",gap:"0.85rem"}}>
               <Link
                 to="/dashboard"
                 style={{
@@ -238,6 +291,7 @@ export default function Header() {
 
           {/* GitHub Star */}
           <a
+            className="juri-github-button"
             href={GITHUB_REPO}
             target="_blank"
             rel="noopener noreferrer"
@@ -288,6 +342,7 @@ export default function Header() {
 
         </div>
       </div>
-    </header>
+      </header>
+    </>
   );
 }
