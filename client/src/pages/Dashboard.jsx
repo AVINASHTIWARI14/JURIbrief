@@ -602,14 +602,13 @@ export default function Dashboard() {
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "2.5rem", flexWrap: "wrap", gap: "1rem" }}>
         <div>
           <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.75rem, 4vw, 2.25rem)", fontWeight: 700, color: tk.textPrimary, letterSpacing: "-0.03em", margin: "0 0 0.25rem" }}>
-            Welcome, <span style={{ color: tk.gold }}>{user?.user_metadata?.full_name || user?.email?.split("@")[0] || "there"}</span> 👋
+            Welcome, <span style={{ color: tk.gold }}>{user?.user_metadata?.full_name || user?.email?.split("@")[0] || "there"}</span>
           </h1>
-          <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "1rem", color: tk.textMuted, fontStyle: "italic", margin: 0 }}>Legal Ease AI Dashboard</p>
+          <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "1rem", color: tk.textMuted, fontStyle: "italic", margin: 0 }}>JURIbrief Dashboard</p>
         </div>
         <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.85rem", color: tk.textMuted, fontStyle: "italic", margin: 0 }}>{user?.email}</p>
       </div>
       <div style={{ height: "1px", background: `linear-gradient(90deg, transparent, ${tk.gold}, transparent)`, marginBottom: "2.5rem" }} />
-      <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.25rem", fontWeight: 700, color: tk.textPrimary, margin: "0 0 1.25rem" }}>⚖️ Legal Document Analyzer</h2>
       <div style={{ ...cardStyle, marginBottom: "2rem" }}>
         <div style={{ display: "flex", gap: "0.5rem", marginBottom: "1.5rem", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
@@ -676,7 +675,7 @@ export default function Dashboard() {
             <textarea
               value={genDesc}
               onChange={e => { setGenDesc(e.target.value); setGenResult(""); }}
-              placeholder={"e.g. NDA between TechCorp and ABC Ltd for 2 years, mutual confidentiality, governed by Indian law. Include non-solicitation clause and arbitration in Mumbai."}
+              placeholder="e.g. Write me a rent agreement document"
               style={{ width: "100%", minHeight: "120px", padding: "1rem", borderRadius: "12px", border: `1px solid ${tk.goldBorder}`, background: tk.surface, color: tk.textPrimary, fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.9rem", lineHeight: 1.6, resize: "vertical", outline: "none", boxSizing: "border-box", marginBottom: "0.75rem" }}
             />
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.5rem", flexWrap: "wrap" }}>

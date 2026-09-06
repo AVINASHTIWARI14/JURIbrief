@@ -40,7 +40,7 @@ const TOPICS = [
     ],
   },
   {
-    id: "platform", icon: "⚖️", title: "About Legal Ease AI",
+    id: "platform", icon: "⚖️", title: "About JURIbrief",
     points: [
       { head: "What it does", body: "Analyzes legal documents and explains them in plain English. Flags risky clauses, suggests negotiation points, and extracts key deadlines." },
       { head: "Risk Scoring", body: "Documents get a 0–100 risk score. 0–30 is low (safe), 31–60 moderate, 61–85 high, 86+ critical. Use it as a quick pulse check." },

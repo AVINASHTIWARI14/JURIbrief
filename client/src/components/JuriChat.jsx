@@ -15,13 +15,10 @@ export default function JuriChat({ onClose }) {
   ]);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
-  const [hasContext, setHasContext] = useState(false);
   const scrollRef = useRef(null);
   const inputRef = useRef(null);
 
   useEffect(() => {
-    const raw = sessionStorage.getItem("juri-context");
-    setHasContext(!!raw);
     setTimeout(() => inputRef.current?.focus(), 100);
   }, []);
 
@@ -158,26 +155,7 @@ export default function JuriChat({ onClose }) {
             >
               Juri
             </div>
-            <div
-              style={{
-                fontFamily: "'Roboto Serif', Georgia, serif",
-                fontSize: "0.72rem",
-                color: hasContext ? tk.success : tk.textMuted,
-                display: "flex",
-                alignItems: "center",
-                gap: "0.3rem",
-              }}
-            >
-              <span
-                style={{
-                  width: "6px",
-                  height: "6px",
-                  borderRadius: "50%",
-                  background: hasContext ? tk.success : tk.textMuted,
-                }}
-              />
-              {hasContext ? "Document context loaded" : "No document analyzed yet"}
-            </div>
+      
           </div>
           <button
             onClick={onClose}

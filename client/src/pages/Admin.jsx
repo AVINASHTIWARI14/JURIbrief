@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTokens } from "../App";
 import { useAuth } from "../context/AuthContext";
-import LogoMark from "../components/LogoMark";
+import BrandLogo from "../components/BrandLogo";
 import { supabase } from "../lib/supabase";
 
 const API = "/api";
@@ -270,7 +270,7 @@ export default function Admin() {
               textTransform: "uppercase",
             }}
           >
-            Legal Ease AI
+            JURIbrief
           </p>
           <h1
             style={{
@@ -296,7 +296,7 @@ export default function Admin() {
             border: `1px solid ${tk.goldBorder}`,
           }}
         >
-          <LogoMark size={24} isDark={tk.isDark} />
+          <BrandLogo size="small" />
           <p style={{ ...muted, margin: 0 }}>
             Logged in as{" "}
             <strong style={{ color: tk.gold }}>{profile.full_name || user.email}</strong>

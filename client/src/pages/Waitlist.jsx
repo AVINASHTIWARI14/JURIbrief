@@ -224,7 +224,7 @@ export default function Waitlist() {
           Join the Waitlist
         </h2>
         <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", color: tk.textSecondary, fontSize: "1.0625rem", margin: "0 0 1.75rem", lineHeight: 1.6 }}>
-          Request access to Legal Ease AI — share why you need it and we'll review.
+          Request access to JURIbrief — share why you need it and we'll review.
         </p>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>

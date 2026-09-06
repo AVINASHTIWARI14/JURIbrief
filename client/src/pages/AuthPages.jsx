@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTokens } from "../App";
 import { useAuth } from "../context/AuthContext";
-import LogoMark from "../components/LogoMark";
+import BrandLogo from "../components/BrandLogo";
 
 // ── Shared input styles ──────────────────────────────────────────────────────
 function useStyles(tk) {
@@ -70,7 +70,7 @@ export default function AuthPages() {
   const navigate = useNavigate();
   const { user, profile, loading, signIn, signUp, signInWithGoogle, resetPassword } = useAuth();
 
-  // "login" | "register" | "forgot" | "aadhaar"
+  // "login" | "register" | "forgot"
   const [mode, setMode] = useState("login");
   const [form, setForm] = useState({ fullName: "", email: "", password: "" });
   const [error, setError] = useState("");
@@ -233,44 +233,6 @@ export default function AuthPages() {
     </button>
   );
 
-  // ── Aadhaar stub ──────────────────────────────────────────────────────────
-  if (mode === "aadhaar") {
-    return (
-      <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "5rem 1.5rem 2rem" }}>
-        <div style={cardStyle}>
-          <style>{`@keyframes authIn { from{opacity:0;transform:translateY(20px) scale(.98)} to{opacity:1;transform:none} }`}</style>
-          <button onClick={() => reset("login")} style={{ background: tk.goldLight, border: `1px solid ${tk.goldBorder}`, borderRadius: "8px", padding: "0.375rem 0.75rem", fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8125rem", fontWeight: 600, color: tk.gold, cursor: "pointer", marginBottom: "1.5rem" }}>
-            ← Back to Login
-          </button>
-          <div style={{ textAlign: "center", marginBottom: "1.75rem" }}>
-            <div style={{ fontSize: "2.5rem", marginBottom: "0.75rem" }}>🪪</div>
-            <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.6rem", fontWeight: 700, color: tk.textPrimary, margin: "0 0 0.4rem" }}>Aadhaar Login</h2>
-            <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", color: tk.textMuted, fontSize: "0.95rem", fontStyle: "italic", margin: 0 }}>Government ID-based verification</p>
-          </div>
-          <div style={{ background: tk.goldLight, border: `1px solid ${tk.goldBorder}`, borderRadius: "12px", padding: "1rem 1.25rem", marginBottom: "1.5rem" }}>
-            <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.9rem", color: tk.gold, fontWeight: 600, margin: "0 0 0.35rem" }}>Integration Pending</p>
-            <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.875rem", color: tk.textSecondary, lineHeight: 1.6, margin: 0 }}>
-              Aadhaar-based login via UIDAI's official API requires government approval and a registered entity. This feature is stubbed and will be activated once API access is granted.
-            </p>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            <div>
-              <label style={styles.label}>AADHAAR NUMBER</label>
-              <input placeholder="XXXX XXXX XXXX" disabled style={{ ...styles.input, opacity: 0.5, cursor: "not-allowed" }} />
-            </div>
-            <div>
-              <label style={styles.label}>MOBILE NUMBER (linked to Aadhaar)</label>
-              <input placeholder="+91 XXXXX XXXXX" disabled style={{ ...styles.input, opacity: 0.5, cursor: "not-allowed" }} />
-            </div>
-            <button disabled style={{ width: "100%", padding: "0.9rem", borderRadius: "12px", border: "none", background: tk.textMuted, color: "#fff", fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "1.0625rem", fontWeight: 700, cursor: "not-allowed", opacity: 0.6 }}>
-              Send OTP (Coming Soon)
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   // ── Forgot password view ───────────────────────────────────────────────────
   if (mode === "forgot") {
     return (
@@ -316,17 +278,9 @@ export default function AuthPages() {
 
         {/* Logo + title */}
         <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-          <div style={{ width: "56px", height: "56px", borderRadius: "50%", background: tk.goldLight, border: `1.5px solid ${tk.goldBorder}`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1rem" }}>
-            <LogoMark size={26} isDark={tk.isDark} />
+          <div style={{ marginBottom: "1.15rem" }}>
+            <BrandLogo size="large" />
           </div>
-          <h1 style={{
-            fontFamily: "'DM Serif Display', Georgia, serif",
-            fontSize: "1.875rem", fontWeight: 400,
-            letterSpacing: "0.04em", margin: "0 0 0.3rem",
-            color: tk.isDark ? "#f2eed8" : "#1a160c",
-          }}>
-            Legal Ease AI
-          </h1>
           <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "1rem", color: tk.textMuted, fontStyle: "italic", margin: 0 }}>
             {mode === "login" ? "Welcome back to your account" : "Create a new account"}
           </p>
@@ -384,15 +338,6 @@ export default function AuthPages() {
           {divider}
           {googleBtn}
 
-          {/* Aadhaar option */}
-          <button
-            onClick={() => reset("aadhaar")}
-            style={{ width: "100%", padding: "0.75rem", borderRadius: "12px", border: `1.5px solid ${tk.surfaceBorder}`, background: "transparent", color: tk.textSecondary, cursor: "pointer", fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "1rem", fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "center", gap: "0.6rem", transition: "border-color 0.2s" }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = tk.gold; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = tk.surfaceBorder; }}
-          >
-            🪪 Login with Aadhaar
-          </button>
         </div>
 
         {/* Divider */}
@@ -409,3 +354,4 @@ export default function AuthPages() {
     </div>
   );
 }
+ 
