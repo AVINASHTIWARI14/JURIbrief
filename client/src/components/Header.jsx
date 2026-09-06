@@ -73,14 +73,14 @@ export default function Header() {
       .juri-header-actions { gap: 0.35rem !important; }
       .juri-user-actions { gap: 0.3rem !important; }
       .juri-user-actions a, .juri-user-actions button { padding: 0.35rem 0.55rem !important; font-size: 0.72rem !important; }
-      .juri-user-actions a svg { display: none; }
+      .juri-user-actions a { width: 34px !important; height: 34px !important; min-width: 34px !important; padding: 0 !important; }
       .juri-github-button { width: 34px !important; padding: 0 !important; }
       .juri-header-inner > a { min-width: 0; }
     }
     @media (max-width: 380px) {
       .juri-header-nav { gap: 0.55rem !important; }
       .juri-header-nav a { font-size: 0.72rem !important; }
-      .juri-user-actions a { max-width: 90px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .juri-user-actions a { width: 32px !important; height: 32px !important; min-width: 32px !important; padding: 0 !important; }
     }
   `;
 
@@ -242,21 +242,24 @@ export default function Header() {
             <div className="juri-user-actions" style={{display:"flex",alignItems:"center",gap:"0.85rem"}}>
               <Link
                 to="/dashboard"
+                title={displayName ? `Signed in as ${displayName}` : "Open dashboard"}
+                aria-label={displayName ? `Open dashboard for ${displayName}` : "Open dashboard"}
                 style={{
-                  display:"flex",alignItems:"center",gap:"0.4rem",
-                  fontFamily:"'Roboto Serif', Georgia, serif",fontSize:"0.9375rem",
-                  fontWeight:600,background:tk.goldLight,color:tk.gold,
-                  border:`1px solid ${tk.goldBorder}`,padding:"0.4rem 1rem",
-                  borderRadius:"8px",textDecoration:"none",letterSpacing:"0.03em",
-                  transition:"opacity .2s"
+                  width:"38px",height:"38px",minWidth:"38px",
+                  display:"flex",alignItems:"center",justifyContent:"center",
+                  boxSizing:"border-box",
+                  fontFamily:"'Roboto Serif', Georgia, serif",fontSize:"0.95rem",
+                  fontWeight:700,background:tk.goldLight,color:tk.gold,
+                  border:`1px solid ${tk.goldBorder}`,
+                  borderRadius:"50%",textDecoration:"none",
+                  letterSpacing:"0",textTransform:"uppercase",
+                  transition:"opacity .2s, transform .2s",
+                  flexShrink:0,
                 }}
-                onMouseEnter={(e)=>{e.currentTarget.style.opacity=".75"}}
-                onMouseLeave={(e)=>{e.currentTarget.style.opacity="1"}}
+                onMouseEnter={(e)=>{e.currentTarget.style.opacity=".78";e.currentTarget.style.transform="scale(1.05)"}}
+                onMouseLeave={(e)=>{e.currentTarget.style.opacity="1";e.currentTarget.style.transform="scale(1)"}}
               >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-                </svg>
-                {displayName}
+                {(displayName || "U").trim().charAt(0).toUpperCase()}
               </Link>
               <button
                 onClick={handleLogout}
