@@ -549,29 +549,7 @@ Legal documents can contain highly sensitive information. Production deployment 
 
 ---
 
-## 🛣️ Roadmap
 
-Planned/next development areas include:
-
-- [x] Legal document analysis
-- [x] Text analysis
-- [x] Risk detection
-- [x] Deadline/date extraction
-- [x] Document comparison
-- [x] Legal document generation
-- [x] Juri AI assistant
-- [x] Your Rights guide
-- [x] Supabase authentication
-- [x] Password recovery
-- [x] Admin workflow
-- [x] Contact workflow
-- [ ] Production Google OAuth configuration
-- [ ] Production frontend deployment
-- [ ] Production backend deployment
-- [ ] Final production security review
-- [ ] Custom domain
-
----
 
 ## 👨‍💻 Creator
 
@@ -591,7 +569,7 @@ JURIbrief is a project focused on making legal documents more understandable and
 
 This project is currently presented as a personal/project application.
 
-If you plan to open-source or commercially distribute the project, add an explicit license and review the licensing requirements of all third-party libraries, APIs, fonts, and services used by the application.
+
 
 ---
 
