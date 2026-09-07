@@ -170,32 +170,6 @@ export default function Admin() {
   };
   const cardStyle = { ...statCard, padding: "1.5rem" };
 
-  const toggleUserApproval = async (userId, nextApproved) => {
-    setUpdatingId(`user-${userId}`);
-    setActionMessage("");
-    setActionError("");
-    try {
-      const authHeaders = await getAuthHeaders();
-      const res = await fetch(`${API}/users/${userId}/approval`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json", ...authHeaders },
-        body: JSON.stringify({ approved: nextApproved }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(data.error || "Update failed");
-      setUsers((curr) =>
-        curr.map((u) => (String(u.id) === String(userId) ? data.data : u))
-      );
-      setActionMessage(
-        nextApproved ? "Dashboard access granted." : "Dashboard access revoked."
-      );
-    } catch (err) {
-      setActionError(err.message);
-    } finally {
-      setUpdatingId(null);
-    }
-  };
-
   const updateContactStatus = async (id, status) => {
     setUpdatingId(`contact-${id}`);
     setActionMessage("");
@@ -675,7 +649,6 @@ export default function Admin() {
               {users.length === 0 && <p style={{ ...muted, margin: 0 }}>No registered users yet.</p>}
               {users.map((u) => {
                 const isAdmin = u.role === "admin";
-                const isBusy = updatingId === `user-${u.id}`;
                 return (
                   <div
                     key={u.id}
@@ -751,32 +724,7 @@ export default function Admin() {
                       </div>
                       <p style={{ ...muted, margin: 0, fontSize: "0.85rem" }}>{u.email}</p>
                     </div>
-                    {!isAdmin && (
-                      <button
-                        onClick={() => toggleUserApproval(u.id, !u.approved)}
-                        disabled={isBusy}
-                        style={{
-                          border: u.approved
-                            ? "1px solid rgba(224,82,82,0.4)"
-                            : "1px solid rgba(61,168,122,0.4)",
-                          background: u.approved
-                            ? "rgba(224,82,82,0.10)"
-                            : "rgba(61,168,122,0.12)",
-                          color: u.approved ? "#e05252" : "#3da87a",
-                          borderRadius: "10px",
-                          padding: "0.5rem 0.9rem",
-                          cursor: isBusy ? "not-allowed" : "pointer",
-                          fontFamily: "'Roboto Serif', Georgia, serif",
-                          fontSize: "0.85rem",
-                          fontWeight: 700,
-                          minWidth: "110px",
-                          transition: "opacity .2s",
-                          opacity: isBusy ? 0.6 : 1,
-                        }}
-                      >
-                        {isBusy ? "Saving..." : u.approved ? "Revoke" : "Grant Access"}
-                      </button>
-                    )}
+
                   </div>
                 );
               })}
