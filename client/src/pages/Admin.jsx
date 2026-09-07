@@ -724,7 +724,63 @@ export default function Admin() {
                       </div>
                       <p style={{ ...muted, margin: 0, fontSize: "0.85rem" }}>{u.email}</p>
                     </div>
+                    {!isAdmin && !u.approved && (
+                      <button
+                        onClick={async () => {
+                          setUpdatingId(`user-${u.id}`);
+                          setActionMessage("");
+                          setActionError("");
 
+                          try {
+                            const authHeaders = await getAuthHeaders();
+                            const res = await fetch(`${API}/users/${u.id}/approval`, {
+                              method: "PATCH",
+                              headers: {
+                                "Content-Type": "application/json",
+                                ...authHeaders,
+                              },
+                              body: JSON.stringify({ approved: true }),
+                            });
+
+                            const data = await res.json().catch(() => ({}));
+                            if (!res.ok) {
+                              throw new Error(data.error || "Unable to grant access");
+                            }
+
+                            setUsers((curr) =>
+                              curr.map((userItem) =>
+                                String(userItem.id) === String(u.id)
+                                  ? data.data
+                                  : userItem
+                              )
+                            );
+
+                            setActionMessage("Dashboard access granted.");
+                          } catch (err) {
+                            setActionError(err.message || "Unable to grant access.");
+                          } finally {
+                            setUpdatingId(null);
+                          }
+                        }}
+                        disabled={updatingId === `user-${u.id}`}
+                        style={{
+                          border: "1px solid rgba(61,168,122,0.4)",
+                          background: "rgba(61,168,122,0.12)",
+                          color: "#3da87a",
+                          borderRadius: "10px",
+                          padding: "0.5rem 0.9rem",
+                          cursor: updatingId === `user-${u.id}` ? "not-allowed" : "pointer",
+                          fontFamily: "'Roboto Serif', Georgia, serif",
+                          fontSize: "0.85rem",
+                          fontWeight: 700,
+                          minWidth: "110px",
+                          transition: "opacity .2s",
+                          opacity: updatingId === `user-${u.id}` ? 0.6 : 1,
+                        }}
+                      >
+                        {updatingId === `user-${u.id}` ? "Saving..." : "Grant Access"}
+                      </button>
+                    )}
                   </div>
                 );
               })}
