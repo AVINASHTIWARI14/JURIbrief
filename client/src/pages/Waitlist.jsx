@@ -9,7 +9,7 @@ const API = "/api";
 export default function Waitlist() {
   const tk = useTokens();
   const navigate = useNavigate();
-  const { user, profile, refreshProfile } = useAuth();
+  const { user, profile } = useAuth();
 
   // Public form state (used when not logged in)
   const [form, setForm] = useState({ full_name: "", email: "", reason: "" });
@@ -20,7 +20,6 @@ export default function Waitlist() {
   // Logged-in user state
   const [wlInfo, setWlInfo] = useState(null);
   const [wlLoading, setWlLoading] = useState(false);
-  const [checkingStatus, setCheckingStatus] = useState(false);
 
   const loadWaitlistStatus = async () => {
     if (!user?.email) return;
@@ -38,16 +37,6 @@ export default function Waitlist() {
   useEffect(() => {
     if (profile?.approved) navigate("/dashboard", { replace: true });
   }, [profile]);
-
-  const handleCheckStatus = async () => {
-    setCheckingStatus(true);
-    try {
-      if (refreshProfile) await refreshProfile();
-      await loadWaitlistStatus();
-    } finally {
-      setTimeout(() => setCheckingStatus(false), 600);
-    }
-  };
 
   const handleChange = (e) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -153,17 +142,6 @@ export default function Waitlist() {
                 </div>
               </div>
             )}
-
-            <button onClick={handleCheckStatus} disabled={checkingStatus} style={{
-              width: "100%", padding: "0.85rem", borderRadius: "12px",
-              fontFamily: "'Roboto Serif', Georgia, serif", fontWeight: 600, fontSize: "0.95rem", letterSpacing: "0.04em",
-              border: "none", cursor: checkingStatus ? "not-allowed" : "pointer",
-              background: tk.btnBg, color: tk.btnText, opacity: checkingStatus ? 0.7 : 1,
-              display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem",
-              transition: "opacity .2s",
-            }}>
-              {checkingStatus ? "Checking…" : "🔄 Check Approval Status"}
-            </button>
 
             <p style={{ fontSize: "0.78rem", color: tk.textMuted, marginTop: "0.75rem", fontFamily: "'Roboto Serif', Georgia, serif" }}>
               Signed in as <span style={{ color: tk.gold, fontWeight: 600 }}>{user.email}</span>
