@@ -54,6 +54,11 @@ function ErrorBanner({ msg }) {
   );
 }
 
+function isValidEmail(email) {
+  const value = email.trim();
+  return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/.test(value);
+}
+
 function SuccessBanner({ msg }) {
   if (!msg) return null;
   return (
@@ -110,6 +115,7 @@ export default function AuthPages() {
 
   const handleLogin = async () => {
     if (!form.email || !form.password) return setError("Email and password are required");
+    if (!isValidEmail(form.email)) return setError("Please enter a valid email address");
     setBusy(true);
     const { error: err } = await signIn(form.email, form.password);
     setBusy(false);
@@ -120,6 +126,7 @@ export default function AuthPages() {
   const handleRegister = async () => {
     if (!form.fullName.trim()) return setError("Full name is required");
     if (!form.email) return setError("Email is required");
+    if (!isValidEmail(form.email)) return setError("Please enter a valid email address");
     if (form.password.length < 6) return setError("Password must be at least 6 characters");
     setBusy(true);
 
@@ -149,6 +156,7 @@ export default function AuthPages() {
 
   const handleForgot = async () => {
     if (!form.email) return setError("Please enter your email address");
+    if (!isValidEmail(form.email)) return setError("Please enter a valid email address");
     setBusy(true);
     const { error: err } = await resetPassword(form.email);
     setBusy(false);
