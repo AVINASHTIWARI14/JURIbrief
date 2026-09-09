@@ -21,31 +21,31 @@ JURIbrief helps users understand legal documents faster with AI-powered analysis
 
 ## **➜ Screenshots**
 
-**Home**
+**-Home**
 
 ![Home](./screenshots/Screenshot%202026-09-09%20141024.png)
 
-**Authentication**
+**-Authentication**
 
 ![Authentication](./screenshots/Screenshot%202026-09-09%20141121.png)
 
-**Document Analyzer**
+**-Document Analyzer**
 
 ![Document Analyzer](./screenshots/Screenshot%202026-09-09%20141248.png)
 
-**AI Analysis**
+**-AI Analysis**
 
 ![AI Analysis](./screenshots/Screenshot%202026-09-09%20141403.png)
 
-**Risk Detection**
+**-Risk Detection**
 
 ![Risk Detection](./screenshots/Screenshot%202026-09-09%20141418.png)
 
-**Admin Dashboard**
+**-Admin Dashboard**
 
 ![Admin Dashboard](./screenshots/Screenshot%202026-09-09%20141453.png)
 
-**Database**
+**-Database**
 
 ![Database](./screenshots/Screenshot%202026-09-09%20141605.png)
 
