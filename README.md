@@ -1,4 +1,4 @@
-# JURIbrief
+                                                                      𓍝 JURIbrief 𓍝
 
 ### AI-Powered Legal Document Assistant
 
