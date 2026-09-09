@@ -1,104 +1,94 @@
-JURIbrief
+# JURIbrief
 
-AI-Powered Legal Document Assistant
+### AI-Powered Legal Document Assistant
 
 JURIbrief helps users understand legal documents faster with AI-powered analysis, risk detection, document comparison, legal chat, and document generation.
 
-Features
+## Features
 
-AI-powered legal document analysis
+- **AI Document Analysis** — Analyze PDF, DOCX, and TXT legal documents.
+- **Risk Detection** — Identify risky clauses, obligations, deadlines, and key points.
+- **Document Comparison** — Compare legal document versions and spot important changes.
+- **AI Legal Chat** — Ask questions and get contextual answers about your document.
+- **Document Generation** — Generate tailored legal document drafts with AI.
+- **Multi-language Support** — Analyze documents in different languages.
+- **Authentication** — Email/password and Google sign-in with password recovery.
+- **Admin Dashboard** — Manage access, users, waitlist requests, and contact messages.
 
-Risk and deadline detection
+## Screenshots
 
-Document comparison
+### Home
+![Home](./screenshots/Screenshot%202026-09-09%20141024.png)
 
-Context-aware AI legal chat
+### Authentication
+![Authentication](./screenshots/Screenshot%202026-09-09%20141121.png)
 
-AI document generation
+### Document Analyzer
+![Document Analyzer](./screenshots/Screenshot%202026-09-09%20141248.png)
 
-Multi-language support
+### AI Analysis
+![AI Analysis](./screenshots/Screenshot%202026-09-09%20141403.png)
 
-Email/password and Google authentication
+### Risk Detection
+![Risk Detection](./screenshots/Screenshot%202026-09-09%20141418.png)
 
-Admin access and user management
+### Admin Dashboard
+![Admin Dashboard](./screenshots/Screenshot%202026-09-09%20141453.png)
 
-Light and dark themes
+### Database
+![Database](./screenshots/Screenshot%202026-09-09%20141605.png)
 
-Screenshots
+## Tech Stack
 
-Home
+- **Frontend:** React, Vite, React Router, CSS
+- **Backend:** Node.js, Express.js
+- **Database & Auth:** Supabase, PostgreSQL
+- **AI:** Google Gemini API
+- **Document Processing:** PDF.js
+- **Deployment:** Vercel, Render
+- **Version Control:** Git, GitHub
 
+## Run Locally
 
-
-Authentication
-
-
-
-Document Analyzer
-
-
-
-AI Document Analysis
-
-
-
-Risk Detection
-
-
-
-Admin Dashboard
-
-
-
-Database
-
-
-
-Tech Stack
-
-Frontend: React, Vite, React Router, CSS
-Backend: Node.js, Express.js
-Database & Auth: Supabase, PostgreSQL
-AI: Google Gemini API
-Document Processing: PDF.js
-Deployment: Vercel, Render
-Version Control: Git, GitHub
-
-Run Locally
-
-Clone
-
+```bash
 git clone https://github.com/AVINASHTIWARI14/JURIbrief.git
 cd JURIbrief
+```
 
-Backend
+### Backend
 
+```bash
 cd Backend
 npm install
 npm start
+```
 
-Frontend
+### Frontend
 
 Open a new terminal:
 
+```bash
 cd client
 npm install
 npm run dev
+```
 
-Add the required Supabase and Gemini environment variables to the appropriate .env files before running the application.
+Add the required Supabase and Gemini environment variables to the appropriate `.env` files.
 
-Project Structure
+## Project Structure
 
+```text
 JURIbrief/
-├── client/          # React frontend
-├── Backend/         # Express backend
-├── screenshots/     # Project screenshots
+├── client/
+├── Backend/
+├── screenshots/
 └── README.md
+```
 
-Disclaimer
+## Disclaimer
 
 JURIbrief provides AI-generated information for informational purposes only and does not constitute legal advice.
 
-Copyright
+## Copyright
 
 © 2026 JURIbrief. All rights reserved.
