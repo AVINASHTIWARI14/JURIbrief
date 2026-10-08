@@ -569,7 +569,7 @@ export default function Dashboard() {
 
   const cardStyle = { background: tk.surface, border: `1px solid ${tk.goldBorder}`, borderRadius: "16px", padding: "1.5rem", boxShadow: tk.isDark ? "0 8px 32px rgba(0,0,0,0.3)" : "0 8px 24px rgba(0,0,0,0.07)" };
   const tabBtn = (label, val) => (
-    <button onClick={() => { setMode(val); setAnalysis(null); setComparison(null); setGenResult(""); setError(""); setFile(null); setFileA(null); setFileB(null); }} style={{ padding: "0.6rem 1.1rem", borderRadius: "10px", border: `1px solid ${mode === val ? tk.gold : tk.goldBorder}`, background: mode === val ? tk.gold : "transparent", color: mode === val ? "#fff" : tk.textMuted, fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.875rem", fontWeight: 600, cursor: "pointer", transition: "all 0.2s" }}>
+    <button onClick={() => { setMode(val); setAnalysis(null); setComparison(null); setGenResult(""); setError(""); setFile(null); setFileA(null); setFileB(null); }} style={{ padding: "0.6rem 1.1rem", borderRadius: "10px", border: `1px solid ${mode === val ? tk.gold : tk.goldBorder}`, background: mode === val ? tk.gold : "transparent", color: mode === val ? "#fff" : tk.textMuted, fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.875rem", fontWeight: 600, cursor: "pointer", transition: "all 0.2s", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.45rem" }}>
       {label}
     </button>
   );
@@ -612,10 +612,22 @@ export default function Dashboard() {
       <div style={{ ...cardStyle, marginBottom: "2rem" }}>
         <div style={{ display: "flex", gap: "0.5rem", marginBottom: "1.5rem", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-            {tabBtn("📄 Upload File", "file")}
-            {tabBtn("✍️ Paste Text", "text")}
-            {tabBtn("🔀 Compare", "compare")}
-            {tabBtn("✨ Generate", "generate")}
+            {tabBtn(
+              <><img src="/upload-file-icon.svg" alt="" style={{ width: "24px", height: "24px", objectFit: "contain" }} /> Upload File</>,
+              "file"
+            )}
+            {tabBtn(
+              <><img src="/paste-text-icon.svg" alt="" style={{ width: "24px", height: "24px", objectFit: "contain" }} /> Paste Text</>,
+              "text"
+            )}
+            {tabBtn(
+              <><img src="/compare-documents-icon.svg" alt="" style={{ width: "24px", height: "24px", objectFit: "contain" }} /> Compare</>,
+              "compare"
+            )}
+            {tabBtn(
+              <><img src="/generate-document-icon.svg" alt="" style={{ width: "24px", height: "24px", objectFit: "contain" }} /> Generate</>,
+              "generate"
+            )}
           </div>
           {/* Language Selector — only shown for analyze modes */}
           {(mode === "file" || mode === "text") && <LanguageSelector tk={tk} />}
