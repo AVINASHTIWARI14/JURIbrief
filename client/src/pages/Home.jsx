@@ -29,70 +29,10 @@ export default function Home() {
         .hero-sub     { animation: heroIn .7s cubic-bezier(.22,1,.36,1) .28s both; }
         .hero-cta     { animation: heroIn .7s cubic-bezier(.22,1,.36,1) .36s both; }
         .hero-trust   { animation: heroIn .7s cubic-bezier(.22,1,.36,1) .44s both; }
-        .hero-capability-wrap {
-          position: relative;
-          height: 1.7rem;
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          margin-top: 0.15rem;
-        }
-
-        .hero-capability {
-          position: absolute;
-          font-family: "'Roboto Serif'", Georgia, serif;
-          font-size: 1rem;
-          font-weight: 600;
-          letter-spacing: 0.025em;
-          color: ${tk.gold};
-          opacity: 0;
-          transform: translateY(8px);
-          animation: capabilityCycle 12s ease-in-out infinite;
-        }
-
-        .hero-capability::after {
-          content: "";
-          position: absolute;
-          left: 50%;
-          bottom: -0.35rem;
-          width: 28px;
-          height: 1px;
-          background: ${tk.gold};
-          transform: translateX(-50%);
-          opacity: 0.45;
-        }
-
-        .hero-capability-wrap::before {
-          content: "Upload Document";
-          position: absolute;
-          font-family: "'Roboto Serif'", Georgia, serif;
-          font-size: 1rem;
-          font-weight: 600;
-          letter-spacing: 0.025em;
-          color: ${tk.gold};
-          animation: capabilityText 12s ease-in-out infinite;
-        }
-
-        @keyframes capabilityText {
-          0%, 16% { content: "Upload Document"; opacity: 1; transform: translateY(0); }
-          20%, 21% { opacity: 0; transform: translateY(-8px); }
-          25%, 41% { content: "Paste Text"; opacity: 1; transform: translateY(0); }
-          45%, 46% { opacity: 0; transform: translateY(-8px); }
-          50%, 66% { content: "Compare Documents"; opacity: 1; transform: translateY(0); }
-          70%, 71% { opacity: 0; transform: translateY(-8px); }
-          75%, 91% { content: "Generate Documents"; opacity: 1; transform: translateY(0); }
-          95%, 100% { opacity: 0; transform: translateY(-8px); }
-        }
-
-        @keyframes capabilityCycle {
-          0%, 16% { opacity: 0; }
-          20%, 41% { opacity: 0; }
-          45%, 66% { opacity: 0; }
-          70%, 91% { opacity: 0; }
-          95%, 100% { opacity: 0; }
-        }
+        .hero-capability-wrap { position: relative; height: 1.7rem; width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: 0.15rem; }
+        .hero-capability { position: absolute; font-family: "'Roboto Serif'", Georgia, serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.025em; color: ${tk.gold}; opacity: 0; transform: translateY(8px); animation: capabilityFade 12s ease-in-out infinite; }
+        .hero-capability-1 { animation-delay: 0s; } .hero-capability-2 { animation-delay: 3s; } .hero-capability-3 { animation-delay: 6s; } .hero-capability-4 { animation-delay: 9s; }
+        @keyframes capabilityFade { 0%,4% { opacity:0; transform:translateY(8px); } 8%,21% { opacity:1; transform:translateY(0); } 25%,100% { opacity:0; transform:translateY(-8px); } }
 
         .hero-get-started {
           width: 9em;
@@ -264,9 +204,10 @@ Because the fine print shouldn’t be the part you skip.
 
           {/* Animated capability line + trust line */}
           <div className="hero-capability-wrap" aria-live="polite">
-            <span className="hero-capability hero-capability-active">
-              Upload Document
-            </span>
+            <span className="hero-capability hero-capability-1">Upload Document</span>
+            <span className="hero-capability hero-capability-2">Paste Text</span>
+            <span className="hero-capability hero-capability-3">Compare Documents</span>
+            <span className="hero-capability hero-capability-4">Generate Documents</span>
           </div>
 
           <p
