@@ -503,28 +503,6 @@ export function useTokens() {
   };
 }
 
-function InitialHomeRedirect() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const checked = useRef(false);
-
-  useEffect(() => {
-    if (checked.current) return;
-    checked.current = true;
-
-    // Only redirect when the browser actually reloads a dashboard URL.
-    // Switching browser tabs must never change the current route.
-    const navigation = performance.getEntriesByType("navigation")[0];
-    const isReload = navigation?.type === "reload";
-
-    if (isReload && location.pathname === "/dashboard") {
-      navigate("/", { replace: true });
-    }
-  }, [location.pathname, navigate]);
-
-  return null;
-}
-
 function AnimatedRoutes() {
   const location = useLocation();
 
@@ -728,7 +706,6 @@ function AppShell() {
         }}
       >
         <Header />
-        <InitialHomeRedirect />
 
         <div style={{ flex: 1 }}>
           <AnimatedRoutes />
