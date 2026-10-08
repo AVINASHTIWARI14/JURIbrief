@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS public.users (
   full_name       VARCHAR(255),
   role            VARCHAR(20)  NOT NULL DEFAULT 'user' CHECK (role IN ('user', 'admin')),
   aadhaar_verified BOOLEAN     DEFAULT FALSE,
-  approved        BOOLEAN      DEFAULT FALSE,
+  approved        BOOLEAN      DEFAULT TRUE,
   created_at      TIMESTAMPTZ  DEFAULT NOW()
 );
 
@@ -310,7 +310,7 @@ BEGIN
     NEW.email,
     COALESCE(NEW.raw_user_meta_data->>'full_name', ''),
     'user',
-    FALSE
+    TRUE
   )
   ON CONFLICT (id) DO NOTHING;
   RETURN NEW;
