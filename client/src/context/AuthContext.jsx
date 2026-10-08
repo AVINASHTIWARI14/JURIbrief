@@ -82,22 +82,27 @@ export function AuthProvider({ children }) {
       const authUser = session?.user ?? null;
 
       setUser(authUser);
+
       if (authUser) {
-        localStorage.setItem("juri-user-cache", JSON.stringify({
-          id: authUser.id,
-          email: authUser.email,
-          user_metadata: authUser.user_metadata || {},
-        }));
-      }
+        localStorage.setItem(
+          "juri-user-cache",
+          JSON.stringify({
+            id: authUser.id,
+            email: authUser.email,
+            user_metadata: authUser.user_metadata || {},
+          })
+        );
+
         setLoading(true);
 
         claimApprovedAccess(authUser)
-          .catch(() => { })
+          .catch(() => {})
           .finally(async () => {
             await fetchProfile(authUser.id);
             setLoading(false);
           });
       } else {
+        localStorage.removeItem("juri-user-cache");
         setLoading(false);
       }
     });
