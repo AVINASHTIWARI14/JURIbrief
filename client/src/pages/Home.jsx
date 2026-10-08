@@ -81,7 +81,20 @@ export default function Home() {
   transform: scale(0.96);
 }
 
+@media (max-width: 1050px) {
+  /* Keep the hero sticker beside the centered copy on medium screens. */
+  .home-right-sticker {
+    left: auto !important;
+    right: 1rem !important;
+    top: 50% !important;
+  }
+}
+
 @media (max-width: 700px) {
+  .home-right-sticker {
+    display: none !important;
+  }
+
   .cards {
     flex-direction: column !important;
     align-items: center !important;
@@ -121,13 +134,15 @@ export default function Home() {
         src="/home-right-sticker.webp"
         alt=""
         aria-hidden="true"
+        className="home-right-sticker"
         style={{
-          position: "fixed",
-          right: "0.75rem",
-          bottom: "0.75rem",
-          width: "clamp(170px, 22vw, 300px)",
+          position: "absolute",
+          left: "calc(50% + 350px)",
+          top: "50%",
+          transform: "translateY(-50%)",
+          width: "clamp(190px, 20vw, 280px)",
           height: "auto",
-          zIndex: 20,
+          zIndex: 2,
           pointerEvents: "none",
         }}
       />
