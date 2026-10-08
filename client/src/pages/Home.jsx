@@ -99,7 +99,7 @@ export default function Home() {
       <div
         style={{
           position: "absolute",
-          left: "5rem",
+          left: "2.5rem",
           bottom: "0.75rem",
           display: "flex",
           alignItems: "flex-end",
