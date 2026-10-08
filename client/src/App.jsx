@@ -512,11 +512,12 @@ function InitialHomeRedirect() {
     if (checked.current) return;
     checked.current = true;
 
-    // Every fresh app entry/reload starts on Home. Internal navigation is untouched.
+    // Only redirect when the browser actually reloads a dashboard URL.
+    // Switching browser tabs must never change the current route.
     const navigation = performance.getEntriesByType("navigation")[0];
-    const isFreshEntry = navigation?.type === "navigate" || navigation?.type === "reload";
+    const isReload = navigation?.type === "reload";
 
-    if (isFreshEntry && location.pathname === "/dashboard") {
+    if (isReload && location.pathname === "/dashboard") {
       navigate("/", { replace: true });
     }
   }, [location.pathname, navigate]);
