@@ -586,7 +586,12 @@ function SmartBookBtn({ onOpen }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div style={{ position: "fixed", bottom: "2rem", left: "2rem", zIndex: 9999 }}>
+    <div style={{
+      position: "fixed",
+      top: "5.8rem",
+      left: "max(1.5rem, calc(50% - 430px))",
+      zIndex: 9999,
+    }}>
       <style>{`
         .cssbuttonsIoButton {
           background: black;
