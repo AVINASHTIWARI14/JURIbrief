@@ -569,7 +569,7 @@ export default function Dashboard() {
 
   const cardStyle = { background: tk.surface, border: `1px solid ${tk.goldBorder}`, borderRadius: "16px", padding: "1.5rem", boxShadow: tk.isDark ? "0 8px 32px rgba(0,0,0,0.3)" : "0 8px 24px rgba(0,0,0,0.07)" };
   const tabBtn = (label, val) => (
-    <button onClick={() => { setMode(val); setAnalysis(null); setComparison(null); setGenResult(""); setError(""); setFile(null); setFileA(null); setFileB(null); }} style={{ padding: "0.6rem 1.1rem", borderRadius: "10px", border: `1px solid ${mode === val ? tk.gold : tk.goldBorder}`, background: mode === val ? tk.gold : "transparent", color: mode === val ? "#fff" : tk.textMuted, fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.875rem", fontWeight: 600, cursor: "pointer", transition: "all 0.2s", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.45rem" }}>
+    <button onClick={() => { setMode(val); setAnalysis(null); setComparison(null); setGenResult(""); setError(""); setFile(null); setFileA(null); setFileB(null); }} style={{ padding: "0.6rem 1.1rem", borderRadius: "10px", border: `1px solid ${mode === val ? tk.gold : tk.goldBorder}`, background: mode === val ? tk.gold : "transparent", color: "#000", fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.875rem", fontWeight: 600, cursor: "pointer", transition: "all 0.2s", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.45rem" }}>
       {label}
     </button>
   );
