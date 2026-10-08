@@ -582,77 +582,6 @@ function AnimatedRoutes() {
   );
 }
 
-function SmartBookBtn({ onOpen }) {
-  const [hovered, setHovered] = useState(false);
-
-  return (
-    <div style={{
-      position: "fixed",
-      top: "5.8rem",
-      left: "0.75rem",
-      zIndex: 9999,
-    }}>
-      <style>{`
-        .cssbuttonsIoButton {
-          background: #dbd4c9;
-          color: #000;
-          font-family: "Roboto Serif", Georgia, serif;
-          border: 1px solid #b8860b;
-          text-align: center;
-          font-size: 0.875rem;
-          font-weight: 600;
-          border-radius: 10px;
-          letter-spacing: 0.05em;
-          display: flex;
-          align-items: center;
-          overflow: hidden;
-          position: relative;
-          height: 2.65rem;
-          padding-right: 3.1rem;
-          padding-left: 1.1rem;
-          cursor: pointer;
-          transition: background-color 0.4s ease, color 0.4s ease;
-        }
-        .cssbuttonsIoButton .icon {
-          background: #fff;
-          margin-left: 1em;
-          position: absolute;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 2.2em;
-          width: 2.2em;
-          border-radius: 2rem;
-          right: 0.3em;
-          transition: background-position 0.5s ease-out, border 0.2s ease-out, color 0.5s ease-out;
-          will-change: width, transform;
-        }
-        .cssbuttonsIoButton:hover {
-          background-color: #c9a84c;
-          color: #fff;
-          border: 1px solid #b8860b;
-        }
-        .cssbuttonsIoButton:active {
-          transform: scale(0.98);
-        }
-      `}</style>
-
-      <button
-        type="button"
-        className="cssbuttonsIoButton"
-        aria-label="Your Rights"
-        onClick={onOpen}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        title={hovered ? "Open Juri's Rights Guide" : undefined}
-      >
-        Your Rights
-
-      </button>
-    </div>
-  );
-}
-
 function AppShell() {
   const { theme } = useTheme();
   const tokens = useTokens();
@@ -703,12 +632,6 @@ function AppShell() {
       <AILawyerBtn
         onPickChat={() => setChatOpen(true)}
       />
-
-      {showSmartBook && (
-        <SmartBookBtn
-          onOpen={() => setBookOpen(true)}
-        />
-      )}
 
       {chatOpen && (
         <JuriChat
