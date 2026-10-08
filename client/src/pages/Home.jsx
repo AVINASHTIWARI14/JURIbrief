@@ -163,12 +163,11 @@ Because the fine print shouldn’t be the part you skip.
             <button
               type="button"
               onClick={handleGetStarted}
-              disabled={authLoading}
               style={{
                 padding: "0.85rem 1.75rem", borderRadius: "12px", border: "none",
                 fontFamily: "'Roboto Serif', Georgia, serif", fontWeight: 600,
                 fontSize: "1rem", letterSpacing: "0.04em", background: tk.btnBg,
-                color: tk.btnText, cursor: authLoading ? "wait" : "pointer",
+                color: tk.btnText, cursor: "pointer",
                 transition: "opacity .2s, transform .15s",
               }}
               onMouseEnter={(e) => {
