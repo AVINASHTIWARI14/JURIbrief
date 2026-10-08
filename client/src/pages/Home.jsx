@@ -124,7 +124,7 @@ export default function Home() {
         className="hero-right-sticker"
         style={{
           position: "absolute",
-          left: "calc(50% + 300px)",
+          left: "calc(50% + 330px)",
           top: "50%",
           transform: "translateY(-50%)",
           width: "clamp(180px, 18vw, 240px)",
