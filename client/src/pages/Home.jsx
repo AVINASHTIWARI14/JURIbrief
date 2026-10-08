@@ -122,12 +122,12 @@ export default function Home() {
         alt=""
         aria-hidden="true"
         style={{
-          position: "absolute",
+          position: "fixed",
           right: "0.75rem",
           bottom: "0.75rem",
           width: "clamp(170px, 22vw, 300px)",
           height: "auto",
-          zIndex: 2,
+          zIndex: 20,
           pointerEvents: "none",
         }}
       />
