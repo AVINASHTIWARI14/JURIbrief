@@ -340,8 +340,8 @@ export default function Header() {
           style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
-            gap: "1rem",
+            justifyContent: "flex-end",
+            gap: "0.85rem",
             width: "100%",
           }}
         >
