@@ -85,8 +85,7 @@ export default function AuthPages() {
   // Redirect already-authenticated users
   useEffect(() => {
     if (!loading && user) {
-      if (profile?.approved) navigate("/dashboard", { replace: true });
-      else navigate("/waitlist", { replace: true });
+      navigate("/dashboard", { replace: true });
     }
   }, [user, profile, loading]);
 
@@ -130,28 +129,11 @@ export default function AuthPages() {
     if (form.password.length < 6) return setError("Password must be at least 6 characters");
     setBusy(true);
 
-    // Gate: email must be on the waitlist before registration is allowed
-    try {
-      const r = await fetch(`/api/waitlist/status?email=${encodeURIComponent(form.email)}`);
-      const data = await r.json();
-      if (!data.onWaitlist) {
-        setBusy(false);
-        return setError("This email is not on the waitlist. Please join the waitlist from the home page first.");
-      }
-      if (data.status === "rejected") {
-        setBusy(false);
-        return setError("Your waitlist request was declined. Please contact support.");
-      }
-    } catch {
-      setBusy(false);
-      return setError("Could not verify waitlist status. Please try again.");
-    }
-
     const { error: err } = await signUp(form.email, form.password, form.fullName.trim());
     setBusy(false);
     if (err) return setError(err.message);
     setSuccess("Account created! Please check your email to confirm.");
-    setTimeout(() => navigate("/waitlist"), 2500);
+    setTimeout(() => navigate("/dashboard"), 1500);
   };
 
   const handleForgot = async () => {
