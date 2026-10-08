@@ -47,6 +47,45 @@ export default function Home() {
         .hero-sub     { animation: heroIn .7s cubic-bezier(.22,1,.36,1) .28s both; }
         .hero-cta     { animation: heroIn .7s cubic-bezier(.22,1,.36,1) .36s both; }
         .hero-trust   { animation: heroIn .7s cubic-bezier(.22,1,.36,1) .44s both; }
+        .hero-get-started {
+          width: 9em;
+          height: 3em;
+          padding: 0;
+          border-radius: 30em;
+          font-family: inherit;
+          font-size: 15px;
+          border: none;
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
+          background: #f4f0e6;
+          color: #171717;
+          box-shadow: 6px 6px 12px rgba(197,197,197,.65),
+                      -6px -6px 12px rgba(255,255,255,.8);
+          transition: color .25s ease, transform .2s ease;
+        }
+
+        .hero-get-started::before {
+          content: '';
+          width: 0;
+          height: 3em;
+          border-radius: 30em;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: #c9a84c;
+          transition: .5s ease;
+          display: block;
+          z-index: -1;
+        }
+
+        .hero-get-started:hover {
+          color: #fff;
+        }
+
+        .hero-get-started:hover::before {
+          width: 9em;
+        }
         .feat-card    { animation: heroIn .7s cubic-bezier(.22,1,.36,1) both; }
         .feat-card:nth-child(1) { animation-delay: .52s; }
         .feat-card:nth-child(2) { animation-delay: .60s; }
@@ -163,17 +202,19 @@ Because the fine print shouldn’t be the part you skip.
             <button
               type="button"
               onClick={handleGetStarted}
+              className="hero-get-started"
               style={{
-                padding: "0.85rem 1.75rem", borderRadius: "12px", border: "none",
-                fontFamily: "'Roboto Serif', Georgia, serif", fontWeight: 600,
-                fontSize: "1rem", letterSpacing: "0.04em", background: tk.btnBg,
-                color: tk.btnText, cursor: "pointer",
-                transition: "opacity .2s, transform .15s",
+                fontFamily: "'Roboto Serif', Georgia, serif",
+                fontWeight: 600,
+                letterSpacing: "0.04em",
+                cursor: "pointer",
               }}
               onMouseEnter={(e) => {
-                if (!authLoading) { e.currentTarget.style.opacity = "0.85"; e.currentTarget.style.transform = "translateY(-1px)"; }
+                e.currentTarget.style.transform = "translateY(-1px)";
               }}
-              onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "translateY(0)"; }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
             >
               Get Started →
             </button>
