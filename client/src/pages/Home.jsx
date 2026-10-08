@@ -95,7 +95,7 @@ export default function Home() {
       `}</style>
 
       <img
-        src="/home-sticker.svg"
+        src="/home-sticker.webp"
         alt=""
         aria-hidden="true"
         style={{
