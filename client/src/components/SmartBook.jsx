@@ -199,6 +199,26 @@ export default function SmartBook({ onClose }) {
 
         {/* Content */}
         <div style={{ flex: 1, overflowY: "auto", padding: "1.5rem" }}>
+          <div style={{ marginBottom: "1rem" }}>
+            <button
+              type="button"
+              style={{
+                width: "100%",
+                padding: "0.7rem 1rem",
+                borderRadius: "10px",
+                border: `1px solid ${tk.goldBorder}`,
+                background: tk.isDark ? "rgba(255,255,255,0.06)" : "#dbd4c9",
+                color: tk.textPrimary,
+                fontFamily: "'Roboto Serif', Georgia, serif",
+                fontSize: "0.85rem",
+                fontWeight: 600,
+                letterSpacing: "0.03em",
+                cursor: "default",
+              }}
+            >
+              Your Rights
+            </button>
+          </div>
           {analysis && (
             <div style={{
               padding: "1rem 1.1rem", borderRadius: "12px",
