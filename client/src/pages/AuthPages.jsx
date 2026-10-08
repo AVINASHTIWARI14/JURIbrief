@@ -1,3 +1,4 @@
+// Auth UI: login + register only; password reset is intentionally removed.
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTokens } from "../App";
