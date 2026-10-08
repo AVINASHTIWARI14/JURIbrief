@@ -713,14 +713,6 @@ export default function About() {
               </div>
             </div>
 
-            {/* CTA */}
-            <button
-              type="button"
-              className="juri-cta-button sr d4"
-              onClick={() => navigate(user ? "/dashboard" : "/auth")}
-            >
-              Try Now
-            </button>
           </div>
         </section>
       </main>
