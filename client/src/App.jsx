@@ -594,27 +594,27 @@ function SmartBookBtn({ onOpen }) {
     }}>
       <style>{`
         .cssbuttonsIoButton {
-          background: black;
-          color: white;
-          font-family: inherit;
-          border: 1px solid white;
+          background: transparent;
+          color: #000;
+          font-family: "Roboto Serif", Georgia, serif;
+          border: 1px solid #b8860b;
           text-align: center;
-          font-size: 17px;
+          font-size: 0.875rem;
           font-weight: 600;
-          border-radius: 2rem;
+          border-radius: 10px;
           letter-spacing: 0.05em;
           display: flex;
           align-items: center;
           overflow: hidden;
           position: relative;
-          height: 2.8em;
-          padding-right: 3.3em;
-          padding-left: 1rem;
+          height: 2.65rem;
+          padding-right: 3.1rem;
+          padding-left: 1.1rem;
           cursor: pointer;
           transition: background-color 0.4s ease, color 0.4s ease;
         }
         .cssbuttonsIoButton .icon {
-          background: white;
+          background: #fff;
           margin-left: 1em;
           position: absolute;
           display: flex;
@@ -628,9 +628,9 @@ function SmartBookBtn({ onOpen }) {
           will-change: width, transform;
         }
         .cssbuttonsIoButton:hover {
-          background-color: white;
-          color: #000000;
-          border: 1px solid #000;
+          background-color: #b8860b;
+          color: #fff;
+          border: 1px solid #b8860b;
         }
         .cssbuttonsIoButton .icon svg {
           width: 1.1em;
