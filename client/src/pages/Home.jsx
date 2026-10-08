@@ -83,7 +83,22 @@ export default function Home() {
 
 @media (max-width: 1150px) {
   .home-right-sticker {
-    display: none !important;
+    position: fixed !important;
+    left: auto !important;
+    right: 0.35rem !important;
+    top: 54% !important;
+    transform: translateY(-50%) !important;
+    width: 115px !important;
+    max-width: 24vw !important;
+    z-index: 3 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .home-right-sticker {
+    right: 0.2rem !important;
+    width: 105px !important;
+    max-width: 22vw !important;
   }
 }
 
