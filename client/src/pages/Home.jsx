@@ -136,7 +136,7 @@ export default function Home() {
         aria-hidden="true"
         className="home-right-sticker"
         style={{
-          position: "absolute",
+          position: "fixed",
           left: "calc(50% + 350px)",
           top: "50%",
           transform: "translateY(-50%)",
