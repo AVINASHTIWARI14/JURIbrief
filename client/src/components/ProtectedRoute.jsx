@@ -6,7 +6,7 @@ export default function ProtectedRoute({ children, adminOnly = false }) {
   const { user, profile, loading } = useAuth();
   const tk = useTokens();
 
-  if (loading) {
+  if (loading && !user) {
     return (
       <div
         style={{
@@ -26,6 +26,10 @@ export default function ProtectedRoute({ children, adminOnly = false }) {
   }
 
   if (!user) return <Navigate to="/auth" replace />;
+
+  // Keep the protected page mounted while the persisted Supabase session
+  // is being revalidated after a browser tab is restored.
+  if (loading) return children;
 
   if (!profile?.approved) return <Navigate to="/waitlist" replace />;
 
