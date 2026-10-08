@@ -594,7 +594,7 @@ function SmartBookBtn({ onOpen }) {
     }}>
       <style>{`
         .cssbuttonsIoButton {
-          background: transparent;
+          background: #dbd4c9;
           color: #000;
           font-family: "Roboto Serif", Georgia, serif;
           border: 1px solid #b8860b;
@@ -628,21 +628,12 @@ function SmartBookBtn({ onOpen }) {
           will-change: width, transform;
         }
         .cssbuttonsIoButton:hover {
-          background-color: #b8860b;
+          background-color: #c9a84c;
           color: #fff;
           border: 1px solid #b8860b;
         }
-        .cssbuttonsIoButton .icon svg {
-          width: 1.1em;
-          transition: transform 0.3s ease-out;
-          will-change: transform;
-          color: #000000;
-        }
-        .cssbuttonsIoButton:hover .icon svg {
-          transform: translateX(0.1em) rotate(-25deg);
-        }
-        .cssbuttonsIoButton:active .icon {
-          transform: scale(0.95);
+        .cssbuttonsIoButton:active {
+          transform: scale(0.98);
         }
       `}</style>
 
@@ -656,17 +647,7 @@ function SmartBookBtn({ onOpen }) {
         title={hovered ? "Open Juri's Rights Guide" : undefined}
       >
         Your Rights
-        <span className="icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path
-              d="M5 12H19M13 6L19 12L13 18"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </span>
+
       </button>
     </div>
   );
