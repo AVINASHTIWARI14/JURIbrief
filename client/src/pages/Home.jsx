@@ -97,7 +97,7 @@ export default function Home() {
       <div
         style={{
           position: "absolute",
-          left: "0.5rem",
+          left: "5rem",
           bottom: "0.75rem",
           display: "flex",
           alignItems: "flex-end",
@@ -111,7 +111,7 @@ export default function Home() {
           alt=""
           aria-hidden="true"
           style={{
-            width: "clamp(170px, 22vw, 300px)",
+            width: "clamp(240px, 30vw, 420px)",
             height: "auto",
           }}
         />
