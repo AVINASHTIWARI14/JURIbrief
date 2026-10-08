@@ -604,8 +604,8 @@ function SmartBookBtn({ onOpen }) {
         .rights-get-started:hover::before {
           width: 100%;
         }
-         .rights-get-started:hover {
-          color: #000 !important;
+        .rights-get-started:hover {
+          color: #fff !important;
         }
       `}</style>
       <div style={{ position: "fixed", top: "5.8rem", left: "0.75rem", zIndex: 9999 }}>
