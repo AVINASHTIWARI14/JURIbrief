@@ -7,7 +7,19 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [cachedUser] = useState(() => {
+    try {
+      const raw = localStorage.getItem("juri-user-cache");
+      return raw ? JSON.parse(raw) : null;
+    } catch {
+      return null;
+    }
+  });
   const [passwordRecovery, setPasswordRecovery] = useState(false);
+
+  useEffect(() => {
+    if (cachedUser) setUser(cachedUser);
+  }, [cachedUser]);
 
   // Fetch the user's profile from public.users
   const fetchProfile = async (userId) => {
@@ -70,8 +82,13 @@ export function AuthProvider({ children }) {
       const authUser = session?.user ?? null;
 
       setUser(authUser);
-
       if (authUser) {
+        localStorage.setItem("juri-user-cache", JSON.stringify({
+          id: authUser.id,
+          email: authUser.email,
+          user_metadata: authUser.user_metadata || {},
+        }));
+      }
         setLoading(true);
 
         claimApprovedAccess(authUser)
@@ -101,6 +118,7 @@ export function AuthProvider({ children }) {
 
       // SIGNED_OUT is a real auth change and should clear protected state.
       if (event === "SIGNED_OUT") {
+        localStorage.removeItem("juri-user-cache");
         setUser(null);
         setProfile(null);
         setLoading(false);
