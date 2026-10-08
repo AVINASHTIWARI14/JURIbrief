@@ -19,16 +19,7 @@ export default function Home() {
 
   return (
     <main style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
-      <img
-        className="home-illustration"
-        src="/legal-illustration.webp"
-        alt=""
-        aria-hidden="true"
-      />
 <style>{`
-        }
-        }
-
         textarea::placeholder { color: ${tk.textMuted}; }
         input::placeholder { color: ${tk.textMuted}; }
         @keyframes heroIn { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
