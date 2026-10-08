@@ -584,11 +584,35 @@ function AnimatedRoutes() {
 
 function SmartBookBtn({ onOpen }) {
   return (
-    <div style={{ position: "fixed", top: "5.8rem", left: "0.75rem", zIndex: 9999 }}>
+    <>
+      <style>{`
+        .rights-get-started {
+          position: relative;
+          overflow: hidden;
+          isolation: isolate;
+        }
+        .rights-get-started::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          width: 0;
+          background: #c9a84c;
+          border-radius: inherit;
+          transition: width 0.4s ease;
+          z-index: -1;
+        }
+        .rights-get-started:hover::before {
+          width: 100%;
+        }
+        .rights-get-started:hover {
+          color: #fff !important;
+        }
+      `}</style>
+      <div style={{ position: "fixed", top: "5.8rem", left: "0.75rem", zIndex: 9999 }}>
       <button
         type="button"
         onClick={onOpen}
-        className="hero-get-started"
+        className="rights-get-started"
         style={{
           width: "9em",
           height: "3em",
