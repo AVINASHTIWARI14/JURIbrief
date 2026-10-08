@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<defs><clipPath id="c"><circle cx="256" cy="256" r="256"/></clipPath></defs>
+<g clip-path="url(#c)">
+  <rect width="512" height="512" fill="#8d80df"/>
+  <path d="M139 512c0-61 28-104 72-126l45-23 45 23c44 22 72 65 72 126z" fill="#5a5b5e"/>
+  <path d="M210 363h92v149h-92z" fill="#f7b18d"/>
+  <path d="M210 381c28 16 64 16 92 0v131h-92z" fill="#efefef"/>
+  <path d="M138 79c0-57 45-86 91-86h56c48 0 89 30 89 86v86H138z" fill="#57585b"/>
+  <path d="M159 142c0-55 43-91 97-91s97 36 97 91v104c0 73-43 112-97 112s-97-39-97-112z" fill="#f7b18d"/>
+  <path d="M138 151c35 0 80-8 119-48 31 32 58 43 107 47V79c0-48-39-78-89-78h-56c-46 0-81 29-81 78z" fill="#57585b"/>
+  <path d="M138 151v44c-17 0-24-14-24-29s8-29 24-29zm236 0v44c17 0 24-14 24-29s-8-29-24-29z" fill="#e6a783"/>
+  <rect x="185" y="143" width="36" height="12" rx="6" fill="#57585b"/>
+  <rect x="291" y="143" width="36" height="12" rx="6" fill="#57585b"/>
+  <rect x="197" y="161" width="12" height="24" rx="6" fill="#454649"/>
+  <rect x="303" y="161" width="12" height="24" rx="6" fill="#454649"/>
+  <path d="M221 231h70c2 0 4 2 4 4 0 22-17 39-39 39s-39-17-39-39c0-2 2-4 4-4z" fill="#fff"/>
+</g>
+</svg>
