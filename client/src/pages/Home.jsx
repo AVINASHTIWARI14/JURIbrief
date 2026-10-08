@@ -46,32 +46,14 @@ export default function Home() {
           position: relative;
           overflow: hidden;
           z-index: 1;
-          background: #f4f0e6;
-          color: #171717;
-          box-shadow: none;
-          transition: color .25s ease, transform .2s ease;
-        }
-
-        .hero-get-started::before {
-          content: '';
-          width: 0;
-          height: 3em;
-          border-radius: 30em;
-          position: absolute;
-          top: 0;
-          left: 0;
           background: ${tk.gold};
-          transition: .5s ease;
-          display: block;
-          z-index: -1;
+          color: ${tk.isDark ? "#fff" : "#000"};
+          box-shadow: none;
+          transition: transform .2s ease, filter .2s ease;
         }
 
         .hero-get-started:hover {
-          color: #fff;
-        }
-
-        .hero-get-started:hover::before {
-          width: 9em;
+          filter: brightness(0.95);
         }
         .cards .card:hover {
   transform: scale(1.08);
