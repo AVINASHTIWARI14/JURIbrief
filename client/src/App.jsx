@@ -588,28 +588,23 @@ function SmartBookBtn({ onOpen }) {
       <button
         type="button"
         onClick={onOpen}
+        className="hero-get-started"
         style={{
-          padding: "0.65rem 1.1rem",
-          borderRadius: "10px",
-          border: "1px solid #b8860b",
-          background: "#dbd4c9",
-          color: "#000",
-          fontFamily: "'Roboto Serif', Georgia, serif",
-          fontSize: "0.875rem",
-          fontWeight: 600,
+          width: "9em",
+          height: "3em",
+          borderRadius: "30em",
+          fontSize: "15px",
+          fontFamily: "inherit",
+          border: "none",
+          position: "relative",
+          overflow: "hidden",
+          zIndex: 1,
           cursor: "pointer",
-          transition: "all 0.2s ease",
-        }}
-        onMouseEnter={e => {
-          e.currentTarget.style.background = "#c9a84c";
-          e.currentTarget.style.color = "#fff";
-        }}
-        onMouseLeave={e => {
-          e.currentTarget.style.background = "#dbd4c9";
-          e.currentTarget.style.color = "#000";
+          color: "#171717",
+          background: "#f4f0e6",
         }}
       >
-        Know Your Rights
+        <span style={{ position: "relative", zIndex: 2 }}>Know Your Rights</span>
       </button>
     </div>
   );
