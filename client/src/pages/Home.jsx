@@ -60,8 +60,7 @@ export default function Home() {
           z-index: 1;
           background: #f4f0e6;
           color: #171717;
-          box-shadow: 6px 6px 12px rgba(197,197,197,.65),
-                      -6px -6px 12px rgba(255,255,255,.8);
+          box-shadow: none;
           transition: color .25s ease, transform .2s ease;
         }
 
@@ -216,7 +215,7 @@ Because the fine print shouldn’t be the part you skip.
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              Get Started →
+              Get Started
             </button>
           </div>
 
