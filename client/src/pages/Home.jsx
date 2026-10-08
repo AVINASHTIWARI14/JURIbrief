@@ -142,23 +142,6 @@ export default function Home() {
         />
       </div>
 
-      <img
-        src="/home-right-sticker.webp"
-        alt=""
-        aria-hidden="true"
-        className="home-right-sticker"
-        style={{
-          position: "absolute",
-          left: "calc(50% + 360px)",
-          top: "50%",
-          transform: "translateY(-50%)",
-          width: "clamp(190px, 20vw, 240px)",
-          height: "auto",
-          zIndex: 2,
-          pointerEvents: "none",
-        }}
-      />
-
       {/* ─── Hero Section ─────────────────────────────────────── */}
       <section
         style={{
