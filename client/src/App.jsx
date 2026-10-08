@@ -601,6 +601,9 @@ function SmartBookBtn({ onOpen }) {
           color: #171717;
           box-shadow: none;
           transition: color .25s ease, transform .2s ease;
+          isolation: isolate;
+          display: block;
+          box-sizing: border-box;
         }
 
         .rights-get-started::before {
@@ -637,6 +640,7 @@ function SmartBookBtn({ onOpen }) {
         <span style={{ position: "relative", zIndex: 2 }}>Your Rights</span>
       </button>
     </div>
+    </>
   );
 }
 
