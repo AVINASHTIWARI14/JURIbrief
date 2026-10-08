@@ -590,6 +590,12 @@ function AppShell() {
   const [chatOpen, setChatOpen] = useState(false);
   const [bookOpen, setBookOpen] = useState(false);
 
+  useEffect(() => {
+    const openRights = () => setBookOpen(true);
+    window.addEventListener("juri:open-rights", openRights);
+    return () => window.removeEventListener("juri:open-rights", openRights);
+  }, []);
+
   const showSmartBook = location.pathname === "/dashboard";
 
   return (
