@@ -95,9 +95,7 @@ export function AuthProvider({ children }) {
 
         setLoading(true);
 
-        claimApprovedAccess(authUser)
-          .catch(() => {})
-          .finally(async () => {
+        Promise.resolve().finally(async () => {
             await fetchProfile(authUser.id);
             setLoading(false);
           });
@@ -138,9 +136,7 @@ export function AuthProvider({ children }) {
         setLoading(true);
         setProfile(null);
 
-        claimApprovedAccess(authUser)
-          .catch(() => {})
-          .finally(async () => {
+        Promise.resolve().finally(async () => {
             await fetchProfile(authUser.id);
             setLoading(false);
           });
@@ -163,7 +159,6 @@ export function AuthProvider({ children }) {
     });
 
     if (!result.error && result.data?.user) {
-      await claimApprovedAccess(result.data.user);
       await fetchProfile(result.data.user.id);
     }
 
