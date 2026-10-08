@@ -592,33 +592,6 @@ export default function Dashboard() {
           <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "1rem", color: tk.textMuted, fontStyle: "italic", margin: 0 }}>JURIbrief Dashboard</p>
         </div>
         <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.85rem", color: tk.textMuted, fontStyle: "italic", margin: 0 }}>{user?.email}</p>
-        <button
-          type="button"
-          onClick={() => window.dispatchEvent(new Event("juri:open-rights"))}
-          style={{
-            marginTop: "0.9rem",
-            padding: "0.55rem 1rem",
-            borderRadius: "10px",
-            border: `1px solid ${tk.goldBorder}`,
-            background: tk.isDark ? "rgba(255,255,255,0.06)" : "#dbd4c9",
-            color: "#000",
-            fontFamily: "'Roboto Serif', Georgia, serif",
-            fontSize: "0.8rem",
-            fontWeight: 600,
-            cursor: "pointer",
-            transition: "all 0.2s ease",
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.background = tk.gold;
-            e.currentTarget.style.color = "#fff";
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.background = tk.isDark ? "rgba(255,255,255,0.06)" : "#dbd4c9";
-            e.currentTarget.style.color = "#000";
-          }}
-        >
-          Know Your Rights
-        </button>
       </div>
       <div style={{ height: "1px", background: `linear-gradient(90deg, transparent, ${tk.gold}, transparent)`, marginBottom: "2.5rem" }} />
       <div style={{ ...cardStyle, marginBottom: "2rem" }}>
