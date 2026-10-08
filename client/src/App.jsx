@@ -229,24 +229,6 @@ function JuriFace({ size = 32, smiling = false }) {
 function AILawyerBtn({ onPickChat }) {
   const tk = useTokens();
   const [hovered, setHovered] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    if (!menuOpen) return;
-
-    const close = () => setMenuOpen(false);
-
-    const t = setTimeout(
-      () => window.addEventListener("click", close, { once: true }),
-      50
-    );
-
-    return () => {
-      clearTimeout(t);
-      window.removeEventListener("click", close);
-    };
-  }, [menuOpen]);
-
   // Menu item now contains text only — no icon box
   const menuItem = (title, subtitle, onClick) => (
     <button
@@ -362,52 +344,10 @@ function AILawyerBtn({ onPickChat }) {
         />
       </div>
 
-      {/* Choice menu */}
-      {menuOpen && (
-        <div
-          onClick={(e) => e.stopPropagation()}
-          style={{
-            position: "absolute",
-            bottom: "calc(100% + 0.75rem)",
-            right: 0,
-            width: "260px",
-            background: tk.isDark
-              ? "rgba(22,20,18,0.98)"
-              : "rgba(255,254,252,0.98)",
-            border: `1px solid ${tk.goldBorder}`,
-            borderRadius: "14px",
-            padding: "0.4rem",
-            boxShadow: tk.isDark
-              ? "0 20px 60px rgba(0,0,0,0.6)"
-              : "0 10px 40px rgba(0,0,0,0.12)",
-            animation: "menuIn 0.2s cubic-bezier(.22,1,.36,1)",
-          }}
-        >
-          <style>{`
-            @keyframes menuIn {
-              from {
-                opacity: 0;
-                transform: translateY(6px) scale(.97);
-              }
-              to {
-                opacity: 1;
-                transform: none;
-              }
-            }
-          `}</style>
-
-          {menuItem(
-            "Ask Juri",
-            "Chat about your document",
-            onPickChat
-          )}
-        </div>
-      )}
-
       <button
         onClick={(e) => {
           e.stopPropagation();
-          setMenuOpen((v) => !v);
+          onPickChat();
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -415,14 +355,12 @@ function AILawyerBtn({ onPickChat }) {
           width: "68px",
           height: "68px",
           borderRadius: "50%",
-          background: menuOpen
+          background: hovered
             ? `linear-gradient(135deg, ${tk.gold}, #a07830)`
             : tk.isDark
             ? "#fdf5e8"
             : "#fff8ec",
-          border: `2px solid ${
-            menuOpen ? tk.gold : tk.goldBorder
-          }`,
+          border: `2px solid ${hovered ? tk.gold : tk.goldBorder}`,
           overflow: "hidden",
           cursor: "pointer",
           display: "flex",
