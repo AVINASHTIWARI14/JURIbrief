@@ -107,15 +107,6 @@ export default function Home() {
         }}
       >
         <img
-          src="/home-sticker.webp"
-          alt=""
-          aria-hidden="true"
-          style={{
-            width: "clamp(170px, 22vw, 300px)",
-            height: "auto",
-          }}
-        />
-        <img
           src="/home-sticker-2.svg"
           alt=""
           aria-hidden="true"
