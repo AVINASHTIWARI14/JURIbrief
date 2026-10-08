@@ -604,8 +604,8 @@ function SmartBookBtn({ onOpen }) {
         .rights-get-started:hover::before {
           width: 100%;
         }
-        .rights-get-started:hover {
-          color: #fff !important;
+         .rights-get-started:hover {
+          color: #000 !important;
         }
       `}</style>
       <div style={{ position: "fixed", top: "5.8rem", left: "0.75rem", zIndex: 9999 }}>
@@ -628,7 +628,7 @@ function SmartBookBtn({ onOpen }) {
           background: "#f4f0e6",
         }}
       >
-        <span style={{ position: "relative", zIndex: 2 }}>Know Your Rights</span>
+        <span style={{ position: "relative", zIndex: 2 }}>Your Rights</span>
       </button>
     </div>
   );
