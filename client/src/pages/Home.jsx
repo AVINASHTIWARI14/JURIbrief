@@ -81,12 +81,9 @@ export default function Home() {
   transform: scale(0.96);
 }
 
-@media (max-width: 1050px) {
-  /* Keep the hero sticker beside the centered copy on medium screens. */
+@media (max-width: 1150px) {
   .home-right-sticker {
-    left: auto !important;
-    right: 1rem !important;
-    top: 50% !important;
+    display: none !important;
   }
 }
 
@@ -136,11 +133,11 @@ export default function Home() {
         aria-hidden="true"
         className="home-right-sticker"
         style={{
-          position: "fixed",
-          left: "calc(50% + 350px)",
+          position: "absolute",
+          left: "calc(50% + 360px)",
           top: "50%",
           transform: "translateY(-50%)",
-          width: "clamp(190px, 20vw, 280px)",
+          width: "clamp(190px, 20vw, 240px)",
           height: "auto",
           zIndex: 2,
           pointerEvents: "none",
