@@ -91,8 +91,8 @@ export default function Contact() {
         position:"relative", zIndex:1,
         minHeight:"100vh",
         display:"flex", flexDirection:"column",
-        alignItems:"center", justifyContent:"center",
-        padding:"1.5rem 1.5rem 0.75rem",
+        alignItems:"center", justifyContent:"flex-start",
+        padding:"1rem 1.5rem 0.5rem",
       }}>
         <div style={{ width:"100%", maxWidth:"660px", margin:"0 auto" }}>
 
@@ -192,7 +192,7 @@ export default function Contact() {
       {/* Creator links */}
       <section
         style={{
-          position:"relative", zIndex:1, padding:"0 1.5rem 0.75rem", textAlign:"center",
+          position:"relative", zIndex:1, padding:"0.25rem 1.5rem 0.75rem", textAlign:"center",
         }}
       >
         <h2
