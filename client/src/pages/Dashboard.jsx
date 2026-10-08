@@ -623,9 +623,22 @@ export default function Dashboard() {
         }
         .dashboard-text-theme[data-theme="dark"] p,
         .dashboard-text-theme[data-theme="dark"] li,
-        .dashboard-text-theme[data-theme="dark"] label,
-        .dashboard-text-theme[data-theme="dark"] span {
-          color: #fff;
+        .dashboard-text-theme[data-theme="dark"] label {
+          color: #fff !important;
+        }
+        .dashboard-text-theme[data-theme="dark"] span:not(h1 span):not(h2 span):not(h3 span):not(h4 span):not(h5 span):not(h6 span) {
+          color: #fff !important;
+        }
+        .dashboard-text-theme[data-theme="dark"] button,
+        .dashboard-text-theme[data-theme="dark"] select,
+        .dashboard-text-theme[data-theme="dark"] input,
+        .dashboard-text-theme[data-theme="dark"] textarea {
+          color: #fff !important;
+        }
+        .dashboard-text-theme[data-theme="dark"] input::placeholder,
+        .dashboard-text-theme[data-theme="dark"] textarea::placeholder {
+          color: inherit;
+          font-weight: 400;
         }
       `}</style>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "2.5rem", flexWrap: "wrap", gap: "1rem" }}>
