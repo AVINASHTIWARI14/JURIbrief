@@ -85,33 +85,42 @@ export function AuthProvider({ children }) {
       }
     });
 
-    // Listen for auth changes
+    // Listen for auth changes.
+    // Token refreshes can happen when the browser tab becomes active again.
+    // They do NOT mean the session needs to be re-verified or the Dashboard remounted.
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (event, session) => {
+    } = supabase.auth.onAuthStateChange((event, session) => {
       const authUser = session?.user ?? null;
 
-      // Password recovery event
       if (event === "PASSWORD_RECOVERY") {
         setPasswordRecovery(true);
+        setUser(authUser);
+        return;
       }
 
+      // SIGNED_OUT is a real auth change and should clear protected state.
+      if (event === "SIGNED_OUT") {
+        setUser(null);
+        setProfile(null);
+        setLoading(false);
+        return;
+      }
+
+      // INITIAL_SESSION / SIGNED_IN: load the user/profile if needed.
+      // TOKEN_REFRESHED and USER_UPDATED should keep the existing UI alive.
       setUser(authUser);
 
-      if (authUser) {
+      if (authUser && (event === "INITIAL_SESSION" || event === "SIGNED_IN")) {
         setLoading(true);
-
         setProfile(null);
 
         claimApprovedAccess(authUser)
-          .catch(() => { })
+          .catch(() => {})
           .finally(async () => {
             await fetchProfile(authUser.id);
             setLoading(false);
           });
-      } else {
-        setProfile(null);
-        setLoading(false);
       }
     });
 
