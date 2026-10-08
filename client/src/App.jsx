@@ -587,25 +587,42 @@ function SmartBookBtn({ onOpen }) {
     <>
       <style>{`
         .rights-get-started {
+          width: 9em;
+          height: 3em;
+          padding: 0;
+          border-radius: 30em;
+          font-family: inherit;
+          font-size: 15px;
+          border: none;
           position: relative;
           overflow: hidden;
-          isolation: isolate;
+          z-index: 1;
+          background: #f4f0e6;
+          color: #171717;
+          box-shadow: none;
+          transition: color .25s ease, transform .2s ease;
         }
+
         .rights-get-started::before {
-          content: "";
-          position: absolute;
-          inset: 0;
+          content: '';
           width: 0;
+          height: 3em;
+          border-radius: 30em;
+          position: absolute;
+          top: 0;
+          left: 0;
           background: #c9a84c;
-          border-radius: inherit;
-          transition: width 0.4s ease;
+          transition: .5s ease;
+          display: block;
           z-index: -1;
         }
-        .rights-get-started:hover::before {
-          width: 100%;
-        }
+
         .rights-get-started:hover {
-          color: #fff !important;
+          color: #fff;
+        }
+
+        .rights-get-started:hover::before {
+          width: 9em;
         }
       `}</style>
       <div style={{ position: "fixed", top: "5.8rem", left: "0.75rem", zIndex: 9999 }}>
@@ -614,18 +631,7 @@ function SmartBookBtn({ onOpen }) {
         onClick={onOpen}
         className="rights-get-started"
         style={{
-          width: "9em",
-          height: "3em",
-          borderRadius: "30em",
-          fontSize: "15px",
-          fontFamily: "inherit",
-          border: "none",
-          position: "relative",
-          overflow: "hidden",
-          zIndex: 1,
           cursor: "pointer",
-          color: "#171717",
-          background: "#f4f0e6",
         }}
       >
         <span style={{ position: "relative", zIndex: 2 }}>Your Rights</span>
