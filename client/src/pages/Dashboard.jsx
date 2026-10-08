@@ -582,8 +582,52 @@ export default function Dashboard() {
   );
 
   return (
-    <div style={{ maxWidth: "860px", margin: "0 auto", padding: "6rem 1.5rem 3rem", animation: "fadeIn 0.4s ease" }}>
-      <style>{`@keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} } @keyframes spin { to { transform: rotate(360deg) } } @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(0.7)} }`}</style>
+    <div className="dashboard-text-theme" data-theme={tk.isDark ? "dark" : "light"} style={{ maxWidth: "860px", margin: "0 auto", padding: "6rem 1.5rem 3rem", animation: "fadeIn 0.4s ease" }}>
+      <style>{`
+        @keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+        @keyframes spin { to { transform: rotate(360deg) } }
+        @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(0.7)} }
+        .dashboard-text-theme p,
+        .dashboard-text-theme li,
+        .dashboard-text-theme label,
+        .dashboard-text-theme span {
+          font-weight: 700;
+        }
+        .dashboard-text-theme p,
+        .dashboard-text-theme li,
+        .dashboard-text-theme label {
+          color: #111 !important;
+        }
+        .dashboard-text-theme span {
+          color: #111;
+        }
+        .dashboard-text-theme input,
+        .dashboard-text-theme textarea,
+        .dashboard-text-theme select {
+          font-weight: 700;
+        }
+        .dashboard-text-theme input::placeholder,
+        .dashboard-text-theme textarea::placeholder {
+          font-weight: 400;
+        }
+        .dashboard-text-theme button {
+          font-weight: 700;
+        }
+        .dashboard-text-theme h1,
+        .dashboard-text-theme h2,
+        .dashboard-text-theme h3,
+        .dashboard-text-theme h4,
+        .dashboard-text-theme h5,
+        .dashboard-text-theme h6 {
+          font-weight: revert;
+        }
+        .dashboard-text-theme[data-theme="dark"] p,
+        .dashboard-text-theme[data-theme="dark"] li,
+        .dashboard-text-theme[data-theme="dark"] label,
+        .dashboard-text-theme[data-theme="dark"] span {
+          color: #fff;
+        }
+      `}</style>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "2.5rem", flexWrap: "wrap", gap: "1rem" }}>
         <div>
           <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.75rem, 4vw, 2.25rem)", fontWeight: 700, color: tk.textPrimary, letterSpacing: "-0.03em", margin: "0 0 0.25rem" }}>
