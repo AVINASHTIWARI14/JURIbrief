@@ -30,7 +30,7 @@ export default function Home() {
           position: absolute;
           left: -8px;
           bottom: 18px;
-          width: 285px;
+          width: 570px;
           height: auto;
           opacity: 0.20;
           filter: saturate(0.88);
@@ -40,7 +40,7 @@ export default function Home() {
         }
         @media (max-width: 700px) {
           .home-illustration {
-            width: 205px;
+            width: 410px;
             left: -18px;
             bottom: 12px;
             opacity: 0.14;
