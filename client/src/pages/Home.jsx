@@ -94,20 +94,37 @@ export default function Home() {
 }
       `}</style>
 
-      <img
-        src="/home-sticker.webp"
-        alt=""
-        aria-hidden="true"
+      <div
         style={{
           position: "absolute",
           left: "0.5rem",
           bottom: "0.75rem",
-          width: "clamp(170px, 22vw, 300px)",
-          height: "auto",
+          display: "flex",
+          alignItems: "flex-end",
+          gap: "0.25rem",
           zIndex: 2,
           pointerEvents: "none",
         }}
-      />
+      >
+        <img
+          src="/home-sticker.webp"
+          alt=""
+          aria-hidden="true"
+          style={{
+            width: "clamp(170px, 22vw, 300px)",
+            height: "auto",
+          }}
+        />
+        <img
+          src="/home-sticker-2.svg"
+          alt=""
+          aria-hidden="true"
+          style={{
+            width: "clamp(170px, 22vw, 300px)",
+            height: "auto",
+          }}
+        />
+      </div>
 
       {/* ─── Hero Section ─────────────────────────────────────── */}
       <section
