@@ -502,10 +502,10 @@ export default function Header() {
                     style={{
                       width:"100%",
                       padding:"0.55rem 0.7rem",
-                      border:"1px solid rgba(220,38,38,0.25)",
+                      border:"1px solid #DC2626",
                       borderRadius:"9px",
-                      background:"rgba(220,38,38,0.08)",
-                      color:"#DC2626",
+                      background:"#DC2626",
+                      color:"#fff",
                       fontFamily:"'Roboto Serif', Georgia, serif",
                       fontSize:"0.8rem",
                       fontWeight:700,
@@ -513,12 +513,12 @@ export default function Header() {
                       transition:"all .2s",
                     }}
                     onMouseEnter={(e)=>{
-                      e.currentTarget.style.background="rgba(220,38,38,0.16)";
-                      e.currentTarget.style.borderColor="rgba(220,38,38,0.45)";
+                      e.currentTarget.style.background="#b91c1c";
+                      e.currentTarget.style.borderColor="#b91c1c";
                     }}
                     onMouseLeave={(e)=>{
-                      e.currentTarget.style.background="rgba(220,38,38,0.08)";
-                      e.currentTarget.style.borderColor="rgba(220,38,38,0.25)";
+                      e.currentTarget.style.background="#DC2626";
+                      e.currentTarget.style.borderColor="#DC2626";
                     }}
                   >
                     Logout
