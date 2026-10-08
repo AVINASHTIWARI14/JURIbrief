@@ -25,12 +25,18 @@ export default function Home() {
         alt=""
         aria-hidden="true"
       />
+      <img
+        className="home-illustration-right"
+        src="/right-illustration.svg"
+        alt=""
+        aria-hidden="true"
+      />
       <style>{`
         .home-illustration {
           position: absolute;
           left: -8px;
           bottom: 18px;
-          width: 570px;
+          width: 427.5px;
           height: auto;
           opacity: 0.20;
           filter: saturate(0.88);
@@ -40,10 +46,29 @@ export default function Home() {
         }
         @media (max-width: 700px) {
           .home-illustration {
-            width: 410px;
+            width: 307.5px;
             left: -18px;
             bottom: 12px;
             opacity: 0.14;
+          }
+        }
+        .home-illustration-right {
+          position: absolute;
+          right: -12px;
+          bottom: 10px;
+          width: 427.5px;
+          height: auto;
+          opacity: 0.18;
+          pointer-events: none;
+          user-select: none;
+          z-index: 0;
+        }
+        @media (max-width: 700px) {
+          .home-illustration-right {
+            width: 307.5px;
+            right: -24px;
+            bottom: 8px;
+            opacity: 0.13;
           }
         }
 
