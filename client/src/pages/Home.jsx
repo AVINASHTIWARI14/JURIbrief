@@ -34,6 +34,21 @@ export default function Home() {
         .hero-capability-1 { animation-delay: 0s; } .hero-capability-2 { animation-delay: 3s; } .hero-capability-3 { animation-delay: 6s; } .hero-capability-4 { animation-delay: 9s; }
         @keyframes capabilityFade { 0%,4% { opacity:0; transform:translateY(8px); } 8%,21% { opacity:1; transform:translateY(0); } 25%,100% { opacity:0; transform:translateY(-8px); } }
 
+        .home-right-character { transition: transform .25s ease; }
+
+        @media (max-width: 1050px) {
+          .home-right-character {
+            right: 0.5rem !important;
+            width: 190px !important;
+          }
+        }
+
+        @media (max-width: 700px) {
+          .home-right-character {
+            display: none !important;
+          }
+        }
+
         .hero-get-started {
           width: 9em;
           height: 3em;
@@ -141,6 +156,23 @@ export default function Home() {
           }}
         />
       </div>
+
+      <img
+        src="/home-right-character.webp"
+        alt=""
+        aria-hidden="true"
+        className="home-right-character"
+        style={{
+          position: "fixed",
+          right: "1.5rem",
+          top: "50%",
+          transform: "translateY(-50%)",
+          width: "clamp(190px, 22vw, 300px)",
+          height: "auto",
+          zIndex: 2,
+          pointerEvents: "none",
+        }}
+      />
 
       {/* ─── Hero Section ─────────────────────────────────────── */}
       <section
