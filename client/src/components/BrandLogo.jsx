@@ -26,7 +26,8 @@ export default function BrandLogo({ size = "normal" }) {
         style={{
           fontFamily: "'IM Fell French Canon', serif",
           fontSize: s.juri,
-          color: "#c9a84c",
+          color: "#b8860b",
+          fontWeight: 700,
           letterSpacing: "0.01em",
         }}
       >
