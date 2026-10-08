@@ -45,28 +45,6 @@ export function AuthProvider({ children }) {
     return data;
   };
 
-  // Claim approved waitlist access if applicable
-  const claimApprovedAccess = async (authUser) => {
-    const {
-      data: { session },
-    } = await supabase.auth.getSession();
-
-    const token = session?.access_token;
-
-    if (!authUser || !token) return;
-
-    try {
-      await fetch("/api/waitlist/claim-approved-access", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-    } catch {
-      // Non-fatal
-    }
-  };
-
   useEffect(() => {
     // Detect password recovery URL
     const isRecoveryUrl =
@@ -95,10 +73,7 @@ export function AuthProvider({ children }) {
 
         setLoading(true);
 
-        Promise.resolve().finally(async () => {
-            await fetchProfile(authUser.id);
-            setLoading(false);
-          });
+        fetchProfile(authUser.id).finally(() => setLoading(false));
       } else {
         localStorage.removeItem("juri-user-cache");
         setLoading(false);
@@ -136,10 +111,7 @@ export function AuthProvider({ children }) {
         setLoading(true);
         setProfile(null);
 
-        Promise.resolve().finally(async () => {
-            await fetchProfile(authUser.id);
-            setLoading(false);
-          });
+        fetchProfile(authUser.id).finally(() => setLoading(false));
       }
     });
 
