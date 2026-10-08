@@ -262,7 +262,7 @@ export default function Header() {
           padding: "0 1.5rem",
           height: "62px",
           display: "grid",
-          gridTemplateColumns: "minmax(160px, 1fr) auto minmax(430px, 1fr)",
+          gridTemplateColumns: "minmax(160px, 1fr) auto auto",
           alignItems: "center",
           gap: "1rem",
         }}
@@ -342,7 +342,7 @@ export default function Header() {
             alignItems: "center",
             justifyContent: "flex-end",
             gap: "0.85rem",
-            width: "100%",
+            width: "auto",
           }}
         >
           {/* Theme toggle */}
