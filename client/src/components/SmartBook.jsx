@@ -159,6 +159,22 @@ export default function SmartBook({ onClose }) {
               {language.code !== "en" ? `${language.nativeLabel} में` : "Quick legal awareness guide"}
             </div>
           </div>
+          <button
+            type="button"
+            style={{
+              padding: "0.45rem 0.8rem",
+              borderRadius: "10px",
+              border: `1px solid ${tk.goldBorder}`,
+              background: tk.isDark ? "rgba(255,255,255,0.06)" : "#dbd4c9",
+              color: tk.textPrimary,
+              fontFamily: "'Roboto Serif', Georgia, serif",
+              fontSize: "0.75rem",
+              fontWeight: 600,
+              cursor: "default",
+            }}
+          >
+            Your Rights
+          </button>
           <button onClick={onClose} style={{ width: "30px", height: "30px", borderRadius: "50%", border: `1px solid ${tk.surfaceBorder}`, background: "transparent", color: tk.textMuted, cursor: "pointer", fontSize: "0.85rem" }}>✕</button>
         </div>
 
