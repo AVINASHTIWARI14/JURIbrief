@@ -43,7 +43,6 @@ const TOPICS = [
     id: "platform", icon: "⚖️", title: "About JURIbrief",
     points: [
       { head: "What it does", body: "Analyzes legal documents and explains them in plain English. Flags risky clauses, suggests negotiation points, and extracts key deadlines." },
-      { head: "Risk Scoring", body: "Documents get a 0–100 risk score. 0–30 is low (safe), 31–60 moderate, 61–85 high, 86+ critical. Use it as a quick pulse check." },
       { head: "Not legal advice", body: "Juri helps you understand documents but does not replace a lawyer. For high-stakes agreements (buying a house, major employment), always consult a professional." },
       { head: "Privacy", body: "Your documents are processed in real-time and not permanently stored. Each analysis session is isolated." },
     ],
@@ -128,11 +127,6 @@ export default function SmartBook({ onClose }) {
   const displayPoints = translatedPoints || topic.points;
 
   const analysis = context?.analysis;
-  const riskColor = !analysis ? null
-    : analysis.riskScore <= 30 ? "#10b981"
-    : analysis.riskScore <= 60 ? "#f59e0b"
-    : analysis.riskScore <= 85 ? "#ef4444" : "#991b1b";
-
   return (
     <div style={{ position: "fixed", inset: 0, zIndex: 10000, display: "flex", alignItems: "stretch", justifyContent: "flex-start" }}>
       <div onClick={onClose} style={{ position: "absolute", inset: 0, background: tk.isDark ? "rgba(0,0,0,0.5)" : "rgba(0,0,0,0.3)", animation: "fadeOverlay 0.25s ease" }} />
@@ -217,20 +211,10 @@ export default function SmartBook({ onClose }) {
                     {analysis.documentType}
                   </span>
                 )}
-                {analysis.riskScore !== undefined && riskColor && (
-                  <span style={{ marginLeft: "auto", fontSize: "0.7rem", fontWeight: 700, color: riskColor, background: `${riskColor}22`, padding: "2px 9px", borderRadius: "6px" }}>
-                    {analysis.riskScore}/100
-                  </span>
-                )}
               </div>
               <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.825rem", color: tk.textSecondary, lineHeight: 1.6, margin: "0 0 0.5rem" }}>
                 Based on your document type, we've opened the most relevant section — <strong style={{ color: tk.gold }}>{topic.title}</strong>.
               </p>
-              {(analysis.criticalThreats?.length > 0 || analysis.moderateThreats?.length > 0) && (
-                <div style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.78rem", color: tk.textMuted, fontStyle: "italic" }}>
-                  ⚡ Found {analysis.criticalThreats?.length || 0} critical + {analysis.moderateThreats?.length || 0} moderate risks.
-                </div>
-              )}
             </div>
           )}
 
