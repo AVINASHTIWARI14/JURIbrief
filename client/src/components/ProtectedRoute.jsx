@@ -31,7 +31,6 @@ export default function ProtectedRoute({ children, adminOnly = false }) {
   // is being revalidated after a browser tab is restored.
   if (loading) return children;
 
-  if (!profile?.approved) return <Navigate to="/waitlist" replace />;
 
   if (adminOnly && profile?.role !== "admin") {
     return <Navigate to="/dashboard" replace />;
