@@ -301,7 +301,7 @@ export default function Header() {
                 to={link.to}
                 style={{
                   fontFamily: "'Roboto Serif', Georgia, serif",
-                  fontSize: "1rem",
+                  fontSize: "1.5rem",
                   fontWeight: active ? 600 : 500,
                   letterSpacing: "0.04em",
                   color: active ? tk.gold : tk.textSecondary,
