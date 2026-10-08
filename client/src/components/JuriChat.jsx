@@ -132,17 +132,17 @@ export default function JuriChat({ onClose }) {
               width: "36px",
               height: "36px",
               borderRadius: "50%",
-              background: `linear-gradient(135deg, ${tk.gold}, #a07830)`,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontFamily: "'DM Serif Display', Georgia, serif",
-              fontSize: "1rem",
-              fontWeight: 700,
-              color: "#fff",
+              overflow: "hidden",
+              flexShrink: 0,
+              border: `1px solid ${tk.goldBorder}`,
+              background: tk.goldLight,
             }}
           >
-            J
+            <img
+              src="/juri-face.svg"
+              alt="Juri"
+              style={{ width: "100%", height: "100%", display: "block" }}
+            />
           </div>
           <div style={{ flex: 1 }}>
             <div
