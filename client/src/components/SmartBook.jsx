@@ -152,29 +152,12 @@ export default function SmartBook({ onClose }) {
 
         {/* Header */}
         <div style={{ padding: "1.25rem 1.5rem", borderBottom: `1px solid ${tk.surfaceBorder}`, display: "flex", alignItems: "center", gap: "0.75rem" }}>
-          <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: tk.goldLight, border: `1px solid ${tk.goldBorder}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.15rem" }}>📚</div>
           <div style={{ flex: 1 }}>
             <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 700, fontSize: "1.05rem", color: tk.textPrimary }}>Know Your Rights</div>
             <div style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.75rem", color: tk.textMuted, fontStyle: "italic" }}>
               {language.code !== "en" ? `${language.nativeLabel} में` : "Quick legal awareness guide"}
             </div>
           </div>
-          <button
-            type="button"
-            style={{
-              padding: "0.45rem 0.8rem",
-              borderRadius: "10px",
-              border: `1px solid ${tk.goldBorder}`,
-              background: tk.isDark ? "rgba(255,255,255,0.06)" : "#dbd4c9",
-              color: tk.textPrimary,
-              fontFamily: "'Roboto Serif', Georgia, serif",
-              fontSize: "0.75rem",
-              fontWeight: 600,
-              cursor: "default",
-            }}
-          >
-            Your Rights
-          </button>
           <button onClick={onClose} style={{ width: "30px", height: "30px", borderRadius: "50%", border: `1px solid ${tk.surfaceBorder}`, background: "transparent", color: tk.textMuted, cursor: "pointer", fontSize: "0.85rem" }}>✕</button>
         </div>
 
