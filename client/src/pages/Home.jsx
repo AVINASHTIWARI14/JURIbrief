@@ -96,25 +96,31 @@ export default function Home() {
 }
       `}</style>
 
+      {/* Hero sticker — placed directly to the right of the centered hero copy */}
       <div
+        className="hero-right-sticker"
         style={{
           position: "absolute",
-          left: "5rem",
-          bottom: "0.75rem",
-          display: "flex",
-          alignItems: "flex-end",
-          gap: "0.25rem",
+          left: "calc(50% + 360px)",
+          top: "50%",
+          transform: "translateY(-50%)",
+          width: "clamp(170px, 18vw, 270px)",
           zIndex: 2,
           pointerEvents: "none",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <img
-          src="/home-sticker-2.svg"
+          src="/home-right-sticker.webp"
           alt=""
           aria-hidden="true"
           style={{
-            width: "clamp(240px, 30vw, 420px)",
+            display: "block",
+            width: "100%",
             height: "auto",
+            objectFit: "contain",
           }}
         />
       </div>
