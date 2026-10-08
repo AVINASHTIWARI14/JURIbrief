@@ -76,7 +76,7 @@ export default function Header() {
 
     .juri-header-actions {
       flex-wrap: nowrap;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .juri-user-actions {
