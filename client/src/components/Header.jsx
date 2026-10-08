@@ -257,8 +257,8 @@ export default function Header() {
       <div
         className="juri-header-inner"
         style={{
-          maxWidth: "72rem",
-          margin: "0 auto",
+          width: "100%",
+          margin: "0",
           padding: "0 1.5rem",
           height: "62px",
           display: "grid",
