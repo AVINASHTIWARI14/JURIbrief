@@ -118,21 +118,6 @@ function AnalysisResult({ analysis, tk }) {
   const riskColor = score <= 30 ? "#10b981" : score <= 60 ? "#f59e0b" : score <= 85 ? "#ef4444" : "#991b1b";
   return (
     <div style={{ animation: "fadeIn 0.5s ease" }}>
-      {/* Headline banner — score gauge + title */}
-      <div style={{ ...cardStyle, padding: "2rem 1.5rem" }}>
-        {analysis.riskScore !== undefined && <CircularGauge score={analysis.riskScore} tk={tk} />}
-        <div style={{ textAlign: "center", marginTop: "1rem" }}>
-          <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 700, fontSize: "1.2rem", color: tk.textPrimary, marginBottom: "0.35rem" }}>
-            {totalThreats === 0 ? "Document looks safe" : `${totalThreats} risk${totalThreats > 1 ? "s" : ""} detected`}
-          </div>
-          {analysis.documentType && (
-            <span style={{ display: "inline-block", fontSize: "0.7rem", fontWeight: 700, color: tk.gold, background: tk.goldLight, border: `1px solid ${tk.goldBorder}`, padding: "3px 12px", borderRadius: "999px", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-              {analysis.documentType}
-            </span>
-          )}
-        </div>
-      </div>
-
       {/* Stats row */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "0.75rem", marginBottom: "1.5rem" }}>
         <StatCard icon="⚠️" label="Risk Level" value={riskLabel} accent={riskColor} tk={tk}/>
