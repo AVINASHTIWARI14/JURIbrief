@@ -582,6 +582,39 @@ function AnimatedRoutes() {
   );
 }
 
+function SmartBookBtn({ onOpen }) {
+  return (
+    <div style={{ position: "fixed", top: "5.8rem", left: "0.75rem", zIndex: 9999 }}>
+      <button
+        type="button"
+        onClick={onOpen}
+        style={{
+          padding: "0.65rem 1.1rem",
+          borderRadius: "10px",
+          border: "1px solid #b8860b",
+          background: "#dbd4c9",
+          color: "#000",
+          fontFamily: "'Roboto Serif', Georgia, serif",
+          fontSize: "0.875rem",
+          fontWeight: 600,
+          cursor: "pointer",
+          transition: "all 0.2s ease",
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.background = "#c9a84c";
+          e.currentTarget.style.color = "#fff";
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.background = "#dbd4c9";
+          e.currentTarget.style.color = "#000";
+        }}
+      >
+        Know Your Rights
+      </button>
+    </div>
+  );
+}
+
 function AppShell() {
   const { theme } = useTheme();
   const tokens = useTokens();
@@ -638,6 +671,10 @@ function AppShell() {
       <AILawyerBtn
         onPickChat={() => setChatOpen(true)}
       />
+
+      {showSmartBook && (
+        <SmartBookBtn onOpen={() => setBookOpen(true)} />
+      )}
 
       {chatOpen && (
         <JuriChat
