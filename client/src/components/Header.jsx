@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTheme, useTokens } from "../App";
 import { useAuth } from "../context/AuthContext";
@@ -6,6 +6,8 @@ import BrandLogo from "./BrandLogo";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const profileRef = useRef(null);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { toggleTheme } = useTheme();
@@ -27,6 +29,19 @@ export default function Header() {
     window.addEventListener("scroll", h, { passive: true });
     return () => window.removeEventListener("scroll", h);
   }, []);
+
+  useEffect(() => {
+    if (!profileOpen) return;
+
+    const handleOutsideClick = (e) => {
+      if (profileRef.current && !profileRef.current.contains(e.target)) {
+        setProfileOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, [profileOpen]);
 
   const handleLogout = async () => {
     await signOut();
@@ -378,24 +393,36 @@ export default function Header() {
 
           {/* User / Login */}
           {user ? (
-            <div className="juri-user-actions" style={{display:"flex",alignItems:"center",gap:"0.85rem"}}>
-              <Link
-                to="/dashboard"
-                title={displayName ? `Signed in as ${displayName}` : "Open dashboard"}
-                aria-label={displayName ? `Open dashboard for ${displayName}` : "Open dashboard"}
+            <div
+              ref={profileRef}
+              className="juri-user-actions"
+              style={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.85rem",
+              }}
+            >
+              <button
+                type="button"
+                title={displayName ? `Signed in as ${displayName}` : "Open profile"}
+                aria-label={displayName ? `Open profile for ${displayName}` : "Open profile"}
+                aria-expanded={profileOpen}
+                onClick={() => setProfileOpen((v) => !v)}
                 style={{
                   width:"38px",height:"38px",minWidth:"38px",
                   display:"flex",alignItems:"center",justifyContent:"center",
                   boxSizing:"border-box",
-                  fontFamily:"'Roboto Serif', Georgia, serif",fontSize:"0.95rem",
-                  fontWeight:700,background:tk.goldLight,color:tk.gold,
-                  border:`1px solid ${tk.goldBorder}`,
-                  borderRadius:"50%",textDecoration:"none",
-                  letterSpacing:"0",textTransform:"uppercase",
-                  transition:"opacity .2s, transform .2s",
+                  padding:0,
+                  background:tk.goldLight,
+                  border:`1px solid ${profileOpen ? tk.gold : tk.goldBorder}`,
+                  borderRadius:"50%",
+                  cursor:"pointer",
+                  overflow:"hidden",
+                  transition:"opacity .2s, transform .2s, border-color .2s",
                   flexShrink:0,
                 }}
-                onMouseEnter={(e)=>{e.currentTarget.style.opacity=".78";e.currentTarget.style.transform="scale(1.05)"}}
+                onMouseEnter={(e)=>{e.currentTarget.style.opacity=".88";e.currentTarget.style.transform="scale(1.05)"}}
                 onMouseLeave={(e)=>{e.currentTarget.style.opacity="1";e.currentTarget.style.transform="scale(1)"}}
               >
                 <img
@@ -409,21 +436,95 @@ export default function Header() {
                     display: "block",
                   }}
                 />
-              </Link>
-              <button
-                onClick={handleLogout}
-                style={{
-                  fontFamily:"'Roboto Serif', Georgia, serif",fontSize:"0.875rem",
-                  fontWeight:500,background:"transparent",
-                  border:`1px solid ${tk.surfaceBorder}`,color:tk.textMuted,
-                  padding:"0.4rem 0.75rem",borderRadius:"8px",cursor:"pointer",
-                  transition:"all .2s"
-                }}
-                onMouseEnter={(e)=>{e.currentTarget.style.borderColor="#e05252";e.currentTarget.style.color="#e05252"}}
-                onMouseLeave={(e)=>{e.currentTarget.style.borderColor=tk.surfaceBorder;e.currentTarget.style.color=tk.textMuted}}
-              >
-                Logout
               </button>
+
+              {profileOpen && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "calc(100% + 0.7rem)",
+                    right: 0,
+                    width: "245px",
+                    padding: "0.85rem",
+                    background: tk.isDark ? "rgba(22,20,18,0.98)" : "rgba(255,254,252,0.98)",
+                    border: `1px solid ${tk.goldBorder}`,
+                    borderRadius: "14px",
+                    boxShadow: tk.isDark
+                      ? "0 16px 40px rgba(0,0,0,0.55)"
+                      : "0 12px 32px rgba(0,0,0,0.14)",
+                    backdropFilter: "blur(14px)",
+                    WebkitBackdropFilter: "blur(14px)",
+                    zIndex: 100,
+                    animation: "profileMenuIn .18s ease-out",
+                  }}
+                >
+                  <style>{`
+                    @keyframes profileMenuIn {
+                      from { opacity: 0; transform: translateY(-5px) scale(.98); }
+                      to { opacity: 1; transform: translateY(0) scale(1); }
+                    }
+                  `}</style>
+
+                  <div style={{ padding: "0.35rem 0.4rem 0.75rem" }}>
+                    <div
+                      style={{
+                        fontFamily:"'DM Serif Display', Georgia, serif",
+                        fontSize:"0.95rem",
+                        fontWeight:700,
+                        color:tk.textPrimary,
+                        overflow:"hidden",
+                        textOverflow:"ellipsis",
+                        whiteSpace:"nowrap",
+                      }}
+                    >
+                      {displayName || "User"}
+                    </div>
+                    <div
+                      style={{
+                        marginTop:"0.25rem",
+                        fontFamily:"'Roboto Serif', Georgia, serif",
+                        fontSize:"0.75rem",
+                        color:tk.textMuted,
+                        overflow:"hidden",
+                        textOverflow:"ellipsis",
+                        whiteSpace:"nowrap",
+                      }}
+                    >
+                      {user?.email || ""}
+                    </div>
+                  </div>
+
+                  <div style={{ height:"1px", background:tk.surfaceBorder, margin:"0 0 0.65rem" }} />
+
+                  <button
+                    type="button"
+                    onClick={handleLogout}
+                    style={{
+                      width:"100%",
+                      padding:"0.55rem 0.7rem",
+                      border:"1px solid rgba(220,38,38,0.25)",
+                      borderRadius:"9px",
+                      background:"rgba(220,38,38,0.08)",
+                      color:"#DC2626",
+                      fontFamily:"'Roboto Serif', Georgia, serif",
+                      fontSize:"0.8rem",
+                      fontWeight:700,
+                      cursor:"pointer",
+                      transition:"all .2s",
+                    }}
+                    onMouseEnter={(e)=>{
+                      e.currentTarget.style.background="rgba(220,38,38,0.16)";
+                      e.currentTarget.style.borderColor="rgba(220,38,38,0.45)";
+                    }}
+                    onMouseLeave={(e)=>{
+                      e.currentTarget.style.background="rgba(220,38,38,0.08)";
+                      e.currentTarget.style.borderColor="rgba(220,38,38,0.25)";
+                    }}
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
             </div>
           ) : (
             <Link
