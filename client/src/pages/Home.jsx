@@ -59,7 +59,7 @@ export default function Home() {
           position: absolute;
           top: 0;
           left: 0;
-          background: #c9a84c;
+          background: ${tk.gold};
           transition: .5s ease;
           display: block;
           z-index: -1;
