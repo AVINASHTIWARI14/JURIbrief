@@ -398,7 +398,17 @@ export default function Header() {
                 onMouseEnter={(e)=>{e.currentTarget.style.opacity=".78";e.currentTarget.style.transform="scale(1.05)"}}
                 onMouseLeave={(e)=>{e.currentTarget.style.opacity="1";e.currentTarget.style.transform="scale(1)"}}
               >
-                {(displayName || "U").trim().charAt(0).toUpperCase()}
+                <img
+                  src="/profile-avatar.svg"
+                  alt="Profile"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    borderRadius: "50%",
+                    display: "block",
+                  }}
+                />
               </Link>
               <button
                 onClick={handleLogout}
