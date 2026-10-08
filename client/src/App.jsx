@@ -589,7 +589,7 @@ function SmartBookBtn({ onOpen }) {
     <div style={{
       position: "fixed",
       top: "5.8rem",
-      left: "max(1.5rem, calc(50% - 430px))",
+      left: "0.75rem",
       zIndex: 9999,
     }}>
       <style>{`
