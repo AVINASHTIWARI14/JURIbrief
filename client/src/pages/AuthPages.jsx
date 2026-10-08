@@ -56,7 +56,7 @@ function ErrorBanner({ msg }) {
 
 function isValidEmail(email) {
   const value = email.trim();
-  return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/.test(value);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
 }
 
 function SuccessBanner({ msg }) {
@@ -73,9 +73,9 @@ export default function AuthPages() {
   const tk = useTokens();
   const styles = useStyles(tk);
   const navigate = useNavigate();
-  const { user, profile, loading, signIn, signUp, signInWithGoogle, resetPassword } = useAuth();
+  const { user, profile, loading, signIn, signUp, signInWithGoogle } = useAuth();
 
-  // "login" | "register" | "forgot"
+  // "login" | "register"
   const [mode, setMode] = useState("login");
   const [form, setForm] = useState({ fullName: "", email: "", password: "" });
   const [error, setError] = useState("");
@@ -136,16 +136,6 @@ export default function AuthPages() {
     setTimeout(() => navigate("/dashboard"), 1500);
   };
 
-  const handleForgot = async () => {
-    if (!form.email) return setError("Please enter your email address");
-    if (!isValidEmail(form.email)) return setError("Please enter a valid email address");
-    setBusy(true);
-    const { error: err } = await resetPassword(form.email);
-    setBusy(false);
-    if (err) return setError(err.message);
-    setSuccess("Password reset link sent — check your inbox.");
-  };
-
   const handleGoogle = async () => {
     setBusy(true);
     const { error: err } = await signInWithGoogle();
@@ -156,7 +146,6 @@ export default function AuthPages() {
   const handleSubmit = () => {
     if (mode === "login") handleLogin();
     else if (mode === "register") handleRegister();
-    else if (mode === "forgot") handleForgot();
   };
 
   // ── Card wrapper ───────────────────────────────────────────────────────────
@@ -223,31 +212,6 @@ export default function AuthPages() {
     </button>
   );
 
-  // ── Forgot password view ───────────────────────────────────────────────────
-  if (mode === "forgot") {
-    return (
-      <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "5rem 1.5rem 2rem" }}>
-        <div style={cardStyle}>
-          <style>{`@keyframes authIn { from{opacity:0;transform:translateY(20px) scale(.98)} to{opacity:1;transform:none} } @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }`}</style>
-          <button onClick={() => reset("login")} style={{ background: tk.goldLight, border: `1px solid ${tk.goldBorder}`, borderRadius: "8px", padding: "0.375rem 0.75rem", fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8125rem", fontWeight: 600, color: tk.gold, cursor: "pointer", marginBottom: "1.5rem" }}>
-            ← Back to Login
-          </button>
-          <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.6rem", fontWeight: 700, color: tk.textPrimary, margin: "0 0 0.4rem" }}>Reset Password</h2>
-          <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", color: tk.textMuted, fontSize: "0.95rem", margin: "0 0 1.5rem" }}>Enter your email and we will send a reset link.</p>
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            <div>
-              <label style={styles.label}>EMAIL</label>
-              <input name="email" type="email" value={form.email} onChange={handle} placeholder="your@email.com" style={styles.input} onFocus={focusStyle} onBlur={blurStyle} onKeyDown={(e) => e.key === "Enter" && handleForgot()} />
-            </div>
-            <ErrorBanner msg={error} />
-            <SuccessBanner msg={success} />
-            {primaryBtn(busy ? "Sending…" : "Send Reset Link", handleForgot, busy)}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   // Don't flash the auth form while session is loading or when user is already logged in (about to redirect)
   if (loading || user) {
     return (
@@ -308,15 +272,6 @@ export default function AuthPages() {
               <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", color: tk.textMuted, margin: "0.35rem 0 0 0.25rem" }}>At least 6 characters</p>
             )}
           </div>
-
-          {/* Forgot password link */}
-          {mode === "login" && (
-            <div style={{ textAlign: "right", marginTop: "-0.4rem" }}>
-              <span onClick={() => reset("forgot")} style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.875rem", color: tk.gold, cursor: "pointer", fontWeight: 600 }}>
-                Forgot password?
-              </span>
-            </div>
-          )}
 
           <ErrorBanner msg={error} />
           <SuccessBanner msg={success} />
