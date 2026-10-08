@@ -602,7 +602,7 @@ export default function Dashboard() {
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "2.5rem", flexWrap: "wrap", gap: "1rem" }}>
         <div>
           <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.75rem, 4vw, 2.25rem)", fontWeight: 700, color: tk.textPrimary, letterSpacing: "-0.03em", margin: "0 0 0.25rem" }}>
-            Welcome, <span style={{ color: tk.gold }}>{user?.user_metadata?.full_name || "there"}</span>
+            Welcome, <span style={{ color: tk.gold }}>{user?.user_metadata?.full_name || user?.email?.split("@")[0] || "there"}</span>
           </h1>
           <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "1rem", color: tk.textMuted, fontStyle: "italic", margin: 0 }}>JURIbrief Dashboard</p>
         </div>
