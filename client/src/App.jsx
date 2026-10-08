@@ -229,58 +229,6 @@ function JuriFace({ size = 32, smiling = false }) {
 function AILawyerBtn({ onPickChat }) {
   const tk = useTokens();
   const [hovered, setHovered] = useState(false);
-  // Menu item now contains text only — no icon box
-  const menuItem = (title, subtitle, onClick) => (
-    <button
-      onClick={(e) => {
-        e.stopPropagation();
-        setMenuOpen(false);
-        onClick();
-      }}
-      style={{
-        display: "flex",
-        alignItems: "center",
-        width: "100%",
-        padding: "0.75rem 0.9rem",
-        background: "transparent",
-        border: "none",
-        borderRadius: "10px",
-        cursor: "pointer",
-        textAlign: "left",
-        transition: "background 0.15s",
-      }}
-      onMouseEnter={(e) =>
-        (e.currentTarget.style.background = tk.goldLight)
-      }
-      onMouseLeave={(e) =>
-        (e.currentTarget.style.background = "transparent")
-      }
-    >
-      <div style={{ minWidth: 0 }}>
-        <div
-          style={{
-            fontFamily: "'DM Serif Display', Georgia, serif",
-            fontWeight: 700,
-            fontSize: "0.9rem",
-            color: tk.textPrimary,
-          }}
-        >
-          {title}
-        </div>
-
-        <div
-          style={{
-            fontFamily: "'Roboto Serif', Georgia, serif",
-            fontSize: "0.75rem",
-            color: tk.textMuted,
-            marginTop: "2px",
-          }}
-        >
-          {subtitle}
-        </div>
-      </div>
-    </button>
-  );
 
   return (
     <div
@@ -291,57 +239,27 @@ function AILawyerBtn({ onPickChat }) {
         zIndex: 9999,
       }}
     >
-      {/* Hover tooltip */}
       <div
         style={{
           position: "absolute",
           bottom: "calc(100% + 0.75rem)",
           right: 0,
-          background: tk.isDark
-            ? "rgba(22,20,18,0.97)"
-            : "rgba(255,254,252,0.97)",
+          background: tk.isDark ? "rgba(22,20,18,0.97)" : "rgba(255,254,252,0.97)",
           border: `1px solid ${tk.goldBorder}`,
           borderRadius: "12px",
           padding: "0.5rem 0.875rem",
-          boxShadow: tk.isDark
-            ? "0 8px 32px rgba(0,0,0,0.5)"
-            : "0 8px 24px rgba(0,0,0,0.12)",
+          boxShadow: tk.isDark ? "0 8px 32px rgba(0,0,0,0.5)" : "0 8px 24px rgba(0,0,0,0.12)",
           whiteSpace: "nowrap",
           fontFamily: "'Roboto Serif', Georgia, serif",
           fontSize: "0.8125rem",
           color: tk.textSecondary,
           pointerEvents: "none",
-          opacity: hovered && !menuOpen ? 1 : 0,
-          transform:
-            hovered && !menuOpen
-              ? "translateY(0)"
-              : "translateY(6px)",
+          opacity: hovered ? 1 : 0,
+          transform: hovered ? "translateY(0)" : "translateY(6px)",
           transition: "opacity 0.2s ease, transform 0.2s ease",
         }}
       >
-        Stuck?{" "}
-        <span style={{ color: tk.gold, fontWeight: 600 }}>
-          Juri
-        </span>{" "}
-        is here to help
-
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-5px",
-            right: "18px",
-            width: "10px",
-            height: "10px",
-            background: tk.isDark
-              ? "rgba(22,20,18,0.97)"
-              : "rgba(255,254,252,0.97)",
-            border: `1px solid ${tk.goldBorder}`,
-            borderTop: "none",
-            borderLeft: "none",
-            transform: "rotate(45deg)",
-            borderRadius: "0 0 2px 0",
-          }}
-        />
+        Stuck? <span style={{ color: tk.gold, fontWeight: 600 }}>Juri</span> is here to help
       </div>
 
       <button
@@ -357,42 +275,26 @@ function AILawyerBtn({ onPickChat }) {
           borderRadius: "50%",
           background: hovered
             ? `linear-gradient(135deg, ${tk.gold}, #a07830)`
-            : tk.isDark
-            ? "#fdf5e8"
-            : "#fff8ec",
+            : tk.isDark ? "#fdf5e8" : "#fff8ec",
           border: `2px solid ${hovered ? tk.gold : tk.goldBorder}`,
           overflow: "hidden",
           cursor: "pointer",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          boxShadow:
-            hovered || menuOpen
-              ? tk.isDark
-                ? "0 0 0 8px rgba(201,168,76,0.12), 0 12px 32px rgba(0,0,0,0.5)"
-                : "0 0 0 8px rgba(201,168,76,0.18), 0 12px 32px rgba(0,0,0,0.15)"
-              : tk.isDark
-              ? "0 4px 20px rgba(0,0,0,0.5)"
-              : "0 4px 20px rgba(0,0,0,0.12)",
+          boxShadow: hovered
+            ? (tk.isDark
+              ? "0 0 0 8px rgba(201,168,76,0.12), 0 12px 32px rgba(0,0,0,0.5)"
+              : "0 0 0 8px rgba(201,168,76,0.18), 0 12px 32px rgba(0,0,0,0.15)")
+            : tk.isDark
+            ? "0 4px 20px rgba(0,0,0,0.5)"
+            : "0 4px 20px rgba(0,0,0,0.12)",
           transform: hovered ? "scale(1.1)" : "scale(1)",
           transition: "all 0.25s cubic-bezier(.34,1.56,.64,1)",
           padding: 0,
-          color: menuOpen ? "#fff" : undefined,
         }}
       >
-        {menuOpen ? (
-          <span
-            style={{
-              fontSize: "1.4rem",
-              fontFamily: "'DM Serif Display', Georgia, serif",
-              fontWeight: 700,
-            }}
-          >
-            ✕
-          </span>
-        ) : (
-          <JuriFace size={68} smiling={hovered} />
-        )}
+        <JuriFace size={68} smiling={hovered} />
       </button>
     </div>
   );
@@ -521,6 +423,7 @@ function AnimatedRoutes() {
 }
 
 function SmartBookBtn({ onOpen }) {
+  const tk = useTokens();
   return (
     <>
       <style>{`
