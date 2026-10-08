@@ -3,24 +3,6 @@ import { useTokens } from "../App";
 import { useAuth } from "../context/AuthContext";
 import AuthPages from "./AuthPages";
 
-const FEATURES = [
-  {
-    title: "Instant Analysis",
-    desc: "Get a clear breakdown of your document without digging through every clause.",
-    className: "red",
-  },
-  {
-    title: "Multiple Languages",
-    desc: "Understand legal terms in familiar language, with support across multiple languages.",
-    className: "blue",
-  },
-  {
-    title: "Risk & Deadline Flags",
-    desc: "Spot risky clauses, important actions, and deadlines before they slip past you.",
-    className: "green",
-  },
-];
-
 export default function Home() {
   const tk = useTokens();
 
@@ -36,8 +18,35 @@ export default function Home() {
   };
 
   return (
-    <main style={{ position: "relative", minHeight: "100vh" }}>
+    <main style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
+      <img
+        className="home-illustration"
+        src="/legal-illustration.webp"
+        alt=""
+        aria-hidden="true"
+      />
       <style>{`
+        .home-illustration {
+          position: absolute;
+          left: -8px;
+          bottom: 18px;
+          width: 285px;
+          height: auto;
+          opacity: 0.20;
+          filter: saturate(0.88);
+          pointer-events: none;
+          user-select: none;
+          z-index: 0;
+        }
+        @media (max-width: 700px) {
+          .home-illustration {
+            width: 205px;
+            left: -18px;
+            bottom: 12px;
+            opacity: 0.14;
+          }
+        }
+
         textarea::placeholder { color: ${tk.textMuted}; }
         input::placeholder { color: ${tk.textMuted}; }
         @keyframes heroIn { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
@@ -85,10 +94,6 @@ export default function Home() {
         .hero-get-started:hover::before {
           width: 9em;
         }
-        .feat-card    { animation: heroIn .7s cubic-bezier(.22,1,.36,1) both; }
-        .feat-card:nth-child(1) { animation-delay: .52s; }
-        .feat-card:nth-child(2) { animation-delay: .60s; }
-        .feat-card:nth-child(3) { animation-delay: .68s; }
         .cards .card:hover {
   transform: scale(1.08);
 }
