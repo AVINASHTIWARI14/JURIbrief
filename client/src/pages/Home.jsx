@@ -113,37 +113,8 @@ export default function Home() {
           alt=""
           aria-hidden="true"
           style={{
-            width: "clamp(240px, 30vw, 420px)",
+            width: "clamp(300px, 38vw, 560px)",
             height: "auto",
-          }}
-        />
-      </div>
-
-      {/* Hero sticker — placed directly to the right of the centered hero copy */}
-      <div
-        className="hero-right-sticker"
-        style={{
-          position: "absolute",
-          left: "calc(50% + 330px)",
-          top: "50%",
-          transform: "translateY(-50%)",
-          width: "clamp(180px, 18vw, 240px)",
-          zIndex: 2,
-          pointerEvents: "none",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <img
-          src="/home-right-sticker.webp"
-          alt=""
-          aria-hidden="true"
-          style={{
-            display: "block",
-            width: "100%",
-            height: "auto",
-            objectFit: "contain",
           }}
         />
       </div>
