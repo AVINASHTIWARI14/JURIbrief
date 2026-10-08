@@ -46,7 +46,7 @@ export default function Home() {
           font-size: 1rem;
           font-weight: 600;
           letter-spacing: 0.025em;
-          color: #b8860b;
+          color: ${tk.gold};
           opacity: 0;
           transform: translateY(8px);
           animation: capabilityCycle 12s ease-in-out infinite;
@@ -59,7 +59,7 @@ export default function Home() {
           bottom: -0.35rem;
           width: 28px;
           height: 1px;
-          background: #b8860b;
+          background: ${tk.gold};
           transform: translateX(-50%);
           opacity: 0.45;
         }
@@ -71,7 +71,7 @@ export default function Home() {
           font-size: 1rem;
           font-weight: 600;
           letter-spacing: 0.025em;
-          color: #b8860b;
+          color: ${tk.gold};
           animation: capabilityText 12s ease-in-out infinite;
         }
 
