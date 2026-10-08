@@ -94,6 +94,21 @@ export default function Home() {
 }
       `}</style>
 
+      <img
+        src="/home-sticker.svg"
+        alt=""
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "0.5rem",
+          bottom: "0.75rem",
+          width: "clamp(170px, 22vw, 300px)",
+          height: "auto",
+          zIndex: 2,
+          pointerEvents: "none",
+        }}
+      />
+
       {/* ─── Hero Section ─────────────────────────────────────── */}
       <section
         style={{
