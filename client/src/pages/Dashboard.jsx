@@ -509,7 +509,16 @@ export default function Dashboard() {
         } catch {}
       } else { setError("Analysis failed — check if GEMINI_API_KEY is set on the server."); }
     } catch (err) {
-      setError(err.response?.data?.error || "Server error. Make sure the backend is running.");
+      const status = err.response?.status;
+      const serverMessage = err.response?.data?.error;
+      if (status === 429) {
+        const quotaMessage = "We've reached the daily AI usage limit. Your quota is expected to refresh within 24 hours. Please try again later.";
+        setError(/daily|quota|resource_exhausted|requests per day/i.test(serverMessage || "")
+          ? quotaMessage
+          : "The AI service is receiving too many requests right now. Please wait a minute and try again.");
+      } else {
+        setError(serverMessage || "We couldn't connect to the document service. Please try again shortly.");
+      }
     } finally {
       setLoading(false); setStage(null); setUploadProgress(0);
     }
