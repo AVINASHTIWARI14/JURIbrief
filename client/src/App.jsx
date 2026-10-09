@@ -38,7 +38,7 @@ function PageWrapper({ children }) {
 // ── Breathe keyframes injected once ─────────────────────────────
 function DotBackground() {
   return (
-    <style>{`@keyframes breathe { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }`}</style>
+    <style>{`@keyframes breathe { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }`}</style>
   );
 }
 
@@ -612,12 +612,7 @@ function AppShell() {
     <div
       style={{
         position: "relative",
-        background:
-          theme === "dark"
-            ? "linear-gradient(-45deg, #0a0a0a, #171103, #302300, #0a0a0a, #1c1500)"
-            : "linear-gradient(-45deg, #e5e1d8, #c9b995, #e0d0ae, #e5e1d8, #c7b58f)",
-        backgroundSize: "400% 400%",
-        animation: "breathe 12s ease infinite",
+        background: "transparent",
         color: tokens.textPrimary,
         minHeight: "100vh",
         display: "flex",
@@ -626,6 +621,22 @@ function AppShell() {
       }}
     >
       <DotBackground />
+      <div
+        aria-hidden="true"
+        className="juri-persistent-background"
+        style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: "none",
+          background: theme === "dark"
+            ? "linear-gradient(-45deg, #0a0a0a, #171103, #302300, #0a0a0a, #1c1500)"
+            : "linear-gradient(-45deg, #e5e1d8, #c9b995, #e0d0ae, #e5e1d8, #c7b58f)",
+          backgroundSize: "400% 400%",
+          animation: "breathe 28s linear infinite",
+          willChange: "background-position",
+        }}
+      />
 
       <div
         style={{
