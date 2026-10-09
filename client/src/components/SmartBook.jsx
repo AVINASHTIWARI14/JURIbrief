@@ -131,7 +131,7 @@ export default function SmartBook({ onClose }) {
     <div style={{ position: "fixed", inset: 0, zIndex: 10000, display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(0.75rem, 3vw, 2rem)" }}>
       <div onClick={onClose} style={{ position: "absolute", inset: 0, background: tk.isDark ? "rgba(0,0,0,0.66)" : "rgba(0,0,0,0.42)", backdropFilter: "blur(5px)", animation: "fadeOverlay 0.25s ease" }} />
       <div style={{
-        position: "relative", width: "100%", maxWidth: "920px", height: "min(82vh, 820px)", minHeight: "min(520px, calc(100dvh - 1.5rem)",
+        position: "relative", width: "100%", maxWidth: "920px", height: "min(82vh, 820px)", minHeight: "min(520px, calc(100dvh - 1.5rem))",
         background: tk.isDark ? "rgba(18,16,14,0.99)" : "rgba(253,251,248,0.99)",
         border: `1px solid ${tk.goldBorder}`,
         borderRadius: "24px",
