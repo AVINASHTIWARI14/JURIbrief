@@ -226,9 +226,16 @@ function JuriFace({ size = 32, smiling = false }) {
   );
 }
 
-function AILawyerBtn({ onPickChat }) {
+function AILawyerBtn({ onPickChat, onPickRights }) {
   const tk = useTokens();
   const [hovered, setHovered] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const pick = (action) => {
+    setMenuOpen(false);
+    if (action === "chat") onPickChat();
+    if (action === "rights") onPickRights();
+  };
 
   return (
     <div
@@ -239,6 +246,56 @@ function AILawyerBtn({ onPickChat }) {
         zIndex: 9999,
       }}
     >
+      {menuOpen && (
+        <div
+          style={{
+            position: "absolute",
+            right: 0,
+            bottom: "calc(100% + 0.85rem)",
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.65rem",
+            width: "190px",
+            animation: "juriOptionsIn 0.22s cubic-bezier(.22,1,.36,1)",
+          }}
+        >
+          <style>{`@keyframes juriOptionsIn { from { opacity: 0; transform: translateY(8px) scale(.97) } to { opacity: 1; transform: none } }`}</style>
+          {[
+            { id: "chat", title: "Chat", subtitle: "Talk to Juri", icon: "✦" },
+            { id: "rights", title: "Your Rights", subtitle: "Explore legal rights", icon: "⚖" },
+          ].map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={(e) => { e.stopPropagation(); pick(item.id); }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.75rem",
+                width: "100%",
+                padding: "0.85rem 0.9rem",
+                borderRadius: "15px",
+                border: `1px solid ${tk.goldBorder}`,
+                background: tk.isDark ? "rgba(22,20,18,0.98)" : "rgba(255,254,252,0.98)",
+                color: tk.textPrimary,
+                boxShadow: tk.isDark ? "0 10px 30px rgba(0,0,0,.45)" : "0 10px 28px rgba(0,0,0,.13)",
+                textAlign: "left",
+                cursor: "pointer",
+                transition: "transform .18s ease, border-color .18s ease",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.borderColor = tk.gold; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.borderColor = tk.goldBorder; }}
+            >
+              <span style={{ width: "38px", height: "38px", flexShrink: 0, borderRadius: "12px", display: "grid", placeItems: "center", background: tk.goldLight, color: tk.gold, fontSize: "1.15rem" }}>{item.icon}</span>
+              <span style={{ display: "flex", flexDirection: "column", gap: "0.15rem" }}>
+                <span style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "0.98rem", fontWeight: 700 }}>{item.title}</span>
+                <span style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.7rem", color: tk.textMuted }}>{item.subtitle}</span>
+              </span>
+            </button>
+          ))}
+        </div>
+      )}
+
       <div
         style={{
           position: "absolute",
@@ -254,8 +311,8 @@ function AILawyerBtn({ onPickChat }) {
           fontSize: "0.8125rem",
           color: tk.textSecondary,
           pointerEvents: "none",
-          opacity: hovered ? 1 : 0,
-          transform: hovered ? "translateY(0)" : "translateY(6px)",
+          opacity: hovered || menuOpen ? 1 : 0,
+          transform: hovered || menuOpen ? "translateY(0)" : "translateY(6px)",
           transition: "opacity 0.2s ease, transform 0.2s ease",
         }}
       >
@@ -265,36 +322,38 @@ function AILawyerBtn({ onPickChat }) {
       <button
         onClick={(e) => {
           e.stopPropagation();
-          onPickChat();
+          setMenuOpen((open) => !open);
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        aria-label="Open Juri options"
+        aria-expanded={menuOpen}
         style={{
           width: "68px",
           height: "68px",
           borderRadius: "50%",
-          background: hovered
+          background: hovered || menuOpen
             ? `linear-gradient(135deg, ${tk.gold}, #a07830)`
             : tk.isDark ? "#fdf5e8" : "#fff8ec",
-          border: `2px solid ${hovered ? tk.gold : tk.goldBorder}`,
+          border: `2px solid ${hovered || menuOpen ? tk.gold : tk.goldBorder}`,
           overflow: "hidden",
           cursor: "pointer",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          boxShadow: hovered
+          boxShadow: hovered || menuOpen
             ? (tk.isDark
               ? "0 0 0 8px rgba(201,168,76,0.12), 0 12px 32px rgba(0,0,0,0.5)"
               : "0 0 0 8px rgba(201,168,76,0.18), 0 12px 32px rgba(0,0,0,0.15)")
             : tk.isDark
             ? "0 4px 20px rgba(0,0,0,0.5)"
             : "0 4px 20px rgba(0,0,0,0.12)",
-          transform: hovered ? "scale(1.1)" : "scale(1)",
+          transform: hovered || menuOpen ? "scale(1.1)" : "scale(1)",
           transition: "all 0.25s cubic-bezier(.34,1.56,.64,1)",
           padding: 0,
         }}
       >
-        <JuriFace size={68} smiling={hovered} />
+        <JuriFace size={68} smiling={hovered || menuOpen} />
       </button>
     </div>
   );
@@ -539,10 +598,11 @@ function AppShell() {
       </div>
 
       <AILawyerBtn
-        onPickChat={() => setChatOpen(true)}
+        onPickChat={() => { setBookOpen(false); setChatOpen(true); }}
+        onPickRights={() => { setChatOpen(false); setBookOpen(true); }}
       />
 
-      {/* Your Rights button temporarily hidden; rights guide logic retained. */}
+      {/* Your Rights is now available from the Juri button menu. */}
 
       {chatOpen && (
         <JuriChat
