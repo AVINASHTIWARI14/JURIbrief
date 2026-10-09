@@ -542,9 +542,7 @@ function AppShell() {
         onPickChat={() => setChatOpen(true)}
       />
 
-      {showSmartBook && (
-        {/* Your Rights button temporarily hidden; rights guide logic retained. */}
-      )}
+      {/* Your Rights button temporarily hidden; rights guide logic retained. */}
 
       {chatOpen && (
         <JuriChat
