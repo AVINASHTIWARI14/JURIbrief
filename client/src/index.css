@@ -21,3 +21,20 @@ body {
 * {
   box-sizing: border-box;
 }
+
+
+/* Global soft-card and button treatment */
+:where(button, [role="button"], [class*="card"], [class*="Card"], [class*="btn"], [class*="Btn"], [class*="button"], [class*="Button"]) {
+  outline: none !important;
+  border-color: transparent !important;
+  border-radius: 16px !important;
+}
+
+:where(button, [role="button"], [class*="btn"], [class*="Btn"], [class*="button"], [class*="Button"]) {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(button, [role="button"], [class*="card"], [class*="Card"], [class*="btn"], [class*="Btn"], [class*="button"], [class*="Button"]):focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(100, 145, 190, 0.18) !important;
+}
