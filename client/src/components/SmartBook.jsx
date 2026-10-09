@@ -128,24 +128,25 @@ export default function SmartBook({ onClose }) {
 
   const analysis = context?.analysis;
   return (
-    <div style={{ position: "fixed", inset: 0, zIndex: 10000, display: "flex", alignItems: "stretch", justifyContent: "flex-start" }}>
-      <div onClick={onClose} style={{ position: "absolute", inset: 0, background: tk.isDark ? "rgba(0,0,0,0.5)" : "rgba(0,0,0,0.3)", animation: "fadeOverlay 0.25s ease" }} />
+    <div style={{ position: "fixed", inset: 0, zIndex: 10000, display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(0.75rem, 3vw, 2rem)" }}>
+      <div onClick={onClose} style={{ position: "absolute", inset: 0, background: tk.isDark ? "rgba(0,0,0,0.66)" : "rgba(0,0,0,0.42)", backdropFilter: "blur(5px)", animation: "fadeOverlay 0.25s ease" }} />
       <div style={{
-        position: "relative", width: "100%", maxWidth: "480px", height: "100%",
-        background: tk.isDark ? "rgba(18,16,14,0.98)" : "rgba(253,251,248,0.98)",
-        borderRight: `1px solid ${tk.goldBorder}`,
-        display: "flex", flexDirection: "column",
-        boxShadow: tk.isDark ? "4px 0 40px rgba(0,0,0,0.5)" : "4px 0 30px rgba(0,0,0,0.12)",
-        animation: "slideInLeft 0.35s cubic-bezier(.22,1,.36,1)",
+        position: "relative", width: "100%", maxWidth: "920px", height: "min(82vh, 820px)", minHeight: "min(520px, calc(100dvh - 1.5rem)",
+        background: tk.isDark ? "rgba(18,16,14,0.99)" : "rgba(253,251,248,0.99)",
+        border: `1px solid ${tk.goldBorder}`,
+        borderRadius: "24px",
+        display: "flex", flexDirection: "column", overflow: "hidden",
+        boxShadow: tk.isDark ? "0 30px 90px rgba(0,0,0,0.65)" : "0 30px 80px rgba(0,0,0,0.2)",
+        animation: "rightsModalIn 0.32s cubic-bezier(.22,1,.36,1)",
       }}>
         <style>{`
           @keyframes fadeOverlay { from { opacity: 0 } to { opacity: 1 } }
-          @keyframes slideInLeft { from { transform: translateX(-20px); opacity: 0 } to { transform: none; opacity: 1 } }
+          @keyframes rightsModalIn { from { transform: translateY(14px) scale(.975); opacity: 0 } to { transform: none; opacity: 1 } }
           @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
         `}</style>
 
         {/* Header */}
-        <div style={{ padding: "1.25rem 1.5rem", borderBottom: `1px solid ${tk.surfaceBorder}`, display: "flex", alignItems: "center", gap: "0.75rem" }}>
+        <div style={{ padding: "1.25rem 1.5rem", borderBottom: `1px solid ${tk.surfaceBorder}`, display: "flex", alignItems: "center", gap: "0.75rem", flexShrink: 0 }}>
           <div style={{ flex: 1 }}>
             <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 700, fontSize: "1.05rem", color: tk.textPrimary }}>Know Your Rights</div>
             <div style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.75rem", color: tk.textMuted, fontStyle: "italic" }}>
