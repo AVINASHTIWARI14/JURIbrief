@@ -98,6 +98,11 @@ function DashboardIllustration({ type, size = 42 }) {
   if (type === "moderate") return <svg {...common}><circle cx="50" cy="50" r="48" fill="#FFE91D"/><path d="M47 22Q47 17 52 17T57 22L54 62Q53 67 50 67T46 62Z" fill="#fff"/><circle cx="50" cy="79" r="6" fill="#fff"/></svg>;
   if (type === "pin") return <svg {...common}><circle cx="50" cy="50" r="48" fill="#FFC72C"/><g transform="rotate(42 50 50)"><path d="M43 20H57V47L50 57 43 47Z" fill="#F04467"/><rect x="36" y="25" width="28" height="15" rx="6" fill="#E92E59"/><path d="M47 54H53V81L50 88 47 81Z" fill="#78818B"/></g></svg>;
   if (type === "summary") return <svg {...common}><path d="M25 12H72L88 28V87H25Z" fill="#FFB21C"/><path d="M72 12V29H88" fill="#FF8A1E"/><rect x="8" y="28" width="43" height="45" rx="9" fill="#505568"/><path d="M29 40 33 48 41 49 35 55 36 63 29 59 22 63 23 55 17 49 25 48Z" fill="#FFD62E"/><path d="M58 42H77M58 52H77M58 62H77" stroke="#FFE7A3" strokeWidth="4" strokeLinecap="round"/></svg>;
+  if (type === "criticalRisk") return <svg {...common}><path d="M50 5C34 15 38 28 27 39 10 56 14 79 31 91H69C88 79 90 55 76 40 70 34 68 21 63 13 60 26 55 31 50 35 54 22 53 14 50 5Z" fill="#FF5A5F"/><circle cx="50" cy="58" r="27" fill="#FF2028"/><path d="M44 40Q44 34 50 34T56 40L53 62Q52 66 50 66T47 62Z" fill="#fff"/><circle cx="50" cy="75" r="4" fill="#fff"/></svg>;
+  if (type === "moderateRisk") return <svg {...common}><circle cx="50" cy="50" r="48" fill="#FFC72C"/><g transform="rotate(42 50 50)"><path d="M43 20H57V47L50 57 43 47Z" fill="#F04467"/><rect x="36" y="25" width="28" height="15" rx="6" fill="#E92E59"/><path d="M47 54H53V81L50 88 47 81Z" fill="#78818B"/></g></svg>;
+  if (type === "deadlineHuman") return <svg {...common}><rect x="4" y="3" width="92" height="34" rx="8" fill="#FF5577"/><rect x="4" y="3" width="92" height="29" rx="8" fill="#FF6381"/><text x="50" y="25" fontSize="13" fontWeight="800" textAnchor="middle" fill="#fff" fontFamily="Arial,sans-serif">DEADLINE</text><path d="M20 37H80L73 45H27Z" fill="#F6B77A"/><path d="M34 39H66L59 63 70 95H61L50 69 39 95H30L41 63Z" fill="#39BCE5"/><circle cx="50" cy="42" r="7" fill="#FFC080"/><path d="M37 45H63L59 61H41Z" fill="#BDEBFA"/></svg>;
+  if (type === "deadlineFire") return <svg {...common}><path d="M51 5C40 20 50 27 35 39 20 51 26 68 33 73H70C86 61 75 48 71 37 66 45 61 48 59 51 63 33 56 17 51 5Z" fill="#FFC443"/><rect x="5" y="65" width="90" height="30" rx="7" fill="#FF713D"/><rect x="5" y="65" width="90" height="23" rx="7" fill="#FF7B42"/><text x="50" y="84" fontSize="11" fontWeight="800" textAnchor="middle" fill="#fff" fontFamily="Arial,sans-serif">DEADLINE</text></svg>;
+  if (type === "deadlineClock") return <svg {...common}><path d="M51 4C38 18 47 28 32 40 17 54 24 75 38 88H66C82 74 80 54 68 40 62 33 61 20 58 13 56 24 52 29 48 32 52 19 52 11 51 4Z" fill="#FF565C"/><circle cx="52" cy="60" r="29" fill="#FFC83D"/><circle cx="52" cy="60" r="23" fill="#F5FAFF"/><circle cx="52" cy="60" r="2.8" fill="#4B5965"/><path d="M52 43V60H65" stroke="#4B5965" strokeWidth="4" strokeLinecap="round" fill="none"/><g stroke="#4B5965" strokeWidth="2.5" strokeLinecap="round"><path d="M52 40V44M52 76V80M32 60H36M68 60H72M38 46L41 49M63 71L66 74M66 46L63 49M41 71L38 74"/></g></svg>;
   if (type === "handshake") return <svg {...common}><rect x="12" y="14" width="35" height="25" rx="6" fill="#FFD62E"/><path d="M19 24H40M19 30H35" stroke="#8C9A77" strokeWidth="3" strokeLinecap="round"/><rect x="53" y="17" width="34" height="25" rx="6" fill="#32C987"/><path d="M60 27H80M60 33H75" stroke="#DFFFF0" strokeWidth="3" strokeLinecap="round"/><path d="M15 52 31 42 47 49 57 43 82 57 65 78 49 67 38 78Z" fill="#F8B99D"/><path d="M9 49 27 41 38 55 24 73Z" fill="#2588F5"/><path d="M91 49 73 41 62 55 76 73Z" fill="#2588F5"/><path d="M33 53 50 64 61 55" fill="none" stroke="#E69C80" strokeWidth="5" strokeLinecap="round"/></svg>;
   return null;
 }
@@ -149,19 +154,19 @@ function AnalysisResult({ analysis, tk }) {
       </div>
       {analysis.criticalThreats?.length > 0 && (
         <div style={cardStyle}>
-          {sectionTitle("🔴", `Critical Risks (${analysis.criticalThreats.length})`)}
+          {sectionTitle(<DashboardIllustration type="criticalRisk" size={38} />, `Critical Risks (${analysis.criticalThreats.length})`)}
           {analysis.criticalThreats.map((t, i) => <ThreatCard key={i} threat={t} level="critical" tk={tk} />)}
         </div>
       )}
       {analysis.moderateThreats?.length > 0 && (
         <div style={cardStyle}>
-          {sectionTitle("🟡", `Moderate Risks (${analysis.moderateThreats.length})`)}
+          {sectionTitle(<DashboardIllustration type="moderateRisk" size={38} />, `Moderate Risks (${analysis.moderateThreats.length})`)}
           {analysis.moderateThreats.map((t, i) => <ThreatCard key={i} threat={t} level="moderate" tk={tk} />)}
         </div>
       )}
       {analysis.deadlines?.length > 0 && (
         <div style={cardStyle}>
-          {sectionTitle("📅", `Deadlines & Dates (${analysis.deadlines.length})`)}
+          {sectionTitle(<DashboardIllustration type="deadlineHuman" size={46} />, `Deadlines & Dates (${analysis.deadlines.length})`)}
           <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
             {analysis.deadlines.map((d, i) => {
               const urgColor = d.urgency === "high" ? "#DC2626" : d.urgency === "medium" ? "#D97706" : "#10b981";
@@ -169,7 +174,7 @@ function AnalysisResult({ analysis, tk }) {
               return (
                 <div key={i} style={{ display: "flex", gap: "0.85rem", padding: "0.85rem 1rem", borderRadius: "10px", background: urgBg, border: `1px solid ${urgColor}33`, borderLeft: `4px solid ${urgColor}` }}>
                   <div style={{ flexShrink: 0, width: "56px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", borderRight: `1px solid ${urgColor}22`, paddingRight: "0.75rem" }}>
-                    <span style={{ fontSize: "1.3rem" }}>{d.urgency === "high" ? "⏰" : d.urgency === "medium" ? "📌" : "🗓️"}</span>
+                    <span style={{ fontSize: "1.3rem" }}>{<DashboardIllustration type={d.urgency === "high" ? "deadlineFire" : "deadlineClock"} size={36} />}</span>
                     <span style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.62rem", fontWeight: 700, color: urgColor, letterSpacing: "0.08em", marginTop: "2px", textTransform: "uppercase" }}>{d.urgency || "info"}</span>
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
