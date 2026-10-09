@@ -129,24 +129,24 @@ export default function About() {
           box-sizing: border-box;
           width: 190px;
           height: 254px;
-          background: #f4f0e6;
-          border: 1px solid white;
+          background: ${tk.isDark ? "#171717" : "#ffffff"};
+          border: 1px solid ${tk.isDark ? "#292929" : "#ffffff"};
           box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
           backdrop-filter: blur(6px);
           border-radius: 17px;
           text-align: center;
           cursor: pointer;
-          transition: all 0.5s;
+          transition: background-color 0.35s ease, border-color 0.35s ease, transform 0.5s, box-shadow 0.5s;
           display: flex;
           align-items: center;
           justify-content: center;
           user-select: none;
-          color: black;
+          color: ${tk.isDark ? "#ffffff" : "#000000"};
           padding: 1.25rem;
         }
 
         .feature-card-wrap:hover {
-          border: 1px solid black;
+          border-color: ${tk.isDark ? "#3a3a3a" : "#e8e8e8"};
           transform: scale(1.08);
         }
 
@@ -194,7 +194,7 @@ export default function About() {
           font-size: 1.35rem;
           line-height: 1.15;
           font-weight: 700;
-          color: #111111;
+          color: ${tk.isDark ? '#ffffff' : '#000000'};
         }
 
         .feature-card-info p {
@@ -202,7 +202,7 @@ export default function About() {
           font-family: "'Roboto Serif', Georgia, serif";
           font-size: 0.92rem;
           line-height: 1.5;
-          color: #333333;
+          color: ${tk.isDark ? '#e5e5e5' : '#222222'};
           font-weight: 500;
         }
 
