@@ -543,7 +543,7 @@ function AppShell() {
       />
 
       {showSmartBook && (
-        <SmartBookBtn onOpen={() => setBookOpen(true)} />
+        {/* Your Rights button temporarily hidden; rights guide logic retained. */}
       )}
 
       {chatOpen && (
