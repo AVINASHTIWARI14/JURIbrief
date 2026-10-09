@@ -261,8 +261,8 @@ function AILawyerBtn({ onPickChat, onPickRights }) {
         >
           <style>{`@keyframes juriOptionsIn { from { opacity: 0; transform: translateY(8px) scale(.97) } to { opacity: 1; transform: none } }`}</style>
           {[
-            { id: "chat", title: "Chat", subtitle: "Talk to Juri", icon: "✦" },
-            { id: "rights", title: "Your Rights", subtitle: "Explore legal rights", icon: "⚖" },
+            { id: "chat", title: "Chat", subtitle: "Talk to Juri", icon: "ai" },
+            { id: "rights", title: "Your Rights", subtitle: "Explore legal rights", icon: "rights" },
           ].map((item) => (
             <button
               key={item.id}
@@ -286,7 +286,26 @@ function AILawyerBtn({ onPickChat, onPickRights }) {
               onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.borderColor = tk.gold; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.borderColor = tk.goldBorder; }}
             >
-              <span style={{ width: "38px", height: "38px", flexShrink: 0, borderRadius: "12px", display: "grid", placeItems: "center", background: tk.goldLight, color: tk.gold, fontSize: "1.15rem" }}>{item.icon}</span>
+              <span style={{ width: "42px", height: "42px", flexShrink: 0, borderRadius: "12px", display: "grid", placeItems: "center", background: "transparent", color: tk.gold }}>
+                {item.icon === "ai" ? (
+                  <svg width="42" height="42" viewBox="0 0 512 512" fill="none" aria-hidden="true">
+                    <defs><linearGradient id="juriAiGradient" x1="80" y1="40" x2="400" y2="490" gradientUnits="userSpaceOnUse"><stop stopColor="#579CF5"/><stop offset=".48" stopColor="#6B35F4"/><stop offset="1" stopColor="#8D08A7"/></linearGradient></defs>
+                    <path d="M200 112 L246 245 L379 292 L246 339 L200 472 L153 339 L20 292 L153 245 Z" stroke="url(#juriAiGradient)" strokeWidth="34" strokeLinejoin="round" strokeLinecap="round"/>
+                    <path d="M392 18 L418 91 L491 117 L418 143 L392 216 L366 143 L293 117 L366 91 Z" stroke="url(#juriAiGradient)" strokeWidth="28" strokeLinejoin="round" strokeLinecap="round"/>
+                    <path d="M80 90 V146 M52 118 H108" stroke="url(#juriAiGradient)" strokeWidth="28" strokeLinecap="round"/>
+                  </svg>
+                ) : (
+                  <svg width="42" height="42" viewBox="0 0 512 512" aria-hidden="true">
+                    <path d="M104 498V281c-20-2-38-19-38-42v-43c0-17 13-31 30-31s31 14 31 31v-54c0-18 14-32 32-32s32 14 32 32v-48c0-18 14-32 32-32s32 14 32 32v-27c0-18 14-32 32-32s32 14 32 32v109h34c28 0 46 22 46 49v80c0 29-11 53-32 74l-33 33v86Z" fill="#E98B2F"/>
+                    <path d="M104 498V281c-20-2-38-19-38-42v-43c0-17 13-31 30-31s31 14 31 31v-54c0-18 14-32 32-32s32 14 32 32v-48c0-18 14-32 32-32s32 14 32 32v-27c0-18 14-32 32-32s32 14 32 32v109h34c28 0 46 22 46 49v80c0 29-11 53-32 74l-33 33v86Z" fill="#E98B2F"/>
+                    <path d="M104 498V281c-20-2-38-19-38-42v-43c0-17 13-31 30-31s31 14 31 31v-54c0-18 14-32 32-32s32 14 32 32v-48c0-18 14-32 32-32s32 14 32 32v-27c0-18 14-32 32-32s32 14 32 32v109h34c28 0 46 22 46 49v80c0 29-11 53-32 74l-33 33v86Z" fill="#E98B2F"/>
+                    <path d="M104 498V281c-20-2-38-19-38-42v-43c0-17 13-31 30-31s31 14 31 31v-54c0-18 14-32 32-32s32 14 32 32v-48c0-18 14-32 32-32s32 14 32 32v-27c0-18 14-32 32-32s32 14 32 32v109h34c28 0 46 22 46 49v80c0 29-11 53-32 74l-33 33v86Z" fill="#E98B2F"/>
+                    <path d="M104 498V281c-20-2-38-19-38-42v-43c0-17 13-31 30-31s31 14 31 31v-54c0-18 14-32 32-32s32 14 32 32v-48c0-18 14-32 32-32s32 14 32 32v-27c0-18 14-32 32-32s32 14 32 32v109h34c28 0 46 22 46 49v80c0 29-11 53-32 74l-33 33v86Z" fill="#E98B2F"/>
+                    <path d="M274 498V281c-20-2-38-19-38-42v-43c0-17 13-31 30-31s31 14 31 31v-54c0-18 14-32 32-32s32 14 32 32v-48c0-18 14-32 32-32s32 14 32 32v-27c0-18 14-32 32-32s32 14 32 32v109h15c24 0 38 20 38 45v88c0 29-11 53-32 74l-33 33v82Z" fill="#934A0A" transform="translate(-10 0) scale(.9)"/>
+                    <path d="M156 310q12-32 42-42" fill="none" stroke="#C96C1E" strokeWidth="20" strokeLinecap="round"/>
+                  </svg>
+                )}
+              </span>
               <span style={{ display: "flex", flexDirection: "column", gap: "0.15rem" }}>
                 <span style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "0.98rem", fontWeight: 700 }}>{item.title}</span>
                 <span style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.7rem", color: tk.textMuted }}>{item.subtitle}</span>
