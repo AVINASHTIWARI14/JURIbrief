@@ -234,18 +234,6 @@ export default function Admin() {
         }}
       >
         <div>
-          <p
-            style={{
-              fontFamily: "'Roboto Serif', Georgia, serif",
-              color: tk.gold,
-              letterSpacing: "0.14em",
-              fontSize: "0.8rem",
-              margin: "0 0 0.4rem",
-              textTransform: "uppercase",
-            }}
-          >
-            JURIbrief
-          </p>
           <h1
             style={{
               fontFamily: "'DM Serif Display', Georgia, serif",
@@ -256,7 +244,7 @@ export default function Admin() {
             Admin Dashboard
           </h1>
           <p style={{ ...muted, margin: 0 }}>
-            Review waitlist entries, approve platform access, and track registered members.
+            Track registered members, review user messages, and manage platform access.
           </p>
         </div>
         <div
