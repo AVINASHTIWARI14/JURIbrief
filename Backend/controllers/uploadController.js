@@ -154,7 +154,7 @@ ${documentText.substring(0, 8000)}`;
     );
   if (lastStatus === 429 && isDailyQuota) {
     const err = new Error(
-      "Daily AI quota exhausted. Please try again tomorrow or enable billing."
+      "We've reached the daily AI usage limit. Your quota is expected to refresh within 24 hours. Please try again later, or contact the site administrator if you need immediate access."
     );
     err.status = 429;
     throw err;
