@@ -41,7 +41,7 @@ JURIbrief helps make complex legal documents easier to understand. Upload a docu
   <img src="screenshots/home.png" alt="JURIbrief home page" width="90%">
 </p>
 
-### Authentication
+### Admin Dashboard
 <p align="center">
   <img src="screenshots/authentication.png" alt="JURIbrief authentication page" width="90%">
 </p>
