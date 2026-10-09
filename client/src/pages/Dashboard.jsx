@@ -91,10 +91,23 @@ function CircularGauge({ score, tk }) {
   );
 }
 
+function DashboardIllustration({ type, size = 42 }) {
+  const common = { width: size, height: size, viewBox: "0 0 100 100", role: "img", "aria-hidden": true };
+  if (type === "risk") return <svg {...common}><path d="M50 7 94 83Q98 92 87 92H13Q2 92 6 83L44 7Q50-2 56 7Z" fill="#FFD34E"/><path d="M47 30Q47 25 52 25T57 30L54 61Q53 66 50 66T46 61Z" fill="#5D6B73"/><circle cx="50" cy="78" r="5" fill="#5D6B73"/></svg>;
+  if (type === "critical") return <svg {...common}><circle cx="50" cy="50" r="48" fill="#FF2028"/><path d="M43 22Q43 15 50 15T57 22L54 62Q53 67 50 67T46 62Z" fill="#fff"/><circle cx="50" cy="79" r="6" fill="#fff"/></svg>;
+  if (type === "moderate") return <svg {...common}><circle cx="50" cy="50" r="48" fill="#FFE91D"/><path d="M47 22Q47 17 52 17T57 22L54 62Q53 67 50 67T46 62Z" fill="#fff"/><circle cx="50" cy="79" r="6" fill="#fff"/></svg>;
+  if (type === "pin") return <svg {...common}><circle cx="50" cy="50" r="48" fill="#FFC72C"/><g transform="rotate(42 50 50)"><path d="M43 20H57V47L50 57 43 47Z" fill="#F04467"/><rect x="36" y="25" width="28" height="15" rx="6" fill="#E92E59"/><path d="M47 54H53V81L50 88 47 81Z" fill="#78818B"/></g></svg>;
+  if (type === "summary") return <svg {...common}><path d="M25 12H72L88 28V87H25Z" fill="#FFB21C"/><path d="M72 12V29H88" fill="#FF8A1E"/><rect x="8" y="28" width="43" height="45" rx="9" fill="#505568"/><path d="M29 40 33 48 41 49 35 55 36 63 29 59 22 63 23 55 17 49 25 48Z" fill="#FFD62E"/><path d="M58 42H77M58 52H77M58 62H77" stroke="#FFE7A3" strokeWidth="4" strokeLinecap="round"/></svg>;
+  if (type === "handshake") return <svg {...common}><rect x="12" y="14" width="35" height="25" rx="6" fill="#FFD62E"/><path d="M19 24H40M19 30H35" stroke="#8C9A77" strokeWidth="3" strokeLinecap="round"/><rect x="53" y="17" width="34" height="25" rx="6" fill="#32C987"/><path d="M60 27H80M60 33H75" stroke="#DFFFF0" strokeWidth="3" strokeLinecap="round"/><path d="M15 52 31 42 47 49 57 43 82 57 65 78 49 67 38 78Z" fill="#F8B99D"/><path d="M9 49 27 41 38 55 24 73Z" fill="#2588F5"/><path d="M91 49 73 41 62 55 76 73Z" fill="#2588F5"/><path d="M33 53 50 64 61 55" fill="none" stroke="#E69C80" strokeWidth="5" strokeLinecap="round"/></svg>;
+  return null;
+}
+
 function StatCard({ icon, label, value, tk, accent }) {
   return (
-    <div style={{ background: tk.surface, border: `1px solid ${tk.surfaceBorder}`, borderRadius: "12px", padding: "0.85rem 1rem", display: "flex", alignItems: "center", gap: "0.75rem" }}>
-      <div style={{ width: "36px", height: "36px", borderRadius: "9px", background: tk.goldLight, border: `1px solid ${tk.goldBorder}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.05rem", flexShrink: 0 }}>{icon}</div>
+    <div style={{ background: "transparent", border: "none", borderRadius: 0, padding: "0.85rem 1rem", display: "flex", alignItems: "center", gap: "0.85rem", minWidth: 0 }}>
+      <div style={{ width: "48px", height: "48px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+        <DashboardIllustration type={icon} size={46} />
+      </div>
       <div style={{ minWidth: 0, flex: 1 }}>
         <div style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.7rem", color: tk.textMuted, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</div>
         <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "0.95rem", fontWeight: 700, color: accent || tk.textPrimary, marginTop: "2px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{value}</div>
@@ -120,13 +133,13 @@ function AnalysisResult({ analysis, tk }) {
     <div style={{ animation: "fadeIn 0.5s ease" }}>
       {/* Stats row */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "0.75rem", marginBottom: "1.5rem" }}>
-        <StatCard icon="⚠️" label="Risk Level" value={riskLabel} accent={riskColor} tk={tk}/>
-        <StatCard icon="🔴" label="Critical" value={critCount} accent={critCount > 0 ? "#DC2626" : tk.textPrimary} tk={tk}/>
-        <StatCard icon="🟡" label="Moderate" value={modCount} accent={modCount > 0 ? "#D97706" : tk.textPrimary} tk={tk}/>
-        <StatCard icon="📌" label="Key Points" value={analysis.keyPoints?.length || 0} tk={tk}/>
+        <StatCard icon="risk" label="Risk Level" value={riskLabel} accent={riskColor} tk={tk}/>
+        <StatCard icon="critical" label="Critical" value={critCount} accent={critCount > 0 ? "#DC2626" : tk.textPrimary} tk={tk}/>
+        <StatCard icon="moderate" label="Moderate" value={modCount} accent={modCount > 0 ? "#D97706" : tk.textPrimary} tk={tk}/>
+        <StatCard icon="pin" label="Key Points" value={analysis.keyPoints?.length || 0} tk={tk}/>
       </div>
       <div style={cardStyle}>
-        {sectionTitle("📋", "Document Summary")}
+        {sectionTitle(<DashboardIllustration type="summary" size={30} />, "Document Summary")}
         <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "0.95rem", color: tk.textPrimary, lineHeight: 1.7, margin: "0 0 1rem" }}>{analysis.summary}</p>
         {analysis.keyPoints?.length > 0 && (
           <ul style={{ margin: 0, paddingLeft: "1.25rem" }}>
@@ -174,7 +187,7 @@ function AnalysisResult({ analysis, tk }) {
       )}
       {analysis.negotiationTips?.length > 0 && (
         <div style={cardStyle}>
-          {sectionTitle("🤝", "Negotiation Tips")}
+          {sectionTitle(<DashboardIllustration type="handshake" size={32} />, "Negotiation Tips")}
           <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
             {analysis.negotiationTips.map((tip, i) => (
               <div key={i} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", padding: "0.75rem 1rem", borderRadius: "10px", background: tk.isDark ? "rgba(201,168,76,0.06)" : "rgba(160,120,40,0.05)", border: `1px solid ${tk.goldBorder}` }}>
