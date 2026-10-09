@@ -12,5 +12,9 @@
     "pdf-parse": "^2.4.5",
     "pdfjs-dist": "5.4.296",
     "pg": "^8.20.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
   }
 }
