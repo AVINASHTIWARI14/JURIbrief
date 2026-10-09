@@ -309,39 +309,6 @@ export default function Admin() {
         </div>
       )}
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-          gap: "1rem",
-          marginBottom: "1.5rem",
-        }}
-      >
-        {[
-          ["Total waitlist", waitlist.length, tk.gold],
-          ["Approved", approvedEntries.length, "#3da87a"],
-          ["Pending review", pendingEntries.length, "#D97706"],
-          ["Registered users", users.length, tk.textPrimary],
-          ["Active (can access)", users.filter((u) => u.approved).length, "#3da87a"],
-          ["Contact messages", contactMessages.length, tk.gold],
-          ["Unread messages", newContactMessages.length, "#D97706"],
-        ].map(([label, val, color]) => (
-          <div key={label} style={statCard}>
-            <p style={{ ...muted, margin: "0 0 0.35rem", fontSize: "0.85rem" }}>{label}</p>
-            <h3
-              style={{
-                fontFamily: "'DM Serif Display', Georgia, serif",
-                fontSize: "2rem",
-                margin: 0,
-                color,
-              }}
-            >
-              {val}
-            </h3>
-          </div>
-        ))}
-      </div>
-
       {dataLoading ? (
         <p style={{ ...muted, fontStyle: "italic" }}>Loading...</p>
       ) : (
