@@ -614,8 +614,8 @@ function AppShell() {
         position: "relative",
         background:
           theme === "dark"
-            ? "linear-gradient(-45deg, #0a0a0a, #0f0c02, #1c1500, #0a0a0a, #0f0c02)"
-            : "linear-gradient(-45deg, #dcdcdc, #c8bfa8, #d6cbb4, #dcdcdc, #c4b99e)",
+            ? "linear-gradient(-45deg, #0a0a0a, #171103, #302300, #0a0a0a, #1c1500)"
+            : "linear-gradient(-45deg, #e5e1d8, #c9b995, #e0d0ae, #e5e1d8, #c7b58f)",
         backgroundSize: "400% 400%",
         animation: "breathe 12s ease infinite",
         color: tokens.textPrimary,
