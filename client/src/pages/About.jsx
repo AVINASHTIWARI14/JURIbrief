@@ -662,13 +662,18 @@ export default function About() {
                     },
                     {
                       n:"06",
-                      title:"Ask Juri",
-                      desc:"Use Juri to ask questions about your document and discuss clauses or details in context."
+                      title:"Open Juri for extra guidance",
+                      desc:"Use the Juri assistant for help beyond the main dashboard. Juri brings together the Risk Meter and Know Your Rights guide, so you can review your document's risk level, explore key legal rights, and understand what may need closer attention."
                     },
                     {
                       n:"07",
+                      title:"Ask Juri about your document",
+                      desc:"Chat with Juri to ask follow-up questions, clarify confusing clauses, and discuss the findings from your analysis in context."
+                    },
+                    {
+                      n:"08",
                       title:"Review before you act",
-                      desc:"Use the information as a starting point for understanding your document. Always review important legal decisions and seek qualified legal advice when necessary."
+                      desc:"Use JURIbrief as a starting point for understanding your document, not as a substitute for legal advice. For important decisions, verify the details and consult a qualified legal professional when necessary."
                     },
                   ].map(step=>(
                     <div key={step.n} style={{
