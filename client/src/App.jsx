@@ -311,8 +311,8 @@ function AILawyerBtn({ onPickChat, onPickRights }) {
           fontSize: "0.8125rem",
           color: tk.textSecondary,
           pointerEvents: "none",
-          opacity: hovered || menuOpen ? 1 : 0,
-          transform: hovered || menuOpen ? "translateY(0)" : "translateY(6px)",
+          opacity: hovered && !menuOpen ? 1 : 0,
+          transform: hovered && !menuOpen ? "translateY(0)" : "translateY(6px)",
           transition: "opacity 0.2s ease, transform 0.2s ease",
         }}
       >
