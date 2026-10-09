@@ -38,30 +38,51 @@ JURIbrief helps make complex legal documents easier to understand. Upload a docu
 
 ### Home page
 <p align="center">
-  <img src="screenshots/Screenshot%202026-09-09%20141024.png" alt="JURIbrief home page" width="90%">
+  <img src="screenshots/home.png" alt="JURIbrief home page" width="90%">
 </p>
 
 ### Authentication
 <p align="center">
-  <img src="screenshots/Screenshot%202026-09-09%20141121.png" alt="JURIbrief authentication page" width="90%">
+  <img src="screenshots/authentication.png" alt="JURIbrief authentication page" width="90%">
 </p>
 
 ### Document analyzer
 <p align="center">
-  <img src="screenshots/Screenshot%202026-09-09%20141248.png" alt="Upload and analyze a legal document" width="90%">
+  <img src="screenshots/analyzer.png" alt="Upload and analyze a legal document" width="90%">
+</p>
+
+
+### Paste text
+<p align="center">
+  <img src="screenshots/paste-text.png" alt="Paste text for legal analysis" width="90%">
+</p>
+
+### Compare documents
+<p align="center">
+  <img src="screenshots/compare.png" alt="Compare legal documents" width="90%">
+</p>
+
+### Generate a document
+<p align="center">
+  <img src="screenshots/generate.png" alt="Generate a legal document" width="90%">
+</p>
+
+### Juri AI chat
+<p align="center">
+  <img src="screenshots/chat.png" alt="Juri AI legal chat" width="90%">
 </p>
 
 ### AI analysis and risk detection
 <p align="center">
-  <img src="screenshots/Screenshot%202026-09-09%20141403.png" alt="AI-generated legal document analysis" width="90%">
+  <img src="screenshots/analysis.png" alt="AI-generated legal document analysis" width="90%">
 </p>
 <p align="center">
-  <img src="screenshots/Screenshot%202026-09-09%20141418.png" alt="Risk levels and deadline extraction" width="90%">
+  <img src="screenshots/risk-detection.png" alt="Risk levels and deadline extraction" width="90%">
 </p>
 
 ### Admin dashboard
 <p align="center">
-  <img src="screenshots/Screenshot%202026-09-09%20141453.png" alt="JURIbrief admin dashboard" width="90%">
+  <img src="screenshots/admin-dashboard.png" alt="JURIbrief admin dashboard" width="90%">
 </p>
 
 ## 🧰 Tech Stack
