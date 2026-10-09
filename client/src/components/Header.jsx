@@ -505,10 +505,10 @@ export default function Header() {
                         width: "100%",
                         padding: "0.6rem 0.7rem",
                         marginBottom: "0.6rem",
-                        border: "1px solid " + tk.goldBorder,
+                        border: "1px solid #218838",
                         borderRadius: "9px",
-                        background: tk.goldLight,
-                        color: tk.textPrimary,
+                        background: "#218838",
+                        color: "#ffffff",
                         fontFamily: "'Roboto Serif', Georgia, serif",
                         fontSize: "0.8rem",
                         fontWeight: 700,
@@ -516,12 +516,12 @@ export default function Header() {
                         transition: "all .2s",
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.background = tk.gold;
-                        e.currentTarget.style.color = "#17130a";
+                        e.currentTarget.style.background = "#176b2c";
+                        e.currentTarget.style.color = "#ffffff";
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.background = tk.goldLight;
-                        e.currentTarget.style.color = tk.textPrimary;
+                        e.currentTarget.style.background = "#218838";
+                        e.currentTarget.style.color = "#ffffff";
                       }}
                     >
                       Admin Dashboard
