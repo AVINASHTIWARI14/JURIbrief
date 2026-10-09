@@ -494,6 +494,40 @@ export default function Header() {
                     </div>
                   </div>
 
+                  {profile?.role === "admin" && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setProfileOpen(false);
+                        navigate("/admin");
+                      }}
+                      style={{
+                        width: "100%",
+                        padding: "0.6rem 0.7rem",
+                        marginBottom: "0.6rem",
+                        border: "1px solid " + tk.goldBorder,
+                        borderRadius: "9px",
+                        background: tk.goldLight,
+                        color: tk.textPrimary,
+                        fontFamily: "'Roboto Serif', Georgia, serif",
+                        fontSize: "0.8rem",
+                        fontWeight: 700,
+                        cursor: "pointer",
+                        transition: "all .2s",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = tk.gold;
+                        e.currentTarget.style.color = "#17130a";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = tk.goldLight;
+                        e.currentTarget.style.color = tk.textPrimary;
+                      }}
+                    >
+                      Admin Dashboard
+                    </button>
+                  )}
+
                   <div style={{ height:"1px", background:tk.surfaceBorder, margin:"0 0 0.65rem" }} />
 
                   <button
