@@ -18,7 +18,7 @@ function ThreatCard({ threat, level, tk }) {
       onMouseEnter={e => e.currentTarget.style.transform = "translateX(3px)"}
       onMouseLeave={e => e.currentTarget.style.transform = "translateX(0)"}>
       <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
-        <span>{isRed ? "🔴" : "🟡"}</span>
+        <DashboardIllustration type={isRed ? "critical" : "moderate"} size={20} />
         <strong style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "0.975rem", color }}>{threat.title}</strong>
         <span style={{ marginLeft: "auto", fontSize: "0.68rem", fontWeight: 700, color, background: isRed ? "rgba(220,38,38,0.18)" : "rgba(217,119,6,0.18)", padding: "3px 10px", borderRadius: "20px", letterSpacing: "0.08em" }}>
           {isRed ? "CRITICAL" : "MODERATE"}
