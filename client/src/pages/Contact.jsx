@@ -71,8 +71,11 @@ export default function Contact() {
 
   const labelStyle = {
     fontFamily:"'Roboto Serif', Georgia, serif",
-    fontSize:"0.7rem", color:tk.textMuted,
-    textTransform:"uppercase", letterSpacing:"0.1em", fontWeight:600,
+    fontSize:"0.75rem",
+    color: tk.isDark ? "#ffffff" : "#000000",
+    textTransform:"uppercase",
+    letterSpacing:"0.1em",
+    fontWeight: 800,
   };
 
   return (
