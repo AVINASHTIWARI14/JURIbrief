@@ -12,5 +12,10 @@
     "pdf-parse": "^2.4.5",
     "pdfjs-dist": "5.4.296",
     "pg": "^8.20.0"
+  },
+  "overrides": {
+    "mammoth": {
+      "@xmldom/xmldom": "0.9.12"
+    }
   }
 }
