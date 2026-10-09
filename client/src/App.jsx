@@ -581,6 +581,7 @@ function AppShell() {
 
   const [chatOpen, setChatOpen] = useState(false);
   const [bookOpen, setBookOpen] = useState(false);
+  const [rightsNotice, setRightsNotice] = useState(false);
 
   useEffect(() => {
     const openRights = () => setBookOpen(true);
@@ -589,6 +590,23 @@ function AppShell() {
   }, []);
 
   const showSmartBook = location.pathname === "/dashboard";
+
+  useEffect(() => {
+    if (!rightsNotice) return undefined;
+    const timeout = window.setTimeout(() => setRightsNotice(false), 3000);
+    return () => window.clearTimeout(timeout);
+  }, [rightsNotice]);
+
+  const handlePickRights = () => {
+    setChatOpen(false);
+    setBookOpen(false);
+    if (location.pathname === "/dashboard") {
+      setRightsNotice(false);
+      setBookOpen(true);
+    } else {
+      setRightsNotice(true);
+    }
+  };
 
   return (
     <div
@@ -629,10 +647,52 @@ function AppShell() {
 
       <AILawyerBtn
         onPickChat={() => { setBookOpen(false); setChatOpen(true); }}
-        onPickRights={() => { setChatOpen(false); setBookOpen(true); }}
+        onPickRights={handlePickRights}
       />
 
-      {/* Your Rights is now available from the Juri button menu. */}
+      {/* Your Rights is available from the Juri button menu. */}
+
+      {rightsNotice && (
+        <div
+          role="alert"
+          style={{
+            position: "fixed",
+            top: "calc(5.5rem + env(safe-area-inset-top, 0px))",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 10050,
+            width: "min(320px, calc(100vw - 28px))",
+            boxSizing: "border-box",
+            padding: "12px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            gap: "8px",
+            background: "#EF665B",
+            borderRadius: "8px",
+            boxShadow: "0px 0px 5px -3px #111",
+            fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+            animation: "rightsNoticeIn .2s ease-out",
+          }}
+        >
+          <style>{"@keyframes rightsNoticeIn { from { opacity: 0; transform: translate(-50%, -8px); } to { opacity: 1; transform: translate(-50%, 0); } }"}</style>
+          <svg style={{ width: 20, height: 20, flexShrink: 0, transform: "translateY(-2px)" }} viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#fff" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-2h2Zm0-4h-2V6h2Z" />
+          </svg>
+          <span style={{ fontWeight: 500, fontSize: "14px", color: "#fff", lineHeight: 1.4 }}>
+            Go to Dashboard and analyze a document to see your rights accordingly.
+          </span>
+          <button
+            type="button"
+            aria-label="Close notification"
+            onClick={() => setRightsNotice(false)}
+            style={{ width: 20, height: 20, flexShrink: 0, cursor: "pointer", marginLeft: "auto", border: 0, padding: 0, background: "transparent", color: "#fff", display: "grid", placeItems: "center", fontSize: "18px", lineHeight: 1 }}
+          >
+            ×
+          </button>
+        </div>
+      )}
 
       {chatOpen && (
         <JuriChat
