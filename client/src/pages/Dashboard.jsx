@@ -154,13 +154,13 @@ function AnalysisResult({ analysis, tk }) {
       </div>
       {analysis.criticalThreats?.length > 0 && (
         <div style={cardStyle}>
-          {sectionTitle(<DashboardIllustration type="criticalRisk" size={38} />, `Critical Risks (${analysis.criticalThreats.length})`)}
+          {sectionTitle(<DashboardIllustration type="critical" size={38} />, `Critical Risks (${analysis.criticalThreats.length})`)}
           {analysis.criticalThreats.map((t, i) => <ThreatCard key={i} threat={t} level="critical" tk={tk} />)}
         </div>
       )}
       {analysis.moderateThreats?.length > 0 && (
         <div style={cardStyle}>
-          {sectionTitle(<DashboardIllustration type="moderateRisk" size={38} />, `Moderate Risks (${analysis.moderateThreats.length})`)}
+          {sectionTitle(<DashboardIllustration type="moderate" size={38} />, `Moderate Risks (${analysis.moderateThreats.length})`)}
           {analysis.moderateThreats.map((t, i) => <ThreatCard key={i} threat={t} level="moderate" tk={tk} />)}
         </div>
       )}
