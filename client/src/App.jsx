@@ -295,14 +295,25 @@ function AILawyerBtn({ onPickChat, onPickRights }) {
                     <path d="M80 90 V146 M52 118 H108" stroke="url(#juriAiGradient)" strokeWidth="28" strokeLinecap="round"/>
                   </svg>
                 ) : (
-                  <svg width="42" height="42" viewBox="0 0 512 512" aria-hidden="true">
-                    <path d="M104 498V281c-20-2-38-19-38-42v-43c0-17 13-31 30-31s31 14 31 31v-54c0-18 14-32 32-32s32 14 32 32v-48c0-18 14-32 32-32s32 14 32 32v-27c0-18 14-32 32-32s32 14 32 32v109h34c28 0 46 22 46 49v80c0 29-11 53-32 74l-33 33v86Z" fill="#E98B2F"/>
-                    <path d="M104 498V281c-20-2-38-19-38-42v-43c0-17 13-31 30-31s31 14 31 31v-54c0-18 14-32 32-32s32 14 32 32v-48c0-18 14-32 32-32s32 14 32 32v-27c0-18 14-32 32-32s32 14 32 32v109h34c28 0 46 22 46 49v80c0 29-11 53-32 74l-33 33v86Z" fill="#E98B2F"/>
-                    <path d="M104 498V281c-20-2-38-19-38-42v-43c0-17 13-31 30-31s31 14 31 31v-54c0-18 14-32 32-32s32 14 32 32v-48c0-18 14-32 32-32s32 14 32 32v-27c0-18 14-32 32-32s32 14 32 32v109h34c28 0 46 22 46 49v80c0 29-11 53-32 74l-33 33v86Z" fill="#E98B2F"/>
-                    <path d="M104 498V281c-20-2-38-19-38-42v-43c0-17 13-31 30-31s31 14 31 31v-54c0-18 14-32 32-32s32 14 32 32v-48c0-18 14-32 32-32s32 14 32 32v-27c0-18 14-32 32-32s32 14 32 32v109h34c28 0 46 22 46 49v80c0 29-11 53-32 74l-33 33v86Z" fill="#E98B2F"/>
-                    <path d="M104 498V281c-20-2-38-19-38-42v-43c0-17 13-31 30-31s31 14 31 31v-54c0-18 14-32 32-32s32 14 32 32v-48c0-18 14-32 32-32s32 14 32 32v-27c0-18 14-32 32-32s32 14 32 32v109h34c28 0 46 22 46 49v80c0 29-11 53-32 74l-33 33v86Z" fill="#E98B2F"/>
-                    <path d="M274 498V281c-20-2-38-19-38-42v-43c0-17 13-31 30-31s31 14 31 31v-54c0-18 14-32 32-32s32 14 32 32v-48c0-18 14-32 32-32s32 14 32 32v-27c0-18 14-32 32-32s32 14 32 32v109h15c24 0 38 20 38 45v88c0 29-11 53-32 74l-33 33v82Z" fill="#934A0A" transform="translate(-10 0) scale(.9)"/>
-                    <path d="M156 310q12-32 42-42" fill="none" stroke="#C96C1E" strokeWidth="20" strokeLinecap="round"/>
+                  <svg width="42" height="42" viewBox="0 0 512 512" fill="none" aria-hidden="true">
+                    <g strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M38 456 L234 250" stroke="#793B2E" strokeWidth="54"/>
+                      <path d="M38 456 L234 250" stroke="#8E4435" strokeWidth="38"/>
+                      <path d="M187 296 L230 253" stroke="#8B3D31" strokeWidth="44"/>
+                      <path d="M214 273 L238 297" stroke="#B95D50" strokeWidth="36"/>
+                      <g transform="rotate(-45 306 157)">
+                        <rect x="226" y="66" width="160" height="182" rx="16" fill="#A64D3F"/>
+                        <rect x="226" y="66" width="160" height="38" rx="15" fill="#873D30"/>
+                        <rect x="226" y="112" width="160" height="38" rx="14" fill="#FFCC70"/>
+                        <rect x="226" y="158" width="160" height="38" rx="14" fill="#FFA72F"/>
+                        <rect x="226" y="204" width="160" height="38" rx="14" fill="#713328"/>
+                        <rect x="208" y="56" width="196" height="34" rx="17" fill="#873D30"/>
+                        <rect x="208" y="226" width="196" height="34" rx="17" fill="#713328"/>
+                      </g>
+                      <path d="M275 401 H450 Q478 401 493 432 L506 461 Q510 474 494 474 H190 Q175 474 182 458 L198 430 Q215 401 244 401 Z" fill="#8A4032"/>
+                      <path d="M244 382 H423 Q440 382 440 400 V410 H236 V392 Q236 382 244 382 Z" fill="#B95D50"/>
+                      <path d="M451 330 L456 313 M478 350 L488 339 M490 374 L507 370" stroke="#FFCC70" strokeWidth="17"/>
+                    </g>
                   </svg>
                 )}
               </span>
