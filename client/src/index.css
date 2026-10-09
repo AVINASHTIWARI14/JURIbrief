@@ -27,7 +27,14 @@ body {
 :where(button, [role="button"], [class*="card"], [class*="Card"], [class*="btn"], [class*="Btn"], [class*="button"], [class*="Button"]) {
   outline: none !important;
   border-color: transparent !important;
-  border-radius: 16px !important;
+  border-radius: 16px;
+}
+
+/* Keep Juri's floating assistant avatar perfectly circular. */
+button[aria-label="Open Juri options"] {
+  border-radius: 50% !important;
+  border-color: var(--juri-avatar-border, transparent) !important;
+  overflow: hidden !important;
 }
 
 :where(button, [role="button"], [class*="btn"], [class*="Btn"], [class*="button"], [class*="Button"]) {
