@@ -149,7 +149,7 @@ ${documentText.substring(0, 8000)}`;
   }
 
   const isDailyQuota =
-    /free_tier_requests|RESOURCE_EXHAUSTED|GenerateRequestsPerDay/i.test(
+    /free_tier_requests|RESOURCE_EXHAUSTED|GenerateRequestsPerDay|requests per day|daily quota|daily limit|quota exceeded/i.test(
       lastModelError || ""
     );
   if (lastStatus === 429 && isDailyQuota) {
