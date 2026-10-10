@@ -427,7 +427,6 @@ export default function Admin() {
             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
               {users.length === 0 && <p style={{ ...muted, margin: 0 }}>No registered users yet.</p>}
               {users.map((u) => {
-                const isAdmin = u.role === "admin";
                 return (
                   <div
                     key={u.id}
@@ -464,21 +463,7 @@ export default function Admin() {
                         >
                           {u.full_name || u.username || "-"}
                         </h3>
-                        <span
-                          style={{
-                            fontFamily: "'Roboto Serif', Georgia, serif",
-                            fontSize: "0.68rem",
-                            fontWeight: 700,
-                            letterSpacing: "0.08em",
-                            padding: "0.15rem 0.55rem",
-                            borderRadius: "999px",
-                            background: isAdmin ? tk.goldLight : "rgba(100,100,100,0.1)",
-                            color: isAdmin ? tk.gold : tk.textMuted,
-                            border: `1px solid ${isAdmin ? tk.goldBorder : "rgba(100,100,100,0.2)"}`,
-                          }}
-                        >
-                          {u.role?.toUpperCase() || "USER"}
-                        </span>
+
 
                       </div>
                       <p style={{ ...muted, margin: 0, fontSize: "0.85rem" }}>{u.email}</p>
