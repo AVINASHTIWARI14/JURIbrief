@@ -432,7 +432,7 @@ export default function About() {
                   const open=body.style.maxHeight && body.style.maxHeight !== "0px";
                   body.style.paddingTop=open ? "0px" : "0.25rem";
                   body.style.paddingBottom=open ? "0px" : "3rem";
-                  body.style.maxHeight=open ? "0px" : (body.scrollHeight + 64) + "px";
+                  body.style.maxHeight=open ? "0px" : "none";
                   e.currentTarget.setAttribute("aria-expanded", String(!open));
                 }}
                 aria-expanded="false"
