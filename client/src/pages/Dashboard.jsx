@@ -93,6 +93,9 @@ function CircularGauge({ score, tk }) {
 
 function DashboardIllustration({ type, size = 42 }) {
   const common = { width: size, height: size, viewBox: "0 0 100 100", role: "img", "aria-hidden": true };
+  if (type === "magic") return <svg {...common} viewBox="0 0 100 100"><path d="M12 84 58 38 74 54 28 94Q17 101 9 93Q5 87 12 84Z" fill="#0754b8"/><path d="M12 84 58 38 66 46 20 92Q14 96 9 91Z" fill="#0b64d5"/><path d="M48 20 56 10Q59 5 63 10L68 17 78 17Q84 17 84 23L82 32 89 40Q92 44 87 48L78 53 78 64Q77 70 71 68L61 65 53 72Q48 76 45 70L42 60 31 58Q25 56 28 50L34 42 32 32Q31 26 37 25L48 20Z" fill="#ffdc4d"/><path d="M48 20 56 10Q59 5 63 10L68 17 78 17Q84 17 84 23L82 32 89 40Q92 44 87 48L78 53 78 64Q77 70 71 68L61 65 53 72Q48 76 45 70L42 60 31 58Q25 56 28 50L34 42 32 32Q31 26 37 25L48 20Z" fill="#ffdc4d"/><g strokeLinecap="round" strokeWidth="6"><path d="M16 9V18M11 13H21" stroke="#ff8a62"/><path d="M87 14V23M82 18H92" stroke="#b5e84d"/><path d="M12 37 19 41" stroke="#b6d5ff"/><path d="M89 72V81M84 76H94" stroke="#ff4e58"/></g></svg>;
+  if (type === "copy") return <svg {...common} viewBox="0 0 100 100"><rect x="10" y="10" width="68" height="76" rx="15" fill="#ff9f00"/><rect x="30" y="0" width="68" height="76" rx="15" fill="#ffe17c"/><g stroke="#363636" strokeWidth="7" strokeLinecap="round"><path d="M45 22H82M45 40H82M45 58H82"/><path d="M20 42H26M20 58H26M20 74H26"/></g></svg>;
+  if (type === "download") return <svg {...common} viewBox="0 0 100 100"><path d="M20 14H80L96 42V85Q96 96 85 96H15Q4 96 4 85V42Z" fill="#f5c619"/><path d="M20 14H80L96 42H4Z" fill="#f5a51a"/><rect x="18" y="6" width="64" height="65" rx="8" fill="#edf0f0"/><rect x="21" y="0" width="58" height="9" rx="3" fill="#d1d5d4"/><path d="M50 18V47M38 36 50 48 62 36" fill="none" stroke="#4dbb78" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round"/><rect x="25" y="76" width="50" height="10" rx="4" fill="#ffefb0"/></svg>;
   if (type === "comparison") return <svg {...common} viewBox="0 0 128 128"><rect x="0" y="40" width="61" height="86" rx="7" fill="#9fcbd3"/><path d="M0 52 14 40H7Q0 40 0 47Z" fill="#7fb4c2"/><rect x="7" y="63" width="22" height="5" rx="2.5" fill="#3e5b68"/><rect x="7" y="73" width="22" height="5" rx="2.5" fill="#3e5b68"/><rect x="7" y="83" width="22" height="5" rx="2.5" fill="#3e5b68"/><rect x="7" y="95" width="47" height="5" rx="2.5" fill="#3e5b68"/><rect x="67" y="40" width="61" height="86" rx="7" fill="#9fcbd3"/><path d="M67 52 79 40H74Q67 40 67 47Z" fill="#7fb4c2"/><rect x="74" y="63" width="22" height="5" rx="2.5" fill="#3e5b68"/><rect x="74" y="73" width="22" height="5" rx="2.5" fill="#3e5b68"/><rect x="74" y="83" width="22" height="5" rx="2.5" fill="#3e5b68"/><rect x="74" y="95" width="47" height="5" rx="2.5" fill="#3e5b68"/><circle cx="64" cy="30" r="29" fill="#e94c3d"/><text x="64" y="39" fontSize="24" fontWeight="800" textAnchor="middle" fill="#fff4ec" fontFamily="Arial,sans-serif">VS</text></svg>;
   if (type === "recommendation") return <svg {...common} viewBox="0 0 100 100"><circle cx="50" cy="39" r="31" fill="#ffe28a"/><path d="M30 39A20 20 0 0 1 50 19" fill="none" stroke="#fff0c6" strokeWidth="4" strokeLinecap="round"/><path d="M39 39H61V56Q61 62 56 67V75H44V67Q39 62 39 56Z" fill="#ffc34d"/><path d="M43 44V57Q43 61 47 65V73M57 44V57Q57 61 53 65V73" fill="none" stroke="#ffab36" strokeWidth="3" strokeLinecap="round"/><rect x="38" y="73" width="24" height="5" rx="2.5" fill="#e5e0e4"/><rect x="39" y="79" width="22" height="5" rx="2.5" fill="#e5e0e4"/><rect x="41" y="85" width="18" height="5" rx="2.5" fill="#e5e0e4"/><g stroke="#ffc34d" strokeWidth="4" strokeLinecap="round"><path d="M50 2V7M18 14L23 18M82 14L77 18M8 38H14M92 38H86M18 62L23 59M82 62L77 59"/></g></svg>;
   if (type === "risk") return <svg {...common}><path d="M50 7 94 83Q98 92 87 92H13Q2 92 6 83L44 7Q50-2 56 7Z" fill="#FFD34E"/><path d="M47 30Q47 25 52 25T57 30L54 61Q53 66 50 66T46 61Z" fill="#5D6B73"/><circle cx="50" cy="78" r="5" fill="#5D6B73"/></svg>;
@@ -826,18 +829,18 @@ export default function Dashboard() {
         <div style={{ ...cardStyle, animation: "fadeIn 0.5s ease" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "0.75rem", marginBottom: "1rem" }}>
             <h3 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.05rem", fontWeight: 700, color: tk.textPrimary, margin: 0, display: "flex", alignItems: "center", gap: "0.5rem" }}>
-              <span>📄</span> Generated Document
+              <DashboardIllustration type="magic" size={30} /> Generated Document
             </h3>
             <div style={{ display: "flex", gap: "0.5rem" }}>
               <button onClick={() => { navigator.clipboard.writeText(genResult); }}
                 style={{ padding: "0.45rem 0.9rem", borderRadius: "8px", border: `1px solid ${tk.goldBorder}`, background: "transparent", color: tk.gold, fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", fontWeight: 600, cursor: "pointer" }}
                 onMouseEnter={e => e.currentTarget.style.background = tk.goldLight}
                 onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
-                📋 Copy
+                <DashboardIllustration type="copy" size={22} /> Copy
               </button>
               <button onClick={downloadTxt}
                 style={{ padding: "0.45rem 0.9rem", borderRadius: "8px", border: "none", background: tk.gold, color: "#fff", fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", fontWeight: 600, cursor: "pointer" }}>
-                ⬇ Download .txt
+                <DashboardIllustration type="download" size={22} /> Download .txt
               </button>
             </div>
           </div>
