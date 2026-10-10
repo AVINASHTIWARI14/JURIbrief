@@ -829,7 +829,7 @@ export default function Dashboard() {
         <div style={{ ...cardStyle, animation: "fadeIn 0.5s ease" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "0.75rem", marginBottom: "1rem" }}>
             <h3 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.05rem", fontWeight: 700, color: tk.textPrimary, margin: 0, display: "flex", alignItems: "center", gap: "0.5rem" }}>
-              <DashboardIllustration type="magic" size={30} /> Generated Document
+              <img src="/generate-button.png" alt="" style={{ width: "30px", height: "30px", objectFit: "contain", flexShrink: 0 }} /> Generated Document
             </h3>
             <div style={{ display: "flex", gap: "0.5rem" }}>
               <button onClick={() => { navigator.clipboard.writeText(genResult); }}
