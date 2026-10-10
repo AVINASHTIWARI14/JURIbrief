@@ -479,87 +479,11 @@ export default function Admin() {
                         >
                           {u.role?.toUpperCase() || "USER"}
                         </span>
-                        <span
-                          style={{
-                            fontFamily: "'Roboto Serif', Georgia, serif",
-                            fontSize: "0.68rem",
-                            fontWeight: 700,
-                            letterSpacing: "0.08em",
-                            padding: "0.15rem 0.55rem",
-                            borderRadius: "999px",
-                            background: u.approved
-                              ? "rgba(61,168,122,0.14)"
-                              : "rgba(224,82,82,0.10)",
-                            color: u.approved ? "#3da87a" : "#e05252",
-                            border: `1px solid ${
-                              u.approved
-                                ? "rgba(61,168,122,0.35)"
-                                : "rgba(224,82,82,0.30)"
-                            }`,
-                          }}
-                        >
-                          {u.approved ? "ACTIVE" : "NO ACCESS"}
-                        </span>
+
                       </div>
                       <p style={{ ...muted, margin: 0, fontSize: "0.85rem" }}>{u.email}</p>
                     </div>
-                    {!isAdmin && !u.approved && (
-                      <button
-                        onClick={async () => {
-                          setUpdatingId(`user-${u.id}`);
-                          setActionMessage("");
-                          setActionError("");
 
-                          try {
-                            const authHeaders = await getAuthHeaders();
-                            const res = await fetch(`${API}/users/${u.id}/approval`, {
-                              method: "PATCH",
-                              headers: {
-                                "Content-Type": "application/json",
-                                ...authHeaders,
-                              },
-                              body: JSON.stringify({ approved: true }),
-                            });
-
-                            const data = await res.json().catch(() => ({}));
-                            if (!res.ok) {
-                              throw new Error(data.error || "Unable to grant access");
-                            }
-
-                            setUsers((curr) =>
-                              curr.map((userItem) =>
-                                String(userItem.id) === String(u.id)
-                                  ? data.data
-                                  : userItem
-                              )
-                            );
-
-                            setActionMessage("Dashboard access granted.");
-                          } catch (err) {
-                            setActionError(err.message || "Unable to grant access.");
-                          } finally {
-                            setUpdatingId(null);
-                          }
-                        }}
-                        disabled={updatingId === `user-${u.id}`}
-                        style={{
-                          border: "1px solid rgba(61,168,122,0.4)",
-                          background: "rgba(61,168,122,0.12)",
-                          color: "#3da87a",
-                          borderRadius: "10px",
-                          padding: "0.5rem 0.9rem",
-                          cursor: updatingId === `user-${u.id}` ? "not-allowed" : "pointer",
-                          fontFamily: "'Roboto Serif', Georgia, serif",
-                          fontSize: "0.85rem",
-                          fontWeight: 700,
-                          minWidth: "110px",
-                          transition: "opacity .2s",
-                          opacity: updatingId === `user-${u.id}` ? 0.6 : 1,
-                        }}
-                      >
-                        {updatingId === `user-${u.id}` ? "Saving..." : "Grant Access"}
-                      </button>
-                    )}
                   </div>
                 );
               })}
