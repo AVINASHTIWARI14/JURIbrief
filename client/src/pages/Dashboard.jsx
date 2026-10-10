@@ -834,9 +834,9 @@ export default function Dashboard() {
             <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "0.5rem", flexWrap: "wrap" }}>
               <button
                 onClick={() => { navigator.clipboard.writeText(genResult); }}
-                style={{ height: "42px", minWidth: "112px", padding: "0 0.9rem", borderRadius: "8px", border: "none", background: tk.gold, color: "#fff", fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", fontWeight: 600, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", whiteSpace: "nowrap", lineHeight: 1, boxSizing: "border-box", flexShrink: 0, transition: "background .2s ease, transform .2s ease" }}
-                onMouseEnter={e => { e.currentTarget.style.background = "#B8860B"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = tk.gold; }}>
+                style={{ height: "42px", minWidth: "112px", padding: "0 0.9rem", borderRadius: "8px", border: `1px solid ${tk.gold}`, background: tk.isDark ? "rgba(212,175,55,0.12)" : "rgba(212,175,55,0.10)", color: tk.isDark ? "#f4e6b3" : "#7a5a00", fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", fontWeight: 600, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", whiteSpace: "nowrap", lineHeight: 1, boxSizing: "border-box", flexShrink: 0, transition: "background .2s ease, color .2s ease, transform .2s ease" }}
+                onMouseEnter={e => { e.currentTarget.style.background = tk.gold; e.currentTarget.style.color = "#fff"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = tk.isDark ? "rgba(212,175,55,0.12)" : "rgba(212,175,55,0.10)"; e.currentTarget.style.color = tk.isDark ? "#f4e6b3" : "#7a5a00"; }}>
                 <img src="/copy-button.png" alt="" style={{ width: "22px", height: "22px", objectFit: "contain", display: "block", flex: "0 0 22px", margin: 0, padding: 0 }} />
                 <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", lineHeight: 1, height: "22px", margin: 0, padding: 0 }}>Copy</span>
               </button>
