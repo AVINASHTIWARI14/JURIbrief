@@ -833,7 +833,7 @@ export default function Dashboard() {
             </h3>
             <div style={{ display: "flex", gap: "0.5rem" }}>
               <button onClick={() => { navigator.clipboard.writeText(genResult); }}
-                style={{ padding: "0.45rem 0.9rem", borderRadius: "8px", border: `1px solid ${tk.goldBorder}`, background: "transparent", color: tk.gold, fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", fontWeight: 600, cursor: "pointer" }}
+                style={{ padding: "0.45rem 0.9rem", borderRadius: "8px", border: `1px solid ${tk.isDark ? "rgba(201,168,76,0.75)" : "rgba(140,105,35,0.65)"}`, background: tk.isDark ? "rgba(201,168,76,0.08)" : "rgba(201,168,76,0.10)", color: tk.gold, fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", fontWeight: 600, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.4rem", whiteSpace: "nowrap" }}
                 onMouseEnter={e => e.currentTarget.style.background = tk.goldLight}
                 onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
                 <DashboardIllustration type="copy" size={22} /> Copy
