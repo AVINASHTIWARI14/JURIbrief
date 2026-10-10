@@ -836,11 +836,11 @@ export default function Dashboard() {
                 style={{ padding: "0.45rem 0.9rem", borderRadius: "8px", border: `1px solid ${tk.isDark ? "rgba(201,168,76,0.75)" : "rgba(140,105,35,0.65)"}`, background: tk.isDark ? "rgba(201,168,76,0.08)" : "rgba(201,168,76,0.10)", color: tk.gold, fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", fontWeight: 600, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.4rem", whiteSpace: "nowrap" }}
                 onMouseEnter={e => e.currentTarget.style.background = tk.goldLight}
                 onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
-                <DashboardIllustration type="copy" size={22} /> Copy
+                <img src="/copy-button.png" alt="" style={{ width: "22px", height: "22px", objectFit: "contain", flexShrink: 0 }} /> Copy
               </button>
               <button onClick={downloadTxt}
                 style={{ padding: "0.45rem 0.9rem", borderRadius: "8px", border: "none", background: tk.gold, color: "#fff", fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", fontWeight: 600, cursor: "pointer" }}>
-                <DashboardIllustration type="download" size={22} /> Download .txt
+                <img src="/download-button.png" alt="" style={{ width: "22px", height: "22px", objectFit: "contain", flexShrink: 0 }} /> Download .txt
               </button>
             </div>
           </div>
