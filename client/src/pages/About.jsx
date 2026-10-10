@@ -432,7 +432,7 @@ export default function About() {
                   const open=body.style.maxHeight && body.style.maxHeight !== "0px";
                   body.style.maxHeight=open ? "0px" : body.scrollHeight+"px";
                   body.style.paddingTop=open ? "0px" : "0.25rem";
-                  body.style.paddingBottom=open ? "0px" : "1.75rem";
+                  body.style.paddingBottom=open ? "0px" : "2.5rem";
                   e.currentTarget.setAttribute("aria-expanded", String(!open));
                 }}
                 aria-expanded="false"
@@ -487,7 +487,7 @@ export default function About() {
                   maxHeight:"0px",
                   overflow:"hidden",
                   transition:"max-height .45s ease, padding .35s ease",
-                  padding:"0 1.5rem",
+                  padding:"0 1.5rem 0.75rem",
                 }}
               >
                 <div style={{
