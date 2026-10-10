@@ -832,15 +832,21 @@ export default function Dashboard() {
               <img src="/generate-button.png" alt="" style={{ width: "30px", height: "30px", objectFit: "contain", flexShrink: 0 }} /> Generated Document
             </h3>
             <div style={{ display: "flex", gap: "0.5rem" }}>
-              <button onClick={() => { navigator.clipboard.writeText(genResult); }}
-                style={{ padding: "0.45rem 0.9rem", borderRadius: "8px", border: `1px solid ${tk.isDark ? "rgba(201,168,76,0.75)" : "rgba(140,105,35,0.65)"}`, background: tk.isDark ? "rgba(201,168,76,0.08)" : "rgba(201,168,76,0.10)", color: tk.gold, fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", fontWeight: 600, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.4rem", whiteSpace: "nowrap" }}
-                onMouseEnter={e => e.currentTarget.style.background = tk.goldLight}
-                onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
-                <img src="/copy-button.png" alt="" style={{ width: "22px", height: "22px", objectFit: "contain", flexShrink: 0 }} /> Copy
+              <button
+                onClick={() => { navigator.clipboard.writeText(genResult); }}
+                style={{ minHeight: "42px", minWidth: "112px", padding: "0.5rem 0.9rem", borderRadius: "8px", border: "none", background: tk.gold, color: "#fff", fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", fontWeight: 600, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", whiteSpace: "nowrap", lineHeight: 1, boxSizing: "border-box", transition: "background .2s ease, transform .2s ease" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#B8860B"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = tk.gold; }}>
+                <img src="/copy-button.png" alt="" style={{ width: "22px", height: "22px", objectFit: "contain", display: "block", flexShrink: 0 }} />
+                <span style={{ display: "inline-flex", alignItems: "center", lineHeight: 1 }}>Copy</span>
               </button>
-              <button onClick={downloadTxt}
-                style={{ padding: "0.45rem 0.9rem", borderRadius: "8px", border: "none", background: tk.gold, color: "#fff", fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", fontWeight: 600, cursor: "pointer" }}>
-                <img src="/download-button.png" alt="" style={{ width: "22px", height: "22px", objectFit: "contain", flexShrink: 0 }} /> Download .txt
+              <button
+                onClick={downloadTxt}
+                style={{ minHeight: "42px", minWidth: "112px", padding: "0.5rem 0.9rem", borderRadius: "8px", border: "none", background: tk.gold, color: "#fff", fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", fontWeight: 600, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", whiteSpace: "nowrap", lineHeight: 1, boxSizing: "border-box", transition: "background .2s ease, transform .2s ease" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#B8860B"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = tk.gold; }}>
+                <img src="/download-button.png" alt="" style={{ width: "22px", height: "22px", objectFit: "contain", display: "block", flexShrink: 0 }} />
+                <span style={{ display: "inline-flex", alignItems: "center", lineHeight: 1 }}>Download .txt</span>
               </button>
             </div>
           </div>
