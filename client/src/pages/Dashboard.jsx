@@ -93,6 +93,8 @@ function CircularGauge({ score, tk }) {
 
 function DashboardIllustration({ type, size = 42 }) {
   const common = { width: size, height: size, viewBox: "0 0 100 100", role: "img", "aria-hidden": true };
+  if (type === "comparison") return <svg {...common} viewBox="0 0 128 128"><rect x="0" y="40" width="61" height="86" rx="7" fill="#9fcbd3"/><path d="M0 52 14 40H7Q0 40 0 47Z" fill="#7fb4c2"/><rect x="7" y="63" width="22" height="5" rx="2.5" fill="#3e5b68"/><rect x="7" y="73" width="22" height="5" rx="2.5" fill="#3e5b68"/><rect x="7" y="83" width="22" height="5" rx="2.5" fill="#3e5b68"/><rect x="7" y="95" width="47" height="5" rx="2.5" fill="#3e5b68"/><rect x="67" y="40" width="61" height="86" rx="7" fill="#9fcbd3"/><path d="M67 52 79 40H74Q67 40 67 47Z" fill="#7fb4c2"/><rect x="74" y="63" width="22" height="5" rx="2.5" fill="#3e5b68"/><rect x="74" y="73" width="22" height="5" rx="2.5" fill="#3e5b68"/><rect x="74" y="83" width="22" height="5" rx="2.5" fill="#3e5b68"/><rect x="74" y="95" width="47" height="5" rx="2.5" fill="#3e5b68"/><circle cx="64" cy="30" r="29" fill="#e94c3d"/><text x="64" y="39" fontSize="24" fontWeight="800" textAnchor="middle" fill="#fff4ec" fontFamily="Arial,sans-serif">VS</text></svg>;
+  if (type === "recommendation") return <svg {...common} viewBox="0 0 100 100"><circle cx="50" cy="39" r="31" fill="#ffe28a"/><path d="M30 39A20 20 0 0 1 50 19" fill="none" stroke="#fff0c6" strokeWidth="4" strokeLinecap="round"/><path d="M39 39H61V56Q61 62 56 67V75H44V67Q39 62 39 56Z" fill="#ffc34d"/><path d="M43 44V57Q43 61 47 65V73M57 44V57Q57 61 53 65V73" fill="none" stroke="#ffab36" strokeWidth="3" strokeLinecap="round"/><rect x="38" y="73" width="24" height="5" rx="2.5" fill="#e5e0e4"/><rect x="39" y="79" width="22" height="5" rx="2.5" fill="#e5e0e4"/><rect x="41" y="85" width="18" height="5" rx="2.5" fill="#e5e0e4"/><g stroke="#ffc34d" strokeWidth="4" strokeLinecap="round"><path d="M50 2V7M18 14L23 18M82 14L77 18M8 38H14M92 38H86M18 62L23 59M82 62L77 59"/></g></svg>;
   if (type === "risk") return <svg {...common}><path d="M50 7 94 83Q98 92 87 92H13Q2 92 6 83L44 7Q50-2 56 7Z" fill="#FFD34E"/><path d="M47 30Q47 25 52 25T57 30L54 61Q53 66 50 66T46 61Z" fill="#5D6B73"/><circle cx="50" cy="78" r="5" fill="#5D6B73"/></svg>;
   if (type === "critical") return <svg {...common}><circle cx="50" cy="50" r="48" fill="#FF2028"/><path d="M43 22Q43 15 50 15T57 22L54 62Q53 67 50 67T46 62Z" fill="#fff"/><circle cx="50" cy="79" r="6" fill="#fff"/></svg>;
   if (type === "moderate") return <svg {...common}><circle cx="50" cy="50" r="48" fill="#FFE91D"/><path d="M47 22Q47 17 52 17T57 22L54 62Q53 67 50 67T46 62Z" fill="#fff"/><circle cx="50" cy="79" r="6" fill="#fff"/></svg>;
@@ -234,7 +236,7 @@ function ComparisonResult({ comparison, tk }) {
       {/* Summary banner */}
       <div style={cardStyle}>
         <div style={{ display: "flex", alignItems: "flex-start", gap: "1rem" }}>
-          <span style={{ fontSize: "2rem" }}>🔀</span>
+          <DashboardIllustration type="comparison" size={64} />
           <div style={{ flex: 1 }}>
             <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 700, fontSize: "1.1rem", color: tk.textPrimary, marginBottom: "0.4rem" }}>Comparison Summary</div>
             <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.925rem", color: tk.textSecondary, lineHeight: 1.65, margin: "0 0 0.75rem" }}>{comparison.summary}</p>
@@ -322,7 +324,7 @@ function ComparisonResult({ comparison, tk }) {
 
       {comparison.recommendation && (
         <div style={{ ...cardStyle, background: tk.isDark ? "rgba(201,168,76,0.08)" : "rgba(160,120,40,0.05)", borderColor: tk.goldBorder }}>
-          {sectionTitle("💡", "Recommendation")}
+          {sectionTitle(<DashboardIllustration type="recommendation" size={30} />, "Recommendation")}
           <p style={{ margin: 0, fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.95rem", color: tk.textPrimary, lineHeight: 1.65 }}>{comparison.recommendation}</p>
         </div>
       )}
