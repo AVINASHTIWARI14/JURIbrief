@@ -426,7 +426,7 @@ export default function Header() {
                 onMouseLeave={(e)=>{e.currentTarget.style.opacity="1";e.currentTarget.style.transform="scale(1)"}}
               >
                 <img
-                  src="/profile-avatar.svg"
+                  src="/profile-avatar.png"
                   alt="Profile"
                   style={{
                     width: "100%",
