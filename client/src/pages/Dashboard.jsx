@@ -831,13 +831,13 @@ export default function Dashboard() {
             <h3 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.05rem", fontWeight: 700, color: tk.textPrimary, margin: 0, display: "flex", alignItems: "center", gap: "0.5rem" }}>
               <img src="/generate-button.png" alt="" style={{ width: "30px", height: "30px", objectFit: "contain", flexShrink: 0 }} /> Generated Document
             </h3>
-            <div style={{ display: "flex", gap: "0.5rem" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "0.5rem", flexWrap: "wrap" }}>
               <button
                 onClick={() => { navigator.clipboard.writeText(genResult); }}
-                style={{ minHeight: "42px", minWidth: "112px", padding: "0.5rem 0.9rem", borderRadius: "8px", border: "none", background: tk.gold, color: "#fff", fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", fontWeight: 600, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", whiteSpace: "nowrap", lineHeight: 1, boxSizing: "border-box", transition: "background .2s ease, transform .2s ease" }}
+                style={{ height: "42px", minWidth: "112px", padding: "0 0.9rem", borderRadius: "8px", border: "none", background: tk.gold, color: "#fff", fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.8rem", fontWeight: 600, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", whiteSpace: "nowrap", lineHeight: 1, boxSizing: "border-box", flexShrink: 0, transition: "background .2s ease, transform .2s ease" }}
                 onMouseEnter={e => { e.currentTarget.style.background = "#B8860B"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = tk.gold; }}>
-                <img src="/copy-button.png" alt="" style={{ width: "22px", height: "22px", objectFit: "contain", display: "block", flexShrink: 0 }} />
+                <img src="/copy-button.png" alt="" style={{ width: "22px", height: "22px", objectFit: "contain", display: "block", flexShrink: 0, verticalAlign: "middle" }} />
                 <span style={{ display: "inline-flex", alignItems: "center", lineHeight: 1 }}>Copy</span>
               </button>
               <button
