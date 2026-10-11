@@ -93,7 +93,7 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
     </td>
     <td align="center" width="50%">
       <img src="screenshots/analysis.png" alt="AI-generated legal document analysis" width="100%">
-      <strong>AI analysis</strong>
+      
     </td>
   </tr>
 </table>
