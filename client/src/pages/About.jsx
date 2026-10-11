@@ -195,7 +195,7 @@ export default function About() {
           font-size: 1.3rem;
           line-height: 1.25;
           font-weight: 700;
-          color: ${tk.isDark ? "#ffffff" : "#ffffff"};
+          color: ${tk.isDark ? "#ffffff" : "#000000"};
         }
 
         
