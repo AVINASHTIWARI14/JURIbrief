@@ -22,8 +22,6 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 
 </div>
 
----
-
 ##  Features
 
 | Feature | What it does |
