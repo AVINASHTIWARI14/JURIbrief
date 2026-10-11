@@ -84,17 +84,20 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 
 ---
 
-### Juri AI chat
-<p align="center">
-  <img src="screenshots/chat.png" alt="Juri AI legal chat" width="90%">
-</p>
+### Juri AI chat and AI analysis
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="screenshots/chat.png" alt="Juri AI legal chat" width="100%">
+      <strong>Juri AI chat</strong>
+    </td>
+    <td align="center" width="50%">
+      <img src="screenshots/analysis.png" alt="AI-generated legal document analysis" width="100%">
+      <strong>AI analysis</strong>
+    </td>
+  </tr>
+</table>
 
----
-
-### AI analysis and risk detection
-<p align="center">
-  <img src="screenshots/analysis.png" alt="AI-generated legal document analysis" width="90%">
-</p>
 <p align="center">
   <img src="screenshots/risk-detection.png" alt="Risk levels and deadline extraction" width="90%">
 </p>
