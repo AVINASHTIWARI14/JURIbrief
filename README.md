@@ -84,7 +84,7 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 
 ---
 
-### Juri AI chat and AI analysis
+### Juri AI chat
 <table>
   <tr>
     <td align="center" width="50%">
