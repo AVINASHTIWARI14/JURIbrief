@@ -128,7 +128,7 @@ export default function About() {
         .feature-card-wrap {
           box-sizing: border-box;
           width: 190px;
-          height: 254px;
+          height: 180px;
           background: ${tk.isDark ? "#171717" : "#ffffff"};
           border: 1px solid ${tk.isDark ? "#292929" : "#ffffff"};
           box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
@@ -195,7 +195,7 @@ export default function About() {
           font-size: 1.3rem;
           line-height: 1.25;
           font-weight: 700;
-          color: ${tk.gold};
+          color: ${tk.isDark ? "#ffffff" : "#ffffff"};
         }
 
         
@@ -214,8 +214,8 @@ export default function About() {
 
           .feature-card-wrap {
             width: min(190px, 78vw);
-            height: 254px;
-            min-height: 254px;
+            height: 180px;
+            min-height: 180px;
           }
         }
         @media (max-width: 700px) {
