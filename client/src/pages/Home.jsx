@@ -30,7 +30,17 @@ export default function Home() {
         .hero-cta     { animation: heroIn .7s cubic-bezier(.22,1,.36,1) .36s both; }
         .hero-trust   { animation: heroIn .7s cubic-bezier(.22,1,.36,1) .44s both; }
         .hero-capability-wrap { position: relative; height: 1.7rem; width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: 0.15rem; }
-        .hero-capability { position: absolute; font-family: "'Roboto Serif'", Georgia, serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.025em; color: ${tk.gold}; opacity: 0; transform: translateY(8px); animation: capabilityFade 12s ease-in-out infinite; }
+        .hero-capability {
+          position: absolute;
+          font-family: "Great Vibes", "Brush Script MT", cursive;
+          font-size: 1.25rem;
+          font-weight: 400;
+          letter-spacing: 0.025em;
+          color: ${tk.gold};
+          opacity: 0;
+          transform: translateY(8px);
+          animation: capabilityFade 12s ease-in-out infinite;
+        }
         .hero-capability-1 { animation-delay: 0s; } .hero-capability-2 { animation-delay: 3s; } .hero-capability-3 { animation-delay: 6s; } .hero-capability-4 { animation-delay: 9s; }
         @keyframes capabilityFade { 0%,4% { opacity:0; transform:translateY(8px); } 8%,21% { opacity:1; transform:translateY(0); } 25%,100% { opacity:0; transform:translateY(-8px); } }
 
