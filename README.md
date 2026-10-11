@@ -1,6 +1,8 @@
 <div align="center">
 
-# JURIbrief
+<p align="center">
+  <img src="screenshots/juribrief-logo.png" alt="JURIbrief" width="80%">
+</p>
 
 ### AI-Powered Legal Document Assistant
 
