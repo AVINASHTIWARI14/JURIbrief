@@ -127,7 +127,7 @@ export default function PrivacyPolicy() {
         <p>
           For privacy-related questions or requests, contact us at{" "}
           <a
-            href="mailto:avinashtiwari2005ws@gmail.com"
+            href="mailto:avinashtiwari2005ws@gmail.com?subject=JURIbrief%20Privacy%20Enquiry"
             style={{ color: tk.gold, textDecoration: "underline", textUnderlineOffset: "3px" }}
           >
             avinashtiwari2005ws@gmail.com
