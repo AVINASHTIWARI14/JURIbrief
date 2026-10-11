@@ -29,7 +29,7 @@ create policy "Users can view their own deadline reminders"
 drop policy if exists "Users can create their own deadline reminders" on public.deadline_reminders;
 create policy "Users can create their own deadline reminders"
   on public.deadline_reminders for insert
-  to authenticated with check (auth.uid() = user_id and email = (select email from auth.users where id = auth.uid()));
+  to authenticated with check (auth.uid() = user_id and email = (auth.jwt() ->> 'email'));
 
 drop policy if exists "Users can update their own pending deadline reminders" on public.deadline_reminders;
 create policy "Users can update their own pending deadline reminders"
