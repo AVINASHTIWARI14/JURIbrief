@@ -8,6 +8,16 @@ function normalizeDate(value) {
   // Accept ISO dates and common dates such as 16 Oct 2026 / October 16, 2026.
   const iso = raw.match(/\b(\d{4}-\d{2}-\d{2})\b/);
   if (iso) return iso[1];
+  const dmy = raw.match(/\b(\d{1,2})[/. -](\d{1,2})[/. -](\d{4})\b/);
+  if (dmy) {
+    const day = Number(dmy[1]);
+    const month = Number(dmy[2]);
+    const year = Number(dmy[3]);
+    const check = new Date(year, month - 1, day);
+    if (check.getFullYear() === year && check.getMonth() === month - 1 && check.getDate() === day) {
+      return [year, String(month).padStart(2, "0"), String(day).padStart(2, "0")].join("-");
+    }
+  }
   const parsed = new Date(raw);
   if (Number.isNaN(parsed.getTime())) return "";
   return [
@@ -52,6 +62,31 @@ export default function DeadlineNotifyButton({ deadline, tk }) {
 
     setState("saving");
     setMessage("");
+    const { data: existing, error: lookupError } = await supabase
+      .from("deadline_reminders")
+      .select("id,reminder_status")
+      .eq("user_id", user.id)
+      .eq("deadline_date", deadlineDate)
+      .eq("original_text", originalText || deadlineDate)
+      .maybeSingle();
+
+    if (lookupError) {
+      console.error("Deadline reminder lookup failed:", lookupError);
+      setState("error");
+      setMessage("Could not check existing reminders. Please try again.");
+      return;
+    }
+    if (existing?.reminder_status === "pending") {
+      setState("saved");
+      setMessage("A reminder is already scheduled for this deadline.");
+      return;
+    }
+    if (existing?.reminder_status === "sent") {
+      setState("saved");
+      setMessage("The reminder for this deadline has already been sent.");
+      return;
+    }
+
     const { error } = await supabase.from("deadline_reminders").upsert({
       user_id: user.id,
       email: user.email,
