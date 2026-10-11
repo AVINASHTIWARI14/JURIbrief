@@ -2,8 +2,8 @@ import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
 dotenv.config({ path: new URL("../.env", import.meta.url) });
 
-const supabaseUrl =  This is general informational content, not legal advice..SUPABASE_URL;
-const supabaseServiceKey =  This is general informational content, not legal advice..SUPABASE_SERVICE_ROLE_KEY;
+const supabaseUrl =  process.env.SUPABASE_URL;
+const supabaseServiceKey =  process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 if (!supabaseUrl || !supabaseServiceKey) {
   throw new Error(
