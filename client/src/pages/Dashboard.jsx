@@ -4,7 +4,6 @@ import { useTokens } from "../App";
 import { useAuth } from "../context/AuthContext";
 import { useLanguage } from "../context/LanguageContext";
 import axios from "axios";
-import DeadlineNotifyButton from "../components/DeadlineNotifyButton";
 
 function ThreatCard({ threat, level, tk }) {
   const isRed = level === "critical";
@@ -189,7 +188,6 @@ function AnalysisResult({ analysis, tk }) {
                       {d.timing && <span style={{ fontSize: "0.72rem", fontWeight: 700, color: urgColor, background: tk.isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)", padding: "2px 8px", borderRadius: "6px", letterSpacing: "0.02em" }}>{d.timing}</span>}
                     </div>
                     {d.description && <p style={{ margin: 0, fontSize: "0.825rem", color: tk.textSecondary, lineHeight: 1.55 }}>{d.description}</p>}
-                    <DeadlineNotifyButton deadline={{ ...d, date: d.date || d.deadlineDate || d.dueDate || d.due_date || d.timing || d.label }} tk={tk} />
                   </div>
                 </div>
               );
@@ -477,39 +475,7 @@ export default function Dashboard() {
     });
   }, [authUser, profile]);
 
-  const loadMockDeadlineAnalysis = () => {
-    const mockAnalysis = {
-      summary: "Mock analysis loaded for testing the Deadline Notify button. No Gemini API request was made.",
-      keyPoints: ["This is sample data for UI testing only.", "The deadline below is fictional."],
-      criticalThreats: [],
-      moderateThreats: [],
-      riskScore: 35,
-      deadlines: [
-        {
-          label: "Sample Agreement Renewal",
-          timing: "15 November 2026",
-          date: "2026-11-15",
-          urgency: "high",
-          description: "Test whether the reminder button can save this sample deadline."
-        }
-      ]
-    };
-    setError("");
-    setMode("file");
-    setAnalysis(mockAnalysis);
-    setEnglishAnalysis(mockAnalysis);
-    setComparison(null);
-    setGenResult("");
-    try {
-      sessionStorage.setItem("juri-context", JSON.stringify({
-        analysis: mockAnalysis,
-        documentText: "Mock deadline test data. Not a real legal document."
-      }));
-    } catch {}
-    window.setTimeout(() => {
-      document.getElementById("analysis-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 100);
-  };
+
 
   const handleAnalyze = async () => {
     setError(""); setAnalysis(null); setLoading(true); setUploadProgress(0);
@@ -718,14 +684,7 @@ export default function Dashboard() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "0.6rem" }}>
           <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.85rem", color: tk.textMuted, fontStyle: "italic", margin: 0 }}>{user?.email}</p>
-          <button
-            type="button"
-            onClick={loadMockDeadlineAnalysis}
-            style={{ display: "inline-flex", alignItems: "center", gap: "0.45rem", padding: "0.55rem 0.85rem", borderRadius: "9px", border: `1px solid ${tk.goldBorder}`, background: tk.goldLight, color: tk.textPrimary, fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.78rem", cursor: "pointer" }}
-            title="Loads sample analysis locally without calling Gemini"
-          >
-            <span aria-hidden="true">🧪</span> Test Notify Button
-          </button>
+
         </div>
       </div>
       <div style={{ height: "1px", background: `linear-gradient(90deg, transparent, ${tk.gold}, transparent)`, marginBottom: "2.5rem" }} />
