@@ -5,19 +5,19 @@ import { useAuth } from "../context/AuthContext";
 
 const advantages = [
   {
-    value:"Instant Analysis",
-    label:"Understand Faster",
-    desc:"Break down complex legal documents into clear, practical summaries in seconds.",
+    value:"Plain-English Clarity",
+    label:"Make Legal Language Clear",
+    desc:"Turn dense clauses into straightforward explanations that are easier to understand.",
   },
   {
-    value:"Risk Detection",
-    label:"Spot What Matters",
-    desc:"Identify risky clauses, hidden obligations, deadlines, and terms that deserve a closer look.",
+    value:"Risk Radar",
+    label:"Catch What Deserves Attention",
+    desc:"Surface potentially risky terms, hidden obligations, and important deadlines before you decide what to do.",
   },
   {
-    value:"Compare & Generate",
-    label:"Act With Confidence",
-    desc:"Compare document versions and generate tailored legal drafts with JURIbrief's AI assistance.",
+    value:"Review to Draft",
+    label:"Move From Reading to Action",
+    desc:"Go beyond understanding a document with AI-assisted review and structured drafting in one workspace.",
   },
 ];
 const problemItems = [
@@ -310,7 +310,7 @@ export default function About() {
                   <h2 style={{
                     fontFamily:"'DM Serif Display', Georgia, serif",
                     fontSize:"1.45rem", fontWeight:700, color:tk.textPrimary, margin:0,
-                  }}>Core Features</h2>
+                  }}>More Tools, One Workspace</h2>
                 </div>
                 <p style={{
                   fontFamily:"'Roboto Serif', Georgia, serif",
