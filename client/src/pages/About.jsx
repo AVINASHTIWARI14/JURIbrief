@@ -129,11 +129,11 @@ export default function About() {
           box-sizing: border-box;
           width: 190px;
           height: 180px;
-          background: ${tk.isDark ? "#171717" : "#ffffff"};
-          border: 1px solid ${tk.isDark ? "#292929" : "#ffffff"};
-          box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
-          backdrop-filter: blur(6px);
-          border-radius: 17px;
+          background: ${tk.surface};
+          border: 1px solid ${tk.surfaceBorder};
+          box-shadow: ${tk.isDark ? "0 18px 48px rgba(0,0,0,.3)" : "0 10px 36px rgba(0,0,0,.05)"};
+          backdrop-filter: blur(24px);
+          border-radius: 20px;
           text-align: center;
           cursor: pointer;
           transition: background-color 0.35s ease, border-color 0.35s ease, transform 0.5s, box-shadow 0.5s;
@@ -141,7 +141,7 @@ export default function About() {
           align-items: center;
           justify-content: center;
           user-select: none;
-          color: ${tk.isDark ? "#ffffff" : "#000000"};
+          color: ${tk.textPrimary};
           padding: 1.25rem;
         }
 
