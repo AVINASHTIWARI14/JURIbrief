@@ -477,6 +477,36 @@ export default function Dashboard() {
     });
   }, [authUser, profile]);
 
+  const loadMockDeadlineAnalysis = () => {
+    const mockAnalysis = {
+      summary: "Mock analysis loaded for testing the Deadline Notify button. No Gemini API request was made.",
+      keyPoints: ["This is sample data for UI testing only.", "The deadline below is fictional."],
+      criticalThreats: [],
+      moderateThreats: [],
+      riskScore: 35,
+      deadlines: [
+        {
+          label: "Sample Agreement Renewal",
+          timing: "15 November 2026",
+          date: "2026-11-15",
+          urgency: "high",
+          description: "Test whether the reminder button can save this sample deadline."
+        }
+      ]
+    };
+    setError("");
+    setAnalysis(mockAnalysis);
+    setEnglishAnalysis(mockAnalysis);
+    setComparison(null);
+    setGenResult("");
+    try {
+      sessionStorage.setItem("juri-context", JSON.stringify({
+        analysis: mockAnalysis,
+        documentText: "Mock deadline test data. Not a real legal document."
+      }));
+    } catch {}
+  };
+
   const handleAnalyze = async () => {
     setError(""); setAnalysis(null); setLoading(true); setUploadProgress(0);
     try {
@@ -682,7 +712,17 @@ export default function Dashboard() {
           </h1>
           <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "1rem", color: tk.textMuted, fontStyle: "italic", margin: 0 }}>JURIbrief Dashboard</p>
         </div>
-        <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.85rem", color: tk.textMuted, fontStyle: "italic", margin: 0 }}>{user?.email}</p>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "0.6rem" }}>
+          <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.85rem", color: tk.textMuted, fontStyle: "italic", margin: 0 }}>{user?.email}</p>
+          <button
+            type="button"
+            onClick={loadMockDeadlineAnalysis}
+            style={{ display: "inline-flex", alignItems: "center", gap: "0.45rem", padding: "0.55rem 0.85rem", borderRadius: "9px", border: `1px solid ${tk.goldBorder}`, background: tk.goldLight, color: tk.textPrimary, fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.78rem", cursor: "pointer" }}
+            title="Loads sample analysis locally without calling Gemini"
+          >
+            <span aria-hidden="true">🧪</span> Test Notify Button
+          </button>
+        </div>
       </div>
       <div style={{ height: "1px", background: `linear-gradient(90deg, transparent, ${tk.gold}, transparent)`, marginBottom: "2.5rem" }} />
       <div style={{ ...cardStyle, marginBottom: "2rem" }}>
