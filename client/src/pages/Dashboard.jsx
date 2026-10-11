@@ -4,6 +4,7 @@ import { useTokens } from "../App";
 import { useAuth } from "../context/AuthContext";
 import { useLanguage } from "../context/LanguageContext";
 import axios from "axios";
+import DeadlineNotifyButton from "../components/DeadlineNotifyButton";
 
 function ThreatCard({ threat, level, tk }) {
   const isRed = level === "critical";
@@ -188,6 +189,7 @@ function AnalysisResult({ analysis, tk }) {
                       {d.timing && <span style={{ fontSize: "0.72rem", fontWeight: 700, color: urgColor, background: tk.isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)", padding: "2px 8px", borderRadius: "6px", letterSpacing: "0.02em" }}>{d.timing}</span>}
                     </div>
                     {d.description && <p style={{ margin: 0, fontSize: "0.825rem", color: tk.textSecondary, lineHeight: 1.55 }}>{d.description}</p>}
+                    <DeadlineNotifyButton deadline={{ ...d, date: d.date || d.deadlineDate || d.dueDate || d.due_date || d.timing || d.label }} tk={tk} />
                   </div>
                 </div>
               );
