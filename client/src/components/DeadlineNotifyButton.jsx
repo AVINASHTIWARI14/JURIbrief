@@ -73,7 +73,11 @@ export default function DeadlineNotifyButton({ deadline, tk }) {
     if (lookupError) {
       console.error("Deadline reminder lookup failed:", lookupError);
       setState("error");
-      setMessage("Could not check existing reminders. Please try again.");
+      setMessage(lookupError.code === "42P01" || lookupError.code === "PGRST205"
+        ? "Reminder database is not set up. Run the deadline_reminders Supabase migration."
+        : lookupError.code === "42501"
+          ? "Supabase blocked reminder access. Check the deadline_reminders RLS policies."
+          : `Could not check reminders: ${lookupError.message || "Please try again."}`);
       return;
     }
     if (existing?.reminder_status === "pending") {
@@ -124,7 +128,7 @@ export default function DeadlineNotifyButton({ deadline, tk }) {
           opacity: state === "saving" ? 0.7 : 1,
         }}
       >
-        <img src="/deadline-bell.png" alt="" style={{ width: "22px", height: "22px", objectFit: "contain" }} />
+        <span aria-hidden="true" style={{ width: "22px", height: "22px", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: "18px" }}>🔔</span>
         {state === "saving" ? "Scheduling…" : state === "saved" ? "Reminder set" : "Notify"}
       </button>
       {message && <span role={state === "error" ? "alert" : "status"} style={{ fontSize: "0.72rem", lineHeight: 1.45, color: state === "error" ? "#DC2626" : "#059669" }}>{message}</span>}
