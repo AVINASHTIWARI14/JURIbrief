@@ -273,7 +273,7 @@ export default function About() {
                     </div>
 
                     <div className="feature-card-info">
-                      <h3>{a.value}</h3>
+                      <h3>{a.label}</h3>
                     </div>
                   </div>
                 </div>
