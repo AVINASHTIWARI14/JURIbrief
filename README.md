@@ -46,6 +46,7 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 <p align="center">
   <img src="screenshots/home.png" alt="JURIbrief home page" width="90%">
 </p>
+<p align="center">Explore JURIbrief’s main interface and access its core legal document tools.</p>
 
 ---
 
@@ -53,6 +54,7 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 <p align="center">
   <img src="screenshots/authentication.png" alt="JURIbrief authentication page" width="90%">
 </p>
+<p align="center">Sign in securely to access document analysis and account features.</p>
 
 ---
 
@@ -60,6 +62,7 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 <p align="center">
   <img src="screenshots/analyzer.png" alt="Upload and analyze a legal document" width="90%">
 </p>
+<p align="center">Upload a legal document to summarize its contents and identify important clauses.</p>
 
 ---
 
@@ -67,6 +70,7 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 <p align="center">
   <img src="screenshots/paste-text.png" alt="Paste text for legal analysis" width="90%">
 </p>
+<p align="center">Paste text directly to analyze content without uploading a document.</p>
 
 ---
 
@@ -74,6 +78,7 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 <p align="center">
   <img src="screenshots/compare.png" alt="Compare legal documents" width="90%">
 </p>
+<p align="center">Compare document versions to spot changes and review potential risks.</p>
 
 ---
 
@@ -81,6 +86,7 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 <p align="center">
   <img src="screenshots/generate.png" alt="Generate a legal document" width="90%">
 </p>
+<p align="center">Draft a legal document from a plain-language prompt and selected jurisdiction.</p>
 
 ---
 
@@ -89,6 +95,7 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 | Juri AI chat | |
 | --- | --- |
 | <img src="screenshots/chat.png" alt="Juri AI legal chat" width="100%"> | <img src="screenshots/analysis.png" alt="AI-generated legal document analysis" width="100%"> |
+| Ask Juri follow-up questions about legal concepts and analyzed documents. | Review AI-generated findings and key details extracted from a legal document. |
 
 ---
 
