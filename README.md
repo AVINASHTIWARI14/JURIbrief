@@ -4,6 +4,10 @@
   <img src="screenshots/juribrief-logo.png" alt="JURIbrief" width="80%">
 </p>
 
+JURIbrief helps make complex legal documents easier to understand. Upload a document or paste its text to receive an AI-generated summary, identify potential risks and deadlines, ask follow-up questions, compare document versions, or draft a new document.
+
+> **Important:** JURIbrief is an informational tool, not a substitute for advice from a qualified legal professional. AI-generated findings can be incomplete or inaccurate; verify important decisions with a lawyer.
+
 ### AI-Powered Legal Document Assistant
 
 **Understand what you're signing before you sign it.**
