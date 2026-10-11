@@ -30,7 +30,7 @@ export default function Home() {
         .hero-cta     { animation: heroIn .7s cubic-bezier(.22,1,.36,1) .36s both; }
         .hero-trust   { animation: heroIn .7s cubic-bezier(.22,1,.36,1) .44s both; }
         .hero-capability-wrap { position: relative; height: 1.7rem; width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: 0.15rem; }
-        .hero-capability {
+        .hero-capability { position: absolute; font-family: "Roboto Serif", Georgia, serif; font-size: 1rem; font-style: italic; font-weight: 600; letter-spacing: 0.025em; color: ${tk.gold}; opacity: 0; transform: translateY(8px); animation: capabilityFade 12s ease-in-out infinite; }
           position: absolute;
           font-family: "Great Vibes", "Brush Script MT", cursive;
           font-size: 1.25rem;
