@@ -252,7 +252,7 @@ export default function About() {
               fontSize:"clamp(2.75rem, 6vw, 4.25rem)",
               lineHeight:1.05, letterSpacing:"-0.035em",
               margin:0,
-            }}>About Us</h1>
+            }}>About JURIbrief</h1>
 
             {/* Gold rule */}
             <div className="sr" style={{
@@ -286,7 +286,7 @@ export default function About() {
               ))}
             </div>
 
-            {/* What We Offer */}
+            {/* Core Features */}
             <div className="sr d3" style={{
               width:"100%",
               background:tk.surface,
@@ -306,97 +306,92 @@ export default function About() {
                 gap:"1.25rem",
               }}>
                 <div style={{ display:"flex", alignItems:"center", gap:"0.625rem" }}>
-                  <span style={{
-                    width:"4px",
-                    height:"26px",
-                    borderRadius:"999px",
-                    background:tk.gold,
-                    display:"block",
-                  }}/>
+                  <span style={{ width:"4px", height:"26px", borderRadius:"999px", background:tk.gold, display:"block" }}/>
                   <h2 style={{
                     fontFamily:"'DM Serif Display', Georgia, serif",
-                    fontSize:"1.45rem",
-                    fontWeight:700,
-                    color:tk.textPrimary,
-                    margin:0,
-                  }}>
-                    What We Offer
-                  </h2>
+                    fontSize:"1.45rem", fontWeight:700, color:tk.textPrimary, margin:0,
+                  }}>Core Features</h2>
                 </div>
-
                 <p style={{
                   fontFamily:"'Roboto Serif', Georgia, serif",
-                  fontSize:"1.05rem",
-                  color:tk.textSecondary,
-                  fontWeight:500,
-                  lineHeight:1.75,
-                  margin:0,
+                  fontSize:"1.05rem", color:tk.textSecondary, fontWeight:500,
+                  lineHeight:1.75, margin:0,
                 }}>
-                  Legal documents can be difficult to read, compare, and keep track of.
-                  JURIbrief brings the important parts into one simple workspace so you
-                  can understand a document before making a decision.
+                  JURIbrief helps you review legal documents, understand important terms, and prepare drafts from one workspace.
                 </p>
-
                 <div className="offer-grid" style={{
-                  display:"grid",
-                  gridTemplateColumns:"repeat(2, 1fr)",
-                  gap:"1rem 1.5rem",
-                  marginTop:"0.25rem",
+                  display:"grid", gridTemplateColumns:"repeat(2, 1fr)",
+                  gap:"1rem 1.5rem", marginTop:"0.25rem",
                 }}>
                   {[
-                    {
-                      title:"Clear Document Summaries",
-                      desc:"Turn lengthy agreements into structured, easy-to-follow overviews."
-                    },
-                    {
-                      title:"Risk & Deadline Highlights",
-                      desc:"Bring attention to clauses, obligations, dates, and terms that may need review."
-                    },
-                    {
-                      title:"Document Comparison",
-                      desc:"See what changed between two versions without manually checking every line."
-                    },
-                    {
-                      title:"Document Generation",
-                      desc:"Create structured legal drafts from your requirements and review them before use."
-                    },
-                    {
-                      title:"Multiple Languages",
-                      desc:"Access document explanations in the language that is most comfortable for you."
-                    },
-                    {
-                      title:"One Place for Legal Work",
-                      desc:"Analyze, compare, generate, and discuss documents from a single workspace."
-                    },
+                    { title:"Document Analysis", desc:"Get a clear summary of a document and explanations of its key clauses." },
+                    { title:"Risk Detection", desc:"Review clauses, obligations, deadlines, and terms that may deserve closer attention." },
+                    { title:"Document Comparison", desc:"Identify differences between two document versions." },
+                    { title:"Document Generation", desc:"Create a structured draft from the requirements you provide, then review and edit it." },
+                    { title:"AI Legal Chat", desc:"Ask Juri follow-up questions about document wording and analysis findings." },
+                    { title:"Multilingual Support", desc:"Work with supported languages to make document explanations more accessible." },
                   ].map(item=>(
                     <div key={item.title} style={{
-                      padding:"1rem",
-                      border:`1px solid ${tk.surfaceBorder}`,
+                      padding:"1rem", border:`1px solid ${tk.surfaceBorder}`,
                       borderRadius:"12px",
                       background:tk.isDark ? "rgba(255,255,255,.025)" : "rgba(255,255,255,.45)",
                     }}>
                       <h3 style={{
-                        fontFamily:"'Roboto Serif', Georgia, serif",
-                        fontSize:"0.95rem",
-                        fontWeight:700,
-                        color:tk.textPrimary,
-                        margin:"0 0 0.35rem",
-                      }}>
-                        {item.title}
-                      </h3>
+                        fontFamily:"'Roboto Serif', Georgia, serif", fontSize:"0.95rem",
+                        fontWeight:700, color:tk.textPrimary, margin:"0 0 0.35rem",
+                      }}>{item.title}</h3>
                       <p style={{
-                        fontFamily:"'Roboto Serif', Georgia, serif",
-                        fontSize:"0.88rem",
-                        lineHeight:1.55,
-                        color:tk.textSecondary,
-                        margin:0,
-                      }}>
-                        {item.desc}
-                      </p>
+                        fontFamily:"'Roboto Serif', Georgia, serif", fontSize:"0.88rem",
+                        lineHeight:1.55, color:tk.textSecondary, margin:0,
+                      }}>{item.desc}</p>
                     </div>
                   ))}
                 </div>
               </div>
+            </div>
+
+            {/* Know Your Rights */}
+            <div className="sr d3" style={{
+              width:"100%", padding:"1.75rem 2rem", boxSizing:"border-box",
+              background:tk.surface, border:`1px solid ${tk.surfaceBorder}`,
+              borderRadius:"20px", textAlign:"left",
+              boxShadow:tk.isDark ? "0 18px 48px rgba(0,0,0,.3)" : "0 10px 36px rgba(0,0,0,.05)",
+            }}>
+              <div style={{ display:"flex", alignItems:"center", gap:"0.625rem", marginBottom:"0.9rem" }}>
+                <span style={{ width:"4px", height:"26px", borderRadius:"999px", background:tk.gold, display:"block" }}/>
+                <h2 style={{
+                  fontFamily:"'DM Serif Display', Georgia, serif",
+                  fontSize:"1.45rem", fontWeight:700, color:tk.textPrimary, margin:0,
+                }}>Know Your Rights</h2>
+              </div>
+              <p style={{
+                fontFamily:"'Roboto Serif', Georgia, serif", fontSize:"1rem",
+                lineHeight:1.75, color:tk.textSecondary, margin:0,
+              }}>
+                Use JURIbrief to help identify the rights, responsibilities, restrictions, costs, deadlines, and other terms described in your document. Check the original wording and the rules that apply to your situation before making decisions.
+              </p>
+            </div>
+
+            {/* Responsible AI Use */}
+            <div className="sr d3" style={{
+              width:"100%", padding:"1.75rem 2rem", boxSizing:"border-box",
+              background:tk.surface, border:`1px solid ${tk.surfaceBorder}`,
+              borderRadius:"20px", textAlign:"left",
+              boxShadow:tk.isDark ? "0 18px 48px rgba(0,0,0,.3)" : "0 10px 36px rgba(0,0,0,.05)",
+            }}>
+              <div style={{ display:"flex", alignItems:"center", gap:"0.625rem", marginBottom:"0.9rem" }}>
+                <span style={{ width:"4px", height:"26px", borderRadius:"999px", background:tk.gold, display:"block" }}/>
+                <h2 style={{
+                  fontFamily:"'DM Serif Display', Georgia, serif",
+                  fontSize:"1.45rem", fontWeight:700, color:tk.textPrimary, margin:0,
+                }}>Responsible AI Use</h2>
+              </div>
+              <p style={{
+                fontFamily:"'Roboto Serif', Georgia, serif", fontSize:"1rem",
+                lineHeight:1.75, color:tk.textSecondary, margin:0,
+              }}>
+                JURIbrief provides AI-generated information to support your understanding of legal documents. Results may be incomplete or inaccurate and are not a substitute for advice from a qualified legal professional. Verify important details before acting.
+              </p>
             </div>
 
             {/* How to Use */}
