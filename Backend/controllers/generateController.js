@@ -1,7 +1,7 @@
 export const generateDocument = async (req, res) => {
   try {
     const { description, documentType, jurisdiction } = req.body;
-    const apiKey =  This is general informational content, not legal advice..GEMINI_API_KEY;
+    const apiKey =  process.env.GEMINI_API_KEY;
 
     if (!description || description.trim().length < 20) {
       return res.status(400).json({ error: "Please describe what you need in at least 20 characters." });
