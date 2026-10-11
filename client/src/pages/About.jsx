@@ -178,8 +178,9 @@ export default function About() {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          gap: 0.7rem;
+          gap: 1rem;
           padding: 0;
+          width: 100%;
           box-sizing: border-box;
           text-align: center;
           opacity: 1;
@@ -191,19 +192,20 @@ export default function About() {
         .feature-card-info h3 {
           margin: 0;
           font-family: "'DM Serif Display', Georgia, serif";
-          font-size: 1.35rem;
-          line-height: 1.15;
+          font-size: 1.3rem;
+          line-height: 1.25;
           font-weight: 700;
-          color: ${tk.isDark ? '#ffffff' : '#000000'};
+          color: ${tk.gold};
         }
 
         .feature-card-info p {
           margin: 0;
           font-family: "'Roboto Serif', Georgia, serif";
-          font-size: 0.92rem;
-          line-height: 1.5;
+          font-size: 0.91rem;
+          line-height: 1.6;
           color: ${tk.isDark ? '#e5e5e5' : '#222222'};
           font-weight: 500;
+          max-width: 100%;
         }
 
         @media (max-width: 700px) {
