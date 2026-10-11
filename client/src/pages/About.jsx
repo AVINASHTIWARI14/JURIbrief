@@ -319,9 +319,11 @@ export default function About() {
                 }}>
                   JURIbrief helps you review legal documents, understand important terms, and prepare drafts from one workspace.
                 </p>
-                <div className="offer-grid" style={{
-                  display:"grid", gridTemplateColumns:"repeat(2, 1fr)",
-                  gap:"1rem 1.5rem", marginTop:"0.25rem",
+                <div style={{
+                  display:"flex",
+                  flexDirection:"column",
+                  gap:"1rem",
+                  marginTop:"0.25rem",
                 }}>
                   {[
                     { title:"Document Analysis", desc:"Get a clear summary of a document and explanations of its key clauses." },
@@ -332,16 +334,19 @@ export default function About() {
                     { title:"Multilingual Support", desc:"Work with supported languages to make document explanations more accessible." },
                   ].map(item=>(
                     <div key={item.title} style={{
-                      padding:"1rem", border:`1px solid ${tk.surfaceBorder}`,
-                      borderRadius:"12px",
-                      background:tk.isDark ? "rgba(255,255,255,.025)" : "rgba(255,255,255,.45)",
+                      display:"grid",
+                      gridTemplateColumns:"minmax(145px, 0.8fr) 2fr",
+                      gap:"0.75rem 1.25rem",
+                      alignItems:"start",
+                      paddingBottom:"0.85rem",
+                      borderBottom:`1px solid ${tk.surfaceBorder}`,
                     }}>
                       <h3 style={{
                         fontFamily:"'Roboto Serif', Georgia, serif", fontSize:"0.95rem",
-                        fontWeight:700, color:tk.textPrimary, margin:"0 0 0.35rem",
+                        fontWeight:700, color:tk.textPrimary, margin:0,
                       }}>{item.title}</h3>
                       <p style={{
-                        fontFamily:"'Roboto Serif', Georgia, serif", fontSize:"0.88rem",
+                        fontFamily:"'Roboto Serif', Georgia, serif", fontSize:"0.9rem",
                         lineHeight:1.55, color:tk.textSecondary, margin:0,
                       }}>{item.desc}</p>
                     </div>
