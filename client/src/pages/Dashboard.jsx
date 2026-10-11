@@ -363,7 +363,7 @@ function LanguageSelector({ tk }) {
         onMouseEnter={(e) => { e.currentTarget.style.background = tk.isDark ? "rgba(212,175,55,0.15)" : "rgba(212,175,55,0.12)"; }}
         onMouseLeave={(e) => { e.currentTarget.style.background = tk.isDark ? "rgba(212,175,55,0.08)" : "rgba(212,175,55,0.06)"; }}
       >
-        <img src="/language-icon.svg" alt="" style={{ width: "24px", height: "24px", objectFit: "contain", flexShrink: 0 }} /> {language.nativeLabel}
+        <img src="/language.png" alt="" style={{ width: "24px", height: "24px", objectFit: "contain", flexShrink: 0 }} /> {language.nativeLabel}
         <svg width="9" height="9" viewBox="0 0 10 10" fill="none" style={{ transform: open ? "rotate(180deg)" : "none", transition: "transform 0.2s" }}>
           <path d="M1 3l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
         </svg>
