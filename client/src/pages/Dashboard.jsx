@@ -495,6 +495,7 @@ export default function Dashboard() {
       ]
     };
     setError("");
+    setMode("file");
     setAnalysis(mockAnalysis);
     setEnglishAnalysis(mockAnalysis);
     setComparison(null);
@@ -505,6 +506,9 @@ export default function Dashboard() {
         documentText: "Mock deadline test data. Not a real legal document."
       }));
     } catch {}
+    window.setTimeout(() => {
+      document.getElementById("analysis-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
   };
 
   const handleAnalyze = async () => {
@@ -865,7 +869,7 @@ export default function Dashboard() {
           <style>{`@keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }`}</style>
         </div>
       )}
-      {analysis && <AnalysisResult analysis={analysis} tk={tk} />}
+      {analysis && <div id="analysis-results" style={{ scrollMarginTop: "100px" }}><AnalysisResult analysis={analysis} tk={tk} /></div>}
       {comparison && <ComparisonResult comparison={comparison} tk={tk} />}
       {genResult && (
         <div style={{ ...cardStyle, animation: "fadeIn 0.5s ease" }}>
