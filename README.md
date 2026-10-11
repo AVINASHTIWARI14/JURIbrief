@@ -10,7 +10,7 @@
 
 Analyze legal documents, uncover risky clauses, compare versions, and generate drafts with AI assistance.
 
-[Explore the Repository](https://github.com/AVINASHTIWARI14/JURIbrief) · [Report an Issue](https://github.com/AVINASHTIWARI14/JURIbrief/issues)
+[🚀 Live Demo](https://legal-ease-ai-sand.vercel.app/)
 
 </div>
 
