@@ -253,7 +253,7 @@ export default function SmartBook({ onClose }) {
             ))}
           </div>
           <p style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.72rem", color: tk.textMuted, fontStyle: "italic", textAlign: "center", marginTop: "1.5rem", padding: "0 1rem", lineHeight: 1.6 }}>
-            ⚠️ This is general informational content, not legal advice.
+             This is general informational content, not legal advice.
           </p>
         </div>
       </div>
