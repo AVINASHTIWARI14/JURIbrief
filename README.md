@@ -8,19 +8,19 @@ JURIbrief helps make complex legal documents easier to understand. Upload a docu
 
 > **Important:** JURIbrief is an informational tool, not a substitute for advice from a qualified legal professional. AI-generated findings can be incomplete or inaccurate; verify important decisions with a lawyer.
 
+---
+
 ### AI-Powered Legal Document Assistant
 
 **Understand what you're signing before you sign it.**
 
 Analyze legal documents, uncover risky clauses, compare versions, and generate drafts with AI assistance.
 
----
-
 [Live Demo](https://legal-ease-ai-sand.vercel.app/)
 
----
-
 </div>
+
+---
 
 ### Features
 
@@ -36,42 +36,60 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 |  **Authentication** | Sign in with email/password or Google and recover access to an account. |
 |  **Admin Dashboard** | View registered users, manage access, and review contact messages. |
 
-##  Screenshots
+---
+
+## Screenshots
+
+---
 
 ### Home page
 <p align="center">
   <img src="screenshots/home.png" alt="JURIbrief home page" width="90%">
 </p>
 
+---
+
 ### Admin Dashboard
 <p align="center">
   <img src="screenshots/authentication.png" alt="JURIbrief authentication page" width="90%">
 </p>
+
+---
 
 ### Document analyzer
 <p align="center">
   <img src="screenshots/analyzer.png" alt="Upload and analyze a legal document" width="90%">
 </p>
 
+---
+
 ### Paste text
 <p align="center">
   <img src="screenshots/paste-text.png" alt="Paste text for legal analysis" width="90%">
 </p>
+
+---
 
 ### Compare documents
 <p align="center">
   <img src="screenshots/compare.png" alt="Compare legal documents" width="90%">
 </p>
 
+---
+
 ### Generate a document
 <p align="center">
   <img src="screenshots/generate.png" alt="Generate a legal document" width="90%">
 </p>
 
+---
+
 ### Juri AI chat
 <p align="center">
   <img src="screenshots/chat.png" alt="Juri AI legal chat" width="90%">
 </p>
+
+---
 
 ### AI analysis and risk detection
 <p align="center">
@@ -81,12 +99,16 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
   <img src="screenshots/risk-detection.png" alt="Risk levels and deadline extraction" width="90%">
 </p>
 
+---
+
 ### Admin dashboard
 <p align="center">
   <img src="screenshots/admin-dashboard.png" alt="JURIbrief admin dashboard" width="90%">
 </p>
 
-##  Tech Stack
+---
+
+## Tech Stack
 
 | Area | Technologies |
 | --- | --- |
@@ -99,7 +121,11 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 | Deployment | Vercel, Render |
 | Version control | Git, GitHub |
 
-##  Run Locally
+---
+
+## Run Locally
+
+---
 
 ### Prerequisites
 
@@ -108,12 +134,16 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 - A Google Gemini API key for AI-powered features
 - PostgreSQL connection details for the backend
 
+---
+
 ### 1. Clone the repository
 
 ```bash
 git clone https://github.com/AVINASHTIWARI14/JURIbrief.git
 cd JURIbrief
 ```
+
+---
 
 ### 2. Configure environment variables
 
@@ -140,6 +170,8 @@ GEMINI_API_KEY=your-gemini-api-key
 
 Use your own credentials and any additional settings required by your Supabase/PostgreSQL setup. Never commit real API keys, passwords, or private service-role keys.
 
+---
+
 ### 3. Install and start the backend
 
 ```bash
@@ -149,6 +181,8 @@ npm start
 ```
 
 By default, the API listens on port `5001`. The server checks the database connection during startup.
+
+---
 
 ### 4. Install and start the frontend
 
@@ -162,11 +196,15 @@ npm run dev
 
 Vite runs the frontend locally and proxies `/api` requests to `http://localhost:5001`.
 
+---
+
 ### 5. Database setup
 
 Review `Backend/schema.sql` and apply the required schema to your PostgreSQL/Supabase database using the appropriate SQL editor before using database-backed features.
 
-##  Project Structure
+---
+
+## Project Structure
 
 ```text
 JURIbrief/
@@ -187,25 +225,31 @@ JURIbrief/
 └── README.md
 ```
 
-##  Security & Privacy
+---
+
+## Security & Privacy
 
 - Keep `.env` files out of version control.
 - Never expose Gemini API keys or database credentials in frontend code.
 - Use the public Supabase anon/publishable key in the frontend; configure appropriate database security policies.
 - Only upload documents you are authorized to share. Review your deployment and data-handling configuration before processing confidential documents.
 
-##  Disclaimer
+---
+
+## Disclaimer
 
 JURIbrief is intended for general informational purposes only and does not provide legal advice or establish a lawyer-client relationship. AI outputs may be inaccurate, incomplete, or out of date. Consult a qualified legal professional for advice on a specific legal matter.
 
-##  License
+---
+
+## License
 
 No license file is currently included in this repository. All rights remain with the project owner unless a license is added.
-
----
 
 <div align="center">
 
 **JURIbrief — Legal documents, made easier to understand.**
 
 </div>
+
+---
