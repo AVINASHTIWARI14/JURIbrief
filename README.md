@@ -14,6 +14,8 @@ JURIbrief helps make complex legal documents easier to understand. Upload a docu
 
 Analyze legal documents, uncover risky clauses, compare versions, and generate drafts with AI assistance.
 
+---
+
 [Live Demo](https://legal-ease-ai-sand.vercel.app/)
 
 ---
