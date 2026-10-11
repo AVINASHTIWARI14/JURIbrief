@@ -92,7 +92,7 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 
 ### Juri AI chat
 
-| Juri AI chat | |
+|  |
 | --- | --- |
 | <img src="screenshots/chat.png" alt="Juri AI legal chat" width="100%"> | <img src="screenshots/analysis.png" alt="AI-generated legal document analysis" width="100%"> |
 | Ask Juri follow-up questions about legal concepts and analyzed documents. | Review AI-generated findings and key details extracted from a legal document. |
