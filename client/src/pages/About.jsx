@@ -215,6 +215,7 @@ export default function About() {
           .feature-card-wrap {
             width: min(190px, 78vw);
             height: 254px;
+            min-height: 254px;
           }
         }
         @media (max-width: 700px) {
