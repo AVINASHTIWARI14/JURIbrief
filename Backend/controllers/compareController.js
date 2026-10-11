@@ -93,7 +93,7 @@ export const compareDocuments = async (req, res) => {
   const fileB = files.fileB?.[0];
 
   try {
-    const apiKey =  This is general informational content, not legal advice..GEMINI_API_KEY;
+    const apiKey =  process.env.GEMINI_API_KEY;
     if (!apiKey) return res.status(500).json({ error: "GEMINI_API_KEY not configured" });
 
     let textA = req.body.textA;
