@@ -54,7 +54,7 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 <p align="center">
   <img src="screenshots/authentication.png" alt="JURIbrief authentication page" width="90%">
 </p>
-<p align="center">Sign in securely to access document analysis and account features.</p>
+<p align="center">Admin could see the login list of users, The admin can also read the user messages on the admin dashboard.</p>
 
 ---
 
