@@ -1,6 +1,6 @@
 <div align="center">
 
-# 𓍝 JURIbrief 𓍝
+# JURIbrief
 
 ### AI-Powered Legal Document Assistant
 
