@@ -90,7 +90,7 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 
 ---
 
-<h3 align="center">Juri AI chat</h3>
+### Juri AI chat
 
 <p align="center">
   <img src="screenshots/chat.png" alt="Juri AI legal chat" width="49%">
