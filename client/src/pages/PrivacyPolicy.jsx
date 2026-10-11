@@ -126,7 +126,12 @@ export default function PrivacyPolicy() {
       content: (
         <p>
           For privacy-related questions or requests, contact us at{" "}
-          <span style={{ color: tk.gold }}>[your email]</span>.
+          <a
+            href="mailto:avin ashtiwari2005ws@gmail.com".replace(" ", "")
+            style={{ color: tk.gold, textDecoration: "underline", textUnderlineOffset: "3px" }}
+          >
+            avinashtiwari2005ws@gmail.com
+          </a>.
         </p>
       ),
     },
