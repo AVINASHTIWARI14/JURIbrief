@@ -24,27 +24,21 @@ Analyze legal documents, uncover risky clauses, compare versions, and generate d
 
 ---
 
-## ✨ Overview
-
-JURIbrief helps make complex legal documents easier to understand. Upload a document or paste its text to receive an AI-generated summary, identify potential risks and deadlines, ask follow-up questions, compare document versions, or draft a new document.
-
-> **Important:** JURIbrief is an informational tool, not a substitute for advice from a qualified legal professional. AI-generated findings can be incomplete or inaccurate; verify important decisions with a lawyer.
-
-## 🚀 Features
+##  Features
 
 | Feature | What it does |
 | --- | --- |
-| 📄 **Document Analysis** | Analyze PDF, DOCX, and TXT legal documents. |
-| ⚠️ **Risk Detection** | Highlight potentially critical and moderate risks, obligations, and unfavorable clauses. |
-| 📌 **Key Points & Deadlines** | Surface important terms, dates, notice periods, and deadlines found in the text. |
-| ⚖️ **AI Legal Chat** | Ask Juri questions about the platform, legal concepts, and an analyzed document. |
-| 🔍 **Document Comparison** | Compare two document versions and review changes or newly introduced risks. |
-| ✍️ **Document Generation** | Draft legal documents from a plain-English description, with a selected jurisdiction. |
-| 🌐 **Multi-language Support** | Translate supported analysis content into available languages. |
-| 🔐 **Authentication** | Sign in with email/password or Google and recover access to an account. |
-| 🛡️ **Admin Dashboard** | View registered users, manage access, and review contact messages. |
+|  **Document Analysis** | Analyze PDF, DOCX, and TXT legal documents. |
+|  **Risk Detection** | Highlight potentially critical and moderate risks, obligations, and unfavorable clauses. |
+|  **Key Points & Deadlines** | Surface important terms, dates, notice periods, and deadlines found in the text. |
+|  **AI Legal Chat** | Ask Juri questions about the platform, legal concepts, and an analyzed document. |
+|  **Document Comparison** | Compare two document versions and review changes or newly introduced risks. |
+|  **Document Generation** | Draft legal documents from a plain-English description, with a selected jurisdiction. |
+|  **Multi-language Support** | Translate supported analysis content into available languages. |
+|  **Authentication** | Sign in with email/password or Google and recover access to an account. |
+|  **Admin Dashboard** | View registered users, manage access, and review contact messages. |
 
-## 🖥️ Screenshots
+##  Screenshots
 
 ### Home page
 <p align="center">
@@ -60,7 +54,6 @@ JURIbrief helps make complex legal documents easier to understand. Upload a docu
 <p align="center">
   <img src="screenshots/analyzer.png" alt="Upload and analyze a legal document" width="90%">
 </p>
-
 
 ### Paste text
 <p align="center">
@@ -95,7 +88,7 @@ JURIbrief helps make complex legal documents easier to understand. Upload a docu
   <img src="screenshots/admin-dashboard.png" alt="JURIbrief admin dashboard" width="90%">
 </p>
 
-## 🧰 Tech Stack
+##  Tech Stack
 
 | Area | Technologies |
 | --- | --- |
@@ -108,7 +101,7 @@ JURIbrief helps make complex legal documents easier to understand. Upload a docu
 | Deployment | Vercel, Render |
 | Version control | Git, GitHub |
 
-## ⚙️ Run Locally
+##  Run Locally
 
 ### Prerequisites
 
@@ -175,7 +168,7 @@ Vite runs the frontend locally and proxies `/api` requests to `http://localhost:
 
 Review `Backend/schema.sql` and apply the required schema to your PostgreSQL/Supabase database using the appropriate SQL editor before using database-backed features.
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 JURIbrief/
@@ -196,18 +189,18 @@ JURIbrief/
 └── README.md
 ```
 
-## 🔒 Security & Privacy
+##  Security & Privacy
 
 - Keep `.env` files out of version control.
 - Never expose Gemini API keys or database credentials in frontend code.
 - Use the public Supabase anon/publishable key in the frontend; configure appropriate database security policies.
 - Only upload documents you are authorized to share. Review your deployment and data-handling configuration before processing confidential documents.
 
-## ⚖️ Disclaimer
+##  Disclaimer
 
 JURIbrief is intended for general informational purposes only and does not provide legal advice or establish a lawyer-client relationship. AI outputs may be inaccurate, incomplete, or out of date. Consult a qualified legal professional for advice on a specific legal matter.
 
-## 📄 License
+##  License
 
 No license file is currently included in this repository. All rights remain with the project owner unless a license is added.
 
