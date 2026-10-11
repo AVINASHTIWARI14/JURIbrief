@@ -106,8 +106,8 @@ function DashboardIllustration({ type, size = 42 }) {
   if (type === "criticalRisk") return <svg {...common}><path d="M50 5C34 15 38 28 27 39 10 56 14 79 31 91H69C88 79 90 55 76 40 70 34 68 21 63 13 60 26 55 31 50 35 54 22 53 14 50 5Z" fill="#FF5A5F"/><circle cx="50" cy="58" r="27" fill="#FF2028"/><path d="M44 40Q44 34 50 34T56 40L53 62Q52 66 50 66T47 62Z" fill="#fff"/><circle cx="50" cy="75" r="4" fill="#fff"/></svg>;
   if (type === "moderateRisk") return <svg {...common}><circle cx="50" cy="50" r="48" fill="#FFC72C"/><g transform="rotate(42 50 50)"><path d="M43 20H57V47L50 57 43 47Z" fill="#F04467"/><rect x="36" y="25" width="28" height="15" rx="6" fill="#E92E59"/><path d="M47 54H53V81L50 88 47 81Z" fill="#78818B"/></g></svg>;
   if (type === "deadlineHuman") return <img src="/deadline-dates-heading.png?v=2" alt="" aria-hidden="true" width={size} height={size} style={{ width: size, height: size, minWidth: size, minHeight: size, objectFit: "contain", display: "block", flexShrink: 0 }} onError={(e) => { e.currentTarget.style.display = "none"; }} />;
-  if (type === "deadlineFire") return <img src="/deadline.png" alt="" aria-hidden="true" style={{ width: size, height: size, objectFit: "contain", display: "block" }} />;
-  if (type === "deadlineClock") return <img src="/date.png" alt="" aria-hidden="true" style={{ width: size, height: size, objectFit: "contain", display: "block" }} />;
+  if (type === "deadlineFire") return <img src="/deadline.png?v=2" alt="Deadline" width={size} height={size} style={{ width: size, height: size, minWidth: size, minHeight: size, objectFit: "contain", display: "block", flexShrink: 0 }} onError={(e) => { e.currentTarget.style.display = "none"; }} />;
+  if (type === "deadlineClock") return <img src="/date.png?v=2" alt="Date" width={size} height={size} style={{ width: size, height: size, minWidth: size, minHeight: size, objectFit: "contain", display: "block", flexShrink: 0 }} onError={(e) => { e.currentTarget.style.display = "none"; }} />;
   if (type === "handshake") return <img src="/negotiation-tips.png" alt="" aria-hidden="true" style={{ width: size, height: size, objectFit: "contain", display: "block" }} />;
   return null;
 }
@@ -179,7 +179,7 @@ function AnalysisResult({ analysis, tk }) {
               return (
                 <div key={i} style={{ display: "flex", gap: "0.85rem", padding: "0.85rem 1rem", borderRadius: "10px", background: urgBg, border: `1px solid ${urgColor}33`, borderLeft: `4px solid ${urgColor}` }}>
                   <div style={{ flexShrink: 0, width: "56px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", borderRight: `1px solid ${urgColor}22`, paddingRight: "0.75rem" }}>
-                    <span style={{ fontSize: "1.3rem" }}>{<DashboardIllustration type={d.urgency === "high" ? "deadlineFire" : "deadlineClock"} size={36} />}</span>
+                    <DashboardIllustration type={d.urgency === "high" ? "deadlineFire" : "deadlineClock"} size={36} />
                     <span style={{ fontFamily: "'Roboto Serif', Georgia, serif", fontSize: "0.62rem", fontWeight: 700, color: urgColor, letterSpacing: "0.08em", marginTop: "2px", textTransform: "uppercase" }}>{d.urgency || "info"}</span>
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
