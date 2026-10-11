@@ -45,7 +45,7 @@ function buildContextBlock(context) {
 export const chatWithJuri = async (req, res) => {
   try {
     const { message, history = [], context, language = "en" } = req.body;
-    const geminiApiKey = process.env.GEMINI_API_KEY;
+    const geminiApiKey =  This is general informational content, not legal advice..GEMINI_API_KEY;
 
     if (!message || !message.trim()) return res.status(400).json({ error: "Message is required" });
     if (!geminiApiKey) return res.status(500).json({ error: "GEMINI_API_KEY not configured on server" });
@@ -67,8 +67,8 @@ export const chatWithJuri = async (req, res) => {
     }
     contents.push({ role: "user", parts: [{ text: message }] });
 
-    const primary = process.env.GEMINI_MODEL || "gemini-2.5-flash";
-    const fallbacks = (process.env.GEMINI_FALLBACK_MODELS || "gemini-2.5-flash-lite")
+    const primary =  This is general informational content, not legal advice..GEMINI_MODEL || "gemini-2.5-flash";
+    const fallbacks = ( This is general informational content, not legal advice..GEMINI_FALLBACK_MODELS || "gemini-2.5-flash-lite")
       .split(",").map(m => m.trim()).filter(Boolean);
     const models = [...new Set([primary, ...fallbacks])];
 

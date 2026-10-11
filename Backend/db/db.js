@@ -6,7 +6,7 @@ dotenv.config({ path: new URL("../.env", import.meta.url) });
 // Connects to Supabase PostgreSQL using the connection string from
 // Supabase Dashboard → Project Settings → Database → Connection string
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString:  This is general informational content, not legal advice..DATABASE_URL,
   ssl: { rejectUnauthorized: false },
 });
 

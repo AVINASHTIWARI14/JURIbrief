@@ -48,9 +48,9 @@ function sleep(ms) {
 }
 
 function getGeminiModels() {
-  const primary = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+  const primary =  This is general informational content, not legal advice..GEMINI_MODEL || "gemini-2.5-flash";
   const fallbackModels = (
-    process.env.GEMINI_FALLBACK_MODELS || "gemini-2.5-flash-lite"
+     This is general informational content, not legal advice..GEMINI_FALLBACK_MODELS || "gemini-2.5-flash-lite"
   )
     .split(",")
     .map((m) => m.trim())
@@ -234,7 +234,7 @@ export const uploadFile = async (req, res) => {
     if (!req.file) return res.status(400).json({ error: "No file uploaded" });
 
     const filePath = req.file.path;
-    const geminiApiKey = process.env.GEMINI_API_KEY;
+    const geminiApiKey =  This is general informational content, not legal advice..GEMINI_API_KEY;
     const extension = path
       .extname(req.file.originalname || filePath)
       .toLowerCase();
@@ -287,7 +287,7 @@ export const uploadFile = async (req, res) => {
 export const analyzeText = async (req, res) => {
   try {
     const { text, language: responseLanguage = "en" } = req.body;
-    const geminiApiKey = process.env.GEMINI_API_KEY;
+    const geminiApiKey =  This is general informational content, not legal advice..GEMINI_API_KEY;
 
     if (!text || text.trim().length < 50)
       return res.status(400).json({ error: "Please provide at least 50 characters of text" });
@@ -314,7 +314,7 @@ export const analyzeText = async (req, res) => {
 export const translateExistingAnalysis = async (req, res) => {
   try {
     const { analysis, language } = req.body;
-    const geminiApiKey = process.env.GEMINI_API_KEY;
+    const geminiApiKey =  This is general informational content, not legal advice..GEMINI_API_KEY;
 
     if (!analysis || !language)
       return res.status(400).json({ error: "analysis and language required" });
@@ -334,7 +334,7 @@ export const translateExistingAnalysis = async (req, res) => {
 export const translateContent = async (req, res) => {
   try {
     const { content, language } = req.body;
-    const geminiApiKey = process.env.GEMINI_API_KEY;
+    const geminiApiKey =  This is general informational content, not legal advice..GEMINI_API_KEY;
 
     if (!content || !language)
       return res.status(400).json({ error: "content and language required" });
