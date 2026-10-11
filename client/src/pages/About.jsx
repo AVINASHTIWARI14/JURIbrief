@@ -198,15 +198,7 @@ export default function About() {
           color: ${tk.gold};
         }
 
-        .feature-card-info p {
-          margin: 0;
-          font-family: "'Roboto Serif', Georgia, serif";
-          font-size: 0.91rem;
-          line-height: 1.6;
-          color: ${tk.isDark ? '#e5e5e5' : '#222222'};
-          font-weight: 500;
-          max-width: 100%;
-        }
+        
 
         @media (max-width: 700px) {
           .feature-grid {
@@ -280,8 +272,7 @@ export default function About() {
                     </div>
 
                     <div className="feature-card-info">
-                      <h3>{a.label}</h3>
-                      <p>{a.desc}</p>
+                      <h3>{a.value}</h3>
                     </div>
                   </div>
                 </div>
