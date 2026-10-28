@@ -60,7 +60,7 @@ function getGeminiModels() {
 
 async function requestGeminiAnalysis(model, geminiApiKey, body) {
   let lastError;
-  for (let attempt = 1; attempt <= 2; attempt++) {
+  for (let attempt = 1; attempt <= 3; attempt++) {
     try {
       const response = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
@@ -74,11 +74,22 @@ async function requestGeminiAnalysis(model, geminiApiKey, body) {
           signal: AbortSignal.timeout(30000),
         }
       );
+
+      // Respect Gemini's rate-limit cooldown instead of failing immediately.
+      if ((response.status === 429 || response.status === 503) && attempt < 3) {
+        const retryAfter = Number(response.headers.get("retry-after"));
+        const delay = Number.isFinite(retryAfter) && retryAfter > 0
+          ? Math.min(retryAfter * 1000, 15000)
+          : attempt * 3000;
+        await response.body?.cancel();
+        await sleep(delay);
+        continue;
+      }
       return response;
     } catch (error) {
       lastError = error;
-      if (attempt === 2) break;
-      await sleep(1200 * attempt);
+      if (attempt === 3) break;
+      await sleep(attempt * 1500);
     }
   }
   throw new Error(
