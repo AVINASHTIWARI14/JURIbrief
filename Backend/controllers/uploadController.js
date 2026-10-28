@@ -156,6 +156,8 @@ ${documentText.substring(0, 8000)}`;
     const errText = await response.text();
     lastModelError = errText;
     lastStatus = response.status;
+    // Log provider diagnostics on Render without logging the API key.
+    console.error(`Gemini API error: model=${model}, status=${lastStatus}, body=${errText.slice(0, 1200)}`);
     if (response.status !== 503 && response.status !== 429) break;
   }
 
@@ -178,6 +180,11 @@ ${documentText.substring(0, 8000)}`;
   if (lastStatus === 503) {
     const err = new Error("Gemini is temporarily overloaded. Please try again.");
     err.status = 503;
+    throw err;
+  }
+  if (lastStatus === 400 || lastStatus === 401 || lastStatus === 403) {
+    const err = new Error("Gemini rejected the API request. Check the API key, enabled API, and project configuration in Render and Google AI Studio.");
+    err.status = 502;
     throw err;
   }
   throw new Error("Analysis service unavailable. Please try again.");
